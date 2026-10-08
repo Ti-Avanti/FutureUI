@@ -40,32 +40,5 @@
         <include>assets/themes/basictool-settings.yml</include>
       </includes>
     </fileSet>
-    <!-- 仅保存接管配置；测试模型、玩家数据和运行目录不得进入发布包。 -->
-    <fileSet>
-      <directory>${project.basedir}/distribution/fotiacosmetic</directory>
-      <outputDirectory>menu-configs/FotiaCosmetic</outputDirectory>
-      <includes>
-        <include>menus/*.yml</include>
-        <include>languages/*.yml</include>
-        <include>futureui-preview.yml</include>
-      </includes>
-    </fileSet>
-    <fileSet>
-      <directory>${project.basedir}/distribution/fotiachat</directory>
-      <outputDirectory>menu-configs/FotiaChat</outputDirectory>
-      <includes>
-        <include>menus/*.yml</include>
-      </includes>
-    </fileSet>
-    <fileSet>
-      <directory>${project.basedir}/distribution/fotiacrates</directory>
-      <outputDirectory>menu-configs/FotiaCrates</outputDirectory>
-      <includes><include>futureui.yml</include></includes>
-    </fileSet>
-    <fileSet>
-      <directory>${project.basedir}/distribution/fotiatags</directory>
-      <outputDirectory>menu-configs/FotiaTags</outputDirectory>
-      <includes><include>menus/*.yml</include><include>futureui.yml</include></includes>
-    </fileSet>
   </fileSets>
 </assembly>

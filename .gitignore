@@ -1,4 +1,5 @@
 /target/
 /.codegraph/
+/distribution/
 *.iml
 .idea/
