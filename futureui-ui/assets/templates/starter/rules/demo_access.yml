@@ -1,3 +1,0 @@
-# 菜单入口权限规则，可替换为自己的权限节点。
-type: permission
-permission: futureui.use

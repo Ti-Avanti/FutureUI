@@ -1,9 +1,0 @@
-# 参数作用于提示音；语言键在文本入口直接解析。
-parameters:
-  pitch: 1
-actions:
-  - type: message
-    text: '@menus.demo.home.ping'
-  - type: sound
-    sound: minecraft:ui.button.click
-    pitch: '{arg.pitch}'

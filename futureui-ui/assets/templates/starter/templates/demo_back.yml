@@ -1,6 +1,0 @@
-# FutureUI Skill 示例增量；共享配置需按键合并，勿整体覆盖服务器配置。
-type: button
-text: '@common.back'
-validate: false
-actions:
-- type: back
