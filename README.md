@@ -4,7 +4,7 @@
 
 FutureUI 将像素画布、原生表单、条件与动作系统组合在一起，让商店、玩家设置、时装衣柜和抽奖界面共用一套可配置的菜单引擎。页面布局、语言、按钮状态与业务数据分别维护，日常调整菜单无需修改 Java 代码。
 
-[下载 0.0.3beta](https://github.com/Ti-Avanti/FutureUI/releases/tag/v0.0.3beta) · [默认菜单](src/main/resources/menus) · [配置文件](src/main/resources/config.yml) · [独立菜单 Skill](https://github.com/Ti-Avanti/futureui-skill)
+[下载 1.0.0](https://github.com/Ti-Avanti/FutureUI/releases/tag/v1.0.0) · [默认菜单](src/main/resources/menus) · [配置文件](src/main/resources/config.yml) · [独立菜单 Skill](https://github.com/Ti-Avanti/futureui-skill)
 
 ## 能做什么
 
@@ -31,7 +31,7 @@ FutureUI 将像素画布、原生表单、条件与动作系统组合在一起�
 | 必需插件 | `packetevents`，当前构建依赖版本为 `2.13.0` |
 | 资源包 | Canvas 需要 FutureUI 生成的字体、图片及对应客户端版本的着色器 |
 
-1. 将 Release 中的 `FutureUI-0.0.3beta.jar` 和 PacketEvents 放入服务器 `plugins/`。
+1. 将 Release 中的 `FutureUI-1.0.0.jar` 和 PacketEvents 放入服务器 `plugins/`。
 2. 启动服务器，等待 FutureUI 完成初始化，自动生成配置及资源包。
 3. 按下文选择 CraftEngine 合包或独立资源包分发，让玩家加载资源包。
 4. 在游戏中执行 `/fui`，或用 `/fui open compact/main` 打开第二套默认界面。
@@ -144,7 +144,6 @@ FutureUI 提供显示模板，原插件负责权限、拥有状态、存储和�
 
 | 插件 | 已适配范围 | 配置参考 |
 | --- | --- | --- |
-| BasicTool | 玩家设置、战绩与票券的已接入页面 | [接入契约](https://github.com/Ti-Avanti/futureui-skill/blob/main/futureui-ui/references/commerce-and-integrations.md) |
 | FotiaCosmetic | 统一衣柜、武器与传奇皮肤分类、穿戴／脱下、当前装扮预览 | [接入与预览配置](https://github.com/Ti-Avanti/futureui-skill/blob/main/futureui-ui/references/commerce-and-integrations.md) |
 | FotiaChat | 聊天颜色选择、筛选、渐变预览与恢复默认 | [配置参考](https://github.com/Ti-Avanti/futureui-skill/blob/main/futureui-ui/references/fotiachat.md) |
 | FotiaCrates | 奖池预览、横向滚动抽奖、单抽／连抽结果与历史 | [配置参考](https://github.com/Ti-Avanti/futureui-skill/blob/main/futureui-ui/references/fotiacrates.md) |
@@ -190,8 +189,8 @@ mvn -DskipTests package
 
 产物位于 `target/`：
 
-- `FutureUI-0.0.3beta.jar`：服务端插件。
-- `FutureUI-0.0.3beta-bundle.zip`：同一插件，以及从 `src/main/resources/` 收集的 FutureUI 接入菜单、模板、语言与资源配置。
+- `FutureUI-1.0.0.jar`：服务端插件。
+- `FutureUI-1.0.0-bundle.zip`：同一插件，以及从 `src/main/resources/` 收集的 FutureUI 接入菜单、模板、语言与资源配置。
 
 本地 `distribution/` 目录不提交到 Git，也不进入发布包。第三方插件自身的菜单开关与配置由对应插件维护；FutureUI 内置的集成模板仍正常提供。
 
