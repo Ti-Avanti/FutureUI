@@ -1,0 +1,121 @@
+# 完整尺寸的键盘录入页；与数量选择、结算页面使用相同外框规格。
+id: quantity-input
+template: bedrock-form
+title: "@menus.quantity.input-title"
+components:
+  - id: product_summary
+    type: canvas
+    width: 594
+    layout:
+      type: column
+      gap: 9
+    children:
+      - id: input_heading
+        type: text
+        text: "@menus.quantity.input-heading"
+        height: 18
+      - id: overview
+        type: row
+        gap: 18
+        children:
+          - id: product_card
+            type: column
+            width: 216
+            height: 198
+            skin: surface
+            padding: 18
+            gap: 9
+            children:
+              - id: product_name
+                type: text
+                text: "{product.name}"
+                height: 9
+                text-align: center
+              - id: product_image
+                type: image
+                image: "{product.icon}"
+                fallback-image: shop-emblem
+                size: 144
+          - id: purchase_details
+            type: column
+            height: 198
+            skin: surface
+            padding: 9
+            gap: 9
+            children:
+              - id: unit_values
+                type: row
+                gap: 9
+                children:
+                  - id: bundle
+                    type: column
+                    skin: readout
+                    padding: 9
+                    gap: 9
+                    children:
+                      - id: bundle_label
+                        type: text
+                        text: "@menus.quantity.input-bundle-label"
+                      - id: bundle_value
+                        type: text
+                        text: "<!i><white><bold>{product.amount}</bold>"
+                        height: 9
+                  - id: price
+                    type: column
+                    skin: readout
+                    padding: 9
+                    gap: 9
+                    children:
+                      - id: price_label
+                        type: text
+                        text: "@menus.quantity.input-price-label"
+                      - id: price_value
+                        type: text
+                        text: "<!i><green><bold>{product.price}</bold> <gray>{product.currency}"
+                        height: 9
+              - id: balance
+                type: column
+                skin: readout
+                padding: 9
+                gap: 9
+                children:
+                  - id: balance_label
+                    type: text
+                    text: "@menus.quantity.input-balance-label"
+                  - id: balance_value
+                    type: text
+                    text: "<!i><green><bold>{product.balance}</bold> <gray>{product.currency}"
+                    height: 9
+              - id: quantity_rules
+                type: column
+                skin: readout
+                padding: 9
+                gap: 9
+                children:
+                  - id: range
+                    type: text
+                    text: "@menus.quantity.input-range"
+                  - id: step
+                    type: text
+                    text: "@menus.quantity.input-step"
+                  - id: available
+                    type: text
+                    text: "@menus.quantity.input-available"
+  - id: quantity
+    type: number-input
+    label: "@menus.purchase.quantity"
+    width: 594
+    integer: true
+    min: "{product.minimum}"
+    max: "{product.maximum}"
+    initial: "{product.initial}"
+    step: "{product.step}"
+  - id: apply
+    type: button
+    text: "@menus.quantity.input-apply"
+    actions:
+      - type: back
+        values:
+          input.quantity: "{input.quantity}"
+  - id: cancel
+    template: back

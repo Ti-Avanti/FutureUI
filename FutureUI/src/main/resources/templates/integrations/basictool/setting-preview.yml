@@ -1,0 +1,19 @@
+# 只提供真实的音效试听；不绘制界面、聊天或音量示意图。
+id: test_notification_sound
+type: button
+text: '@integrations.basictool.preview-listen'
+height: 27
+skin: button
+actions:
+- type: sound
+  sound: minecraft:block.note_block.pling
+  volume: 0.6
+  pitch: 1.1
+visible:
+  type: equals
+  input: '{item.category-id}'
+  output: sound
+enabled:
+  type: equals
+  input: '{item.setting.notification.sound}'
+  output: 'true'

@@ -1,0 +1,117 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/language
+title: '@menus.language.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  compact.section:
+    value: language
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: compact/navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: current_language
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: current_language_title
+        type: text
+        text: '@menus.compact.language.heading'
+        height: 9
+      - id: current
+        type: text
+        text: '@menus.language.current'
+        height: 36
+        skin: readout
+        padding: 9
+    - id: languages
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: languages_title
+        type: text
+        text: '@menus.compact.language.choices'
+        height: 9
+      - id: choices
+        type: column
+        gap: 9
+        children:
+        - id: language_auto
+          type: button
+          text: '@menus.language.auto'
+          actions:
+          - type: if
+            when:
+              type: equals
+              input: '{translator.available}'
+              output: 'true'
+            then:
+            - type: language
+              language: auto
+            else:
+            - type: message
+              text: '@menus.language.client-only'
+          height: 27
+          enabled:
+            type: 'true'
+        - id: language_zh_cn
+          type: button
+          text: '@menus.language.zh_cn'
+          actions:
+          - type: language
+            language: zh_cn
+          height: 27
+          enabled:
+            type: equals
+            input: '{translator.available}'
+            output: 'true'
+          states:
+          - visible:
+              type: equals
+              input: '{player.language}'
+              output: zh_cn
+            skin: selected
+          - visible:
+              type: 'true'
+            skin: button
+        - id: language_en_us
+          type: button
+          text: '@menus.language.en_us'
+          actions:
+          - type: language
+            language: en_us
+          height: 27
+          enabled:
+            type: equals
+            input: '{translator.available}'
+            output: 'true'
+          states:
+          - visible:
+              type: equals
+              input: '{player.language}'
+              output: en_us
+            skin: selected
+          - visible:
+              type: 'true'
+            skin: button
+      - id: language_note
+        type: text
+        text: '@menus.language.help'
+        height: 45

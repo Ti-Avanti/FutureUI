@@ -1,0 +1,145 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: navigation_standard_navigation
+type: column
+gap: 9
+children:
+- id: navigation_standard_nav_tags
+  type: button
+  text: '@integrations.fotiatags.nav-tags'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: tag-select
+  enabled:
+    type: equals
+    input: '{item.can-tags}'
+    output: 'true'
+  states:
+  - visible:
+      type: any
+      conditions:
+      - type: equals
+        input: '{item.view}'
+        output: tag-select
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag-detail
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag-delete
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_standard_nav_create
+  type: button
+  text: '@integrations.fotiatags.nav-create'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: custom-tag
+  enabled:
+    type: equals
+    input: '{item.can-create}'
+    output: 'true'
+  states:
+  - visible:
+      type: any
+      conditions:
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag-icons
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_standard_nav_effects
+  type: button
+  text: '@integrations.fotiatags.nav-effects'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: gradient-storage
+  enabled:
+    type: equals
+    input: '{item.can-effects}'
+    output: 'true'
+  states:
+  - visible:
+      type: equals
+      input: '{item.view}'
+      output: gradient-storage
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_standard_nav_shop
+  type: button
+  text: '@integrations.fotiatags.nav-shop'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: gradient-shop
+  enabled:
+    type: equals
+    input: '{item.can-effects}'
+    output: 'true'
+  states:
+  - visible:
+      type: any
+      conditions:
+      - type: equals
+        input: '{item.view}'
+        output: gradient-shop
+      - type: equals
+        input: '{item.view}'
+        output: gradient-purchase-confirm
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_standard_equipped_summary
+  type: column
+  gap: 0
+  children:
+  - id: navigation_standard_equipped_heading
+    type: text
+    text: '@integrations.fotiatags.equipped'
+    height: 27
+    vertical-align: center
+    padding: 9
+  - id: navigation_standard_equipped
+    type: text
+    text: '{item.current}'
+    height: 27
+    vertical-align: center
+    skin: readout
+    text-align: center
+    states:
+    - visible:
+        type: equals
+        input: '{item.current-empty}'
+        output: 'true'
+      text: '@integrations.fotiatags.none'
+    - visible: true
+    padding: 9
+  - id: navigation_standard_count
+    type: text
+    text: '@integrations.fotiatags.count'
+    height: 27
+    vertical-align: center
+    states:
+    - visible:
+        type: equals
+        input: '{item.list-view}'
+        output: 'false'
+      text: ''
+    - visible: true
+    padding: 9
+  skin: panel
+  padding: 9
+width: 144
+min-height: 243

@@ -1,0 +1,33 @@
+id: result_card
+type: row
+gap: 9
+padding: 9
+skin: panel
+min-height: 72
+children:
+- id: reward_icon
+  type: image
+  image: '{item.image}'
+  size: 36
+  height: 54
+  width: 54
+- id: result_details
+  type: column
+  gap: 0
+  children:
+  - id: reward_title
+    type: text
+    text: '@integrations.fotiacrates.your-reward'
+    height: 18
+    vertical-align: center
+  - id: reward_name
+    type: text
+    text: <!i><white>{item.name}
+    height: 18
+    vertical-align: center
+  - id: reward_rarity
+    type: text
+    text: <!i>{item.rarity}
+    height: 18
+    skin: readout
+    vertical-align: center

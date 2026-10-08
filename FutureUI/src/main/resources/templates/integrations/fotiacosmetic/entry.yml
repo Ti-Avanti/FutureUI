@@ -1,0 +1,73 @@
+id: cosmetic
+type: column
+gap: 0
+skin: readout
+children:
+- id: thumbnail
+  type: raster
+  height: 72
+  value: '{item.thumbnail}'
+  empty-text: '@integrations.fotiacosmetic.thumbnail-unavailable'
+  skin: button
+  text-align: center
+  vertical-align: center
+  actions:
+  - type: fotiacosmetic:menu
+    operation: equip
+    id: '{item.id}'
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.selected}'
+        output: 'true'
+      - type: equals
+        input: '{item.thumbnail-loading}'
+        output: 'true'
+    skin: selected
+    empty-text: '@integrations.fotiacosmetic.thumbnail-loading'
+  - visible:
+      type: equals
+      input: '{item.selected}'
+      output: 'true'
+    skin: selected
+  - visible:
+      type: equals
+      input: '{item.thumbnail-loading}'
+      output: 'true'
+    empty-text: '@integrations.fotiacosmetic.thumbnail-loading'
+  - visible: true
+  enabled:
+    type: all
+    conditions:
+    - type: equals
+      input: '{item.hidden}'
+      output: 'false'
+    - type: equals
+      input: '{item.busy}'
+      output: 'false'
+- id: name
+  type: text
+  text: <!i>{item.name}
+  height: 18
+  text-align: center
+  vertical-align: center
+- id: state
+  type: text
+  text: '@integrations.fotiacosmetic.click-to-equip'
+  height: 18
+  text-align: center
+  vertical-align: center
+  states:
+  - visible:
+      type: equals
+      input: '{item.hidden}'
+      output: 'true'
+    text: '@integrations.fotiacosmetic.hidden-short'
+  - visible:
+      type: equals
+      input: '{item.equipped}'
+      output: 'true'
+    text: '@integrations.fotiacosmetic.equipped'
+  - visible: true

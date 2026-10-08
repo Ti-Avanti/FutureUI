@@ -1,0 +1,147 @@
+template: bedrock-page
+id: services
+title: '@menus.services.title'
+open-commands:
+- fui-services
+components:
+- id: heading
+  type: text
+  text: '@menus.services.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 18
+  children:
+  - id: navigation
+    type: column
+    width: 162
+    gap: 0
+    children:
+    - id: daily
+      type: button
+      text: '@menus.services.daily'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: daily
+      skin: navigation
+    - id: workshop
+      type: button
+      text: '@menus.inventory.title'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: inventory
+      skin: navigation
+    - id: cart
+      type: button
+      text: '@menus.services.cart'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: cart
+      skin: navigation
+    - id: recycle
+      type: button
+      text: '@menus.services.recycle'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: recycle
+      skin: navigation
+    - id: preferences
+      type: button
+      text: '@menus.services.preferences'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: preferences
+      skin: navigation
+    - id: capture
+      type: button
+      text: '@menus.services.capture'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: capture
+      skin: navigation
+    - id: automation
+      type: button
+      text: '@menus.services.automation'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: automation
+      skin: navigation
+      visible:
+        type: permission
+        permission: futureui.admin
+  - id: intro
+    type: column
+    skin: surface
+    padding: 18
+    gap: 9
+    children:
+    - id: top
+      type: row
+      gap: 18
+      children:
+      - id: art
+        type: image
+        image: shop-emblem
+        width: 144
+        size: 144
+      - id: welcome
+        type: column
+        gap: 9
+        children:
+        - id: intro_title
+          type: text
+          text: '@menus.services.welcome'
+          height: 36
+        - id: balance
+          type: text
+          text: '@menus.services.balance'
+          height: 54
+          skin: readout
+          padding: 9
+        - id: description
+          type: text
+          text: '@menus.services.description'
+          height: 27
+    - id: shop
+      type: button
+      text: '@menus.main.shop'
+      height: 36
+      actions:
+      - type: open-menu
+        menu: shop
+      skin: purchase
+    - id: advanced
+      type: row
+      gap: 9
+      visible:
+        type: permission
+        permission: futureui.admin
+      children:
+      - id: conditions
+        type: button
+        text: '@menus.services.conditions'
+        height: 36
+        actions:
+        - type: open-menu
+          menu: conditions
+      - id: integrations
+        type: button
+        text: '@menus.services.integrations'
+        height: 36
+        actions:
+        - type: open-menu
+          menu: integrations
+- id: back
+  type: button
+  text: '@common.back'
+  height: 27
+  actions:
+  - type: back
+  width: 162

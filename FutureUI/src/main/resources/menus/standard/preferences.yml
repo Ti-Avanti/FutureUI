@@ -1,0 +1,113 @@
+template: bedrock-form
+id: preferences
+title: '@menus.preferences.title'
+bindings:
+  input.preferences:
+    type: data
+    key: preferences
+    default:
+    - sounds
+    - hints
+    initial-only: true
+components:
+- id: overview
+  type: canvas
+  width: 594
+  layout:
+    type: row
+    padding: 9
+    gap: 18
+  children:
+  - id: illustration
+    type: image
+    image: golden_apple
+    width: 162
+    size: 144
+  - id: description
+    type: column
+    gap: 9
+    children:
+    - id: heading
+      type: text
+      text: '@menus.preferences.heading'
+      height: 18
+    - id: instructions
+      type: text
+      text: '@menus.preferences.description'
+      height: 54
+      skin: readout
+      padding: 9
+    vertical-align: center
+- id: preferences
+  type: multi-select
+  label: '@menus.preferences.label'
+  width: 594
+  min-selected: 1
+  max-selected: 3
+  initial: '{input.preferences}'
+  options:
+  - value: hints
+    label: '@menus.preferences.hints'
+  - value: sounds
+    label: '@menus.preferences.sounds'
+  - value: hud
+    label: '@menus.preferences.hud'
+- id: save
+  type: button
+  text: '@common.save'
+  width: 296
+  actions:
+  - type: data-set
+    key: preferences
+    value: '{input.preferences}'
+  - type: if
+    when:
+      type: list-contains
+      list: '{input.preferences}'
+      value: hints
+    then:
+    - type: save-preference
+      key: input.hints
+      value: true
+    else:
+    - type: save-preference
+      key: input.hints
+      value: false
+  - type: if
+    when:
+      type: list-contains
+      list: '{input.preferences}'
+      value: sounds
+    then:
+    - type: save-preference
+      key: input.volume
+      value: 75
+    else:
+    - type: save-preference
+      key: input.volume
+      value: 0
+  - type: if
+    when:
+      type: list-contains
+      list: '{input.preferences}'
+      value: hud
+    then:
+    - type: hud
+      hud: status
+    else:
+    - type: hide-hud
+  - type: list
+    key: preferences.summary
+    operation: join
+    value: '{input.preferences}'
+    separator: ', '
+  - type: message
+    text: '@menus.preferences.saved'
+  - type: back
+- id: back
+  type: button
+  text: '@common.back'
+  width: 296
+  validate: false
+  actions:
+  - type: back

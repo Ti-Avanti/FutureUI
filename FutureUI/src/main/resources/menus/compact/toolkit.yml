@@ -1,0 +1,125 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/toolkit
+title: '@menus.toolkit.title'
+permission: futureui.admin
+renderer: canvas
+refresh-ticks: 20
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+components:
+- id: heading
+  type: text
+  text: '@menus.toolkit.heading'
+  height: 27
+- id: description
+  type: text
+  text: '@menus.toolkit.description'
+  height: 36
+- id: actions
+  type: grid
+  columns: 2
+  gap: 9
+  children:
+  - id: stone
+    type: button
+    text: '@menus.toolkit.stone'
+    actions:
+    - type: give-item
+      item:
+        material: STONE
+      amount: 64
+      on-success:
+      - type: sound
+        sound: minecraft:entity.item.pickup
+      on-failure:
+      - type: message
+        text: '@menus.toolkit.delivery-failed'
+    - type: cooldown
+      key: supplies
+      seconds: 10
+    requirements:
+      type: all
+      conditions:
+      - type: empty-slots
+        amount: 1
+      - type: cooldown
+        key: supplies
+    height: 27
+  - id: xp_give
+    type: button
+    text: '@menus.toolkit.xp-give'
+    actions:
+    - type: give-currency
+      currency: experience
+      amount: 25
+    - type: message
+      text: '@menus.toolkit.xp-given'
+    height: 27
+  - id: xp_take
+    type: button
+    text: '@menus.toolkit.xp-take'
+    actions:
+    - type: take-currency
+      currency: experience
+      amount: 25
+    - type: message
+      text: '@menus.toolkit.xp-taken'
+    enabled:
+      type: currency
+      currency: experience
+      amount: 25
+    height: 27
+  - id: feedback
+    type: button
+    text: '@menus.toolkit.feedback'
+    actions:
+    - type: title
+      title: '@menus.toolkit.preview-title'
+      subtitle: '@menus.toolkit.preview-subtitle'
+    - type: sound
+      sound: minecraft:block.note_block.pling
+    - type: delay
+      ticks: 20
+    - type: actionbar
+      text: '@menus.toolkit.preview-complete'
+    - type: cooldown
+      key: feedback
+      seconds: 5
+    requirements:
+      type: cooldown
+      key: feedback
+    height: 27
+  - id: console
+    type: button
+    text: '@menus.toolkit.console'
+    actions:
+    - type: console-command
+      command: minecraft:list
+    - type: message
+      text: '@menus.toolkit.console-complete'
+    height: 27
+  - id: website
+    type: button
+    text: '@menus.toolkit.website'
+    actions:
+    - type: open-url
+      url: https://www.minecraft.net/
+      label: '@menus.toolkit.website-link'
+    height: 27
+- id: details
+  type: text
+  text: '@menus.toolkit.details'
+  height: 36
+- id: back
+  type: button
+  text: '@common.back'
+  actions:
+  - type: back
+  width: 108
+  height: 27

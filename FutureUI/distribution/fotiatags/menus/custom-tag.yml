@@ -1,0 +1,108 @@
+# 玩家菜单显示引擎：inventory / futureui；未安装 FutureUI 时保留原菜单。
+ui-engine: futureui
+
+# 自定义称号编辑菜单
+
+title: "<gold><!i>自定义称号"
+size: 45
+
+# 这些文本用于菜单占位符输出，管理员可以按自己的风格修改。
+# %price% = 购买价格文本
+placeholder-texts:
+  not-set: "<gray>未设置"
+  status-purchased: "<green>已购买"
+  status-not-purchased: "<yellow>未购买"
+  complete: "<green>已完成"
+  incomplete: "<red>未完成"
+  confirm-save-name: "<green><!i>保存修改"
+  confirm-buy-name: "<green><!i>确认购买"
+  confirm-locked-name: "<red><!i>已购买"
+  confirm-save-lore: "<gray>点击保存当前修改"
+  confirm-buy-lore: "<gray>价格: %price%"
+  confirm-locked-lore: "<red>购买后不可再次修改"
+  confirm-incomplete-lore: "<red>请先设置启用的内容并选择图标"
+  confirm-click-lore: "<yellow>点击确认"
+  part-enabled: "<green>已开启"
+  part-disabled: "<red>已关闭"
+
+# 布局说明:
+# P = 预览
+# F = 设置前缀
+# S = 设置后缀
+# I = 选择图标
+# C = 确认购买/保存
+# B = 返回称号仓库
+# X = 装饰物品
+# 空格 = 空槽位
+layout:
+  - "XXXXXXXXX"
+  - "X   P   X"
+  - "X F I S X"
+  - "X       X"
+  - "BXXXCXXXX"
+
+items:
+  X:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+    lore: []
+
+  P:
+    material: NAME_TAG
+    name: "<gold><!i>展示预览"
+    lore:
+      - "<gray>购买状态: %status%"
+      - "<gray>完成状态: %complete%"
+      - ""
+      - "<gray>最终显示: %display_full_or_none%"
+      - "<gray>前缀: %prefix_or_none% <dark_gray>(%prefix_status%)"
+      - "<gray>后缀: %suffix_or_none% <dark_gray>(%suffix_status%)"
+      - "<gray>图标: %icon_or_none%"
+    action: preview
+
+  F:
+    material: NAME_TAG
+    name: "<yellow><!i>称号前缀"
+    lore:
+      - "<gray>状态: %prefix_status%"
+      - "<gray>当前输入: %prefix_or_none%"
+      - "<gray>展示效果: %display_prefix_or_none%"
+      - ""
+      - "<yellow>点击后在聊天栏输入"
+    action: prefix
+
+  S:
+    material: PAPER
+    name: "<yellow><!i>称号后缀"
+    lore:
+      - "<gray>状态: %suffix_status%"
+      - "<gray>当前输入: %suffix_or_none%"
+      - "<gray>展示效果: %display_suffix_or_none%"
+      - ""
+      - "<yellow>点击后在聊天栏输入"
+    action: suffix
+
+  I:
+    material: CHEST
+    name: "<yellow><!i>称号图标"
+    lore:
+      - "<gray>当前: %icon_or_none%"
+      - "<gray>图标会在称号仓库中显示"
+      - ""
+      - "<yellow>点击打开图标列表"
+    action: icon
+
+  C:
+    material: EMERALD
+    name: "%confirm_name%"
+    lore:
+      - "%confirm_lore_1%"
+      - "%confirm_lore_2%"
+    action: confirm
+
+  B:
+    material: ARROW
+    name: "<yellow><!i>返回称号仓库"
+    lore:
+      - "<gray>点击返回称号仓库"
+    action: back

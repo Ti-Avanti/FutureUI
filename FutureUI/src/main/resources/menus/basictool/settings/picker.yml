@@ -1,0 +1,4 @@
+# 由 /bt settings 进入，复用 BasicTool 权限、数据和真实保存动作。
+id: basictool/settings/picker
+template: integrations/basictool/settings-panel
+title: '@integrations.basictool.settings-title'

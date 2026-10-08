@@ -1,0 +1,7 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>Players Online"
+heading: "<!i><white><bold>PLAYERS</bold>  <gray>{server.online} online"
+player: "<!i><white>{item.name}  <gray>· Level {item.level}"
+world: "<!i><gray>{item.world} · {item.ping} ms"
+inspect: "<!i>View character"
+selected: "<!i><white>{item.name}"

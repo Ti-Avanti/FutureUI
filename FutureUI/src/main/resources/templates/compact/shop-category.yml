@@ -1,0 +1,24 @@
+# 第二套紧凑像素界面；独立配置。
+id: category_button
+type: button
+height: 27
+text: '{item.name}'
+states:
+- priority: 0
+  visible:
+    type: equals
+    input: '{item.selected}'
+    output: 'true'
+  skin: selected
+- priority: 1
+  visible: true
+  skin: button
+actions:
+- type: set-variable
+  key: category
+  value: '{item.id}'
+- type: set-variable
+  key: shop.search
+  value: ''
+- type: page
+  absolute: 0

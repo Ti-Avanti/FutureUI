@@ -1,0 +1,198 @@
+# 第二套紧凑像素界面；独立配置。
+template: compact/bedrock-page
+id: compact/integrations
+title: '@menus.integrations.title'
+permission: futureui.admin
+components:
+- id: heading
+  type: text
+  text: '@menus.integrations.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: overview
+    type: column
+    width: 198
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: illustration
+      type: image
+      image: iron_pickaxe
+      size: 72
+    - id: description
+      type: text
+      text: '@menus.integrations.description'
+      height: 45
+    - id: services
+      type: button
+      text: '@menus.services.title'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/services
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: tool_info
+      type: text
+      text: '@menus.integrations.tool-info'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: tools
+      type: grid
+      columns: 2
+      gap: 9
+      children:
+      - id: sample
+        type: button
+        text: '@menus.integrations.sample'
+        height: 27
+        actions:
+        - type: give-item
+          amount: 1
+          item:
+            material: IRON_PICKAXE
+            name: '@menus.integrations.tool-name'
+            lore:
+            - '@menus.integrations.tool-lore'
+            damage: 80
+            glow: true
+            model-data:
+              floats:
+              - 1
+              strings:
+              - workshop
+              flags:
+              - true
+              colors:
+              - '#3C8527'
+            pdc:
+              futureui:workshop:
+                type: string
+                value: sample
+            enchantments:
+              minecraft:efficiency: 2
+      - id: enchant
+        type: button
+        text: '@menus.integrations.enchant'
+        height: 27
+        actions:
+        - type: enchant-item
+          match:
+            slot: mainhand
+            pdc:
+              futureui:workshop:
+                type: string
+                value: sample
+          enchantments:
+            minecraft:unbreaking: 3
+          on-success:
+          - type: message
+            text: '@menus.integrations.updated'
+      - id: rename
+        type: button
+        text: '@menus.integrations.rename'
+        height: 27
+        actions:
+        - type: edit-item
+          match:
+            slot: mainhand
+            pdc:
+              futureui:workshop:
+                type: string
+                value: sample
+          edit:
+            name: '@menus.integrations.tool-finished'
+          on-success:
+          - type: message
+            text: '@menus.integrations.updated'
+      - id: head
+        type: button
+        text: '@menus.integrations.head'
+        height: 27
+        actions:
+        - type: give-item
+          item:
+            material: PLAYER_HEAD
+            head: viewer
+      - id: dye
+        type: button
+        text: '@menus.integrations.dye'
+        height: 27
+        actions:
+        - type: give-item
+          item:
+            material: LEATHER_CHESTPLATE
+            color: '#3C8527'
+            trim:
+              material: quartz
+              pattern: sentry
+      - id: potion
+        type: button
+        text: '@menus.integrations.potion'
+        height: 27
+        actions:
+        - type: give-item
+          item:
+            material: POTION
+            potion: SWIFTNESS
+            color: '#62B752'
+            effects:
+            - type: minecraft:haste
+              ticks: 1200
+              amplifier: 0
+    - id: catalog
+      type: button
+      text: '@menus.integrations.catalog'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/item-catalog
+      skin: purchase
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+    width: 162
+  - id: home
+    type: button
+    text: '@menus.services.home'
+    height: 27
+    actions:
+    - type: open-menu
+      menu: compact/main
+  - id: compass
+    type: button
+    height: 27
+    text: '@menus.integrations.compass'
+    actions:
+    - type: give-item
+      item:
+        material: COMPASS
+        name: '@menus.integrations.compass-name'
+        lore:
+        - '@menus.integrations.compass-lore'
+        pdc:
+          futureui:menu:
+            type: string
+            value: main
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126

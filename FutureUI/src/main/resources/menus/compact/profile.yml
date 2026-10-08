@@ -1,0 +1,139 @@
+# 第二套紧凑像素界面；导航固定，右侧切换内容。
+id: compact/profile
+title: '@menus.profile.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  compact.section:
+    value: profile
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: compact/navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: identity_panel
+      type: column
+      gap: 9
+      children:
+      - id: profile_title
+        type: text
+        text: '@menus.profile.heading'
+        height: 9
+      - id: identity
+        type: row
+        gap: 9
+        children:
+        - id: portrait
+          type: image
+          image: iron_sword
+          size: 72
+          width: 72
+        - id: facts
+          type: column
+          skin: readout
+          padding: 9
+          gap: 9
+          children:
+          - id: name
+            type: text
+            text: '@menus.profile.name'
+          - id: world
+            type: text
+            text: '@menus.profile.world'
+          - id: level
+            type: text
+            text: '@menus.profile.level'
+          - id: ping
+            type: text
+            text: '@menus.profile.ping'
+      - id: copy_name
+        type: button
+        text: '@menus.profile.copy'
+        actions:
+        - type: copy-text
+          value: '{profile.name}'
+          label: '@menus.profile.copy-link'
+        enabled:
+          type: equals
+          input: '{profile.online}'
+          output: 'true'
+        height: 27
+      skin: panel
+      padding: 9
+      visible:
+        type: equals
+        input: '{profile.online}'
+        output: 'true'
+    - id: status_panel
+      type: column
+      gap: 9
+      children:
+      - id: status_title
+        type: text
+        text: '@menus.compact.profile.status'
+        height: 9
+      - id: meters
+        type: row
+        gap: 9
+        children:
+        - id: health_group
+          type: column
+          gap: 0
+          children:
+          - id: health
+            type: text
+            text: '@menus.profile.health'
+            height: 27
+            skin: readout
+            padding: 9
+          - id: health_bar
+            type: progress
+            value: '{profile.health-fraction}'
+            height: 9
+        - id: food_group
+          type: column
+          gap: 0
+          children:
+          - id: food
+            type: text
+            text: '@menus.profile.food'
+            height: 27
+            skin: readout
+            padding: 9
+          - id: food_bar
+            type: progress
+            value: '{profile.food-fraction}'
+            height: 9
+      - id: coordinates
+        type: text
+        text: '@menus.profile.coordinates'
+        height: 36
+        skin: readout
+        padding: 9
+      skin: panel
+      padding: 9
+      visible:
+        type: equals
+        input: '{profile.online}'
+        output: 'true'
+    - id: offline
+      type: text
+      text: '@menus.profile.offline'
+      visible:
+        type: equals
+        input: '{profile.online}'
+        output: 'false'
+      height: 27
+refresh-ticks: 40

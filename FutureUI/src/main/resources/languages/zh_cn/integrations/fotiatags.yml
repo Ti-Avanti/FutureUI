@@ -1,0 +1,93 @@
+title: <!i>称号中心
+nav-tags: <!i>我的称号
+nav-create: <!i>自定义称号
+nav-effects: <!i>动态效果
+nav-shop: <!i>效果商店
+nav-tags-short: <!i>称号
+nav-create-short: <!i>创建
+nav-effects-short: <!i>效果
+nav-shop-short: <!i>商店
+view-tag-select: <!i>我的称号
+view-custom-tag: <!i>制作专属称号
+view-custom-tag-icons: <!i>选择称号图标
+view-custom-tag-detail: <!i>自定义称号详情
+view-custom-tag-delete: <!i>确认删除称号
+view-gradient-storage: <!i>我的动态效果
+view-gradient-shop: <!i>动态效果商店
+view-gradient-purchase-confirm: <!i>确认解锁效果
+equipped: <!i>当前佩戴
+none: <!i>尚未佩戴
+count: <!i>当前列表：{item.count} 项
+filter-all: <!i>全部称号
+filter-normal: <!i>普通称号
+filter-custom: <!i>自定义
+list-tip: <!i>选择喜欢的展示效果
+icons-tip: <!i>点击图标，返回编辑继续制作
+shop-tip: <!i>先查看效果，再确认解锁
+empty: <!i>当前没有可用内容
+pick: <!i>佩戴称号
+pick-icon: <!i>选择此图标
+manage: <!i>查看与管理
+owned: <!i>已拥有
+view-offer: <!i>查看与解锁
+unequip: <!i>卸下
+pick-name: <!i>佩戴 {item.name}
+pick-icon-name: <!i>选择 {item.name}
+manage-name: <!i>管理 {item.name}
+owned-name: <!i>已拥有 {item.name}
+view-offer-name: <!i>解锁 {item.name}
+unequip-name: <!i>卸下 {item.name}
+expiry: <!i>剩余 {item.days} 天 {item.hours} 小时
+price-vault: <!i>金币 <green>{item.price}
+price-points: <!i>点券 <green>{item.price}
+permanent: <!i>永久有效
+icon-choice: <!i>称号图标
+confirm: <!i>确认解锁
+create: <!i>确认创建
+processing: <!i>正在处理…
+payment-unavailable: <!i>支付暂不可用
+funds: <!i>余额不足
+limit: <!i>已达数量上限
+incomplete: <!i>请完善称号内容
+edit-prefix: <!i>修改前缀 ›
+edit-suffix: <!i>修改后缀 ›
+edit-icon: <!i>选择图标 ›
+unset: <!i>点击右侧按钮填写
+equip: <!i>佩戴此称号
+delete: <!i>删除称号
+back: <!i>返回
+details-hint: <!i>随时佩戴或卸下此称号
+prefix-value: <!i>前缀：{item.target-prefix}
+suffix-value: <!i>后缀：{item.target-suffix}
+refund-vault: <!i>退款金币 <yellow>{item.refund}
+refund-points: <!i>退款点券 <yellow>{item.refund}
+delete-warning: <!i>删除后将从你的称号仓库移除
+confirm-delete: <!i>确认删除
+offer-hint: <!i>解锁后可在动态效果中佩戴
+missing: <!i>该内容已不存在，请返回重新选择
+page: <!i>{item.page} / {item.pages}
+previous: <!i>‹
+next: <!i>›
+compact: <!i>紧凑布局
+expand-short: <!i>放大
+close: <!i>关闭
+clear-tag: <!i>卸下当前称号
+clear-effect: <!i>清除动态效果
+input-title: <!i>编辑称号内容
+input-heading: <!i>输入后保存，再返回查看效果
+input-hint: <!i>颜色、长度及内容限制以服务器设置为准。
+input-label: <!i>称号内容
+apply: <!i>保存内容
+icon-selected: <!i>已选择此图标
+icon-selected-name: <!i>已选择 {item.name}
+manage-selected: <!i>已佩戴 · 管理
+manage-selected-name: <!i>管理 {item.name}
+effect-use: <!i>启用效果
+effect-clear: <!i>停用效果
+effect-use-name: <!i>启用 {item.name}
+effect-clear-name: <!i>停用 {item.name}
+duration-permanent: <!i>解锁后永久有效
+duration-days: <!i>有效期：{item.duration-value} 天
+duration-hours: <!i>有效期：{item.duration-value} 小时
+duration-minutes: <!i>有效期：{item.duration-value} 分钟
+duration-seconds: <!i>有效期：{item.duration-value} 秒

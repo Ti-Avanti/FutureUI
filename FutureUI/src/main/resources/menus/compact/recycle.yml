@@ -1,0 +1,131 @@
+# 第二套紧凑像素界面；独立配置。
+template: compact/bedrock-page
+id: compact/recycle
+title: '@menus.recycle.title'
+defaults:
+  shop: system
+components:
+- id: heading
+  type: text
+  text: '@menus.recycle.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: guide
+    type: column
+    width: 126
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: icon
+      type: image
+      image: gold_ingot
+      size: 72
+    - id: description
+      type: text
+      text: '@menus.recycle.description'
+      height: 54
+    - id: workshop
+      type: button
+      text: '@menus.inventory.title'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/inventory
+  - id: products
+    type: list
+    source: sell-products
+    cache: false
+    page-size: 4
+    layout:
+      type: grid
+      columns: 2
+      gap: 9
+      min-height: 270
+    item:
+      id: product
+      type: column
+      skin: surface
+      padding: 9
+      gap: 9
+      children:
+      - id: name
+        type: text
+        text: '{item.name}'
+        height: 9
+      - id: product_info
+        type: row
+        gap: 9
+        children:
+        - id: image
+          type: image
+          image: '{item.icon}'
+          fallback-image: shop-emblem
+          size: 36
+          width: 36
+        - id: price
+          type: text
+          text: '@menus.recycle.price'
+          height: 54
+          skin: readout
+          padding: 9
+      - id: sell
+        type: button
+        text: '@menus.recycle.sell'
+        height: 27
+        actions:
+        - type: sell
+          shop: '{item.shop}'
+          product: '{item.id}'
+          quantity: 1
+          quoted-price: '{item.price}'
+          on-success:
+          - type: sound
+            sound: minecraft:entity.experience_orb.pickup
+          - type: message
+            text: '@menus.recycle.sold'
+        enabled:
+          type: equals
+          input: '{item.available}'
+          output: true
+- id: controls
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+  - id: page
+    type: text
+    text: <!i><white>{page} / {pages}
+    height: 27
+    skin: readout
+    padding: 9
+  - id: previous
+    type: button
+    text: '@common.previous'
+    height: 27
+    actions:
+    - type: page
+      offset: -1
+  - id: next
+    type: button
+    text: '@common.next'
+    height: 27
+    actions:
+    - type: page
+      offset: 1
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126

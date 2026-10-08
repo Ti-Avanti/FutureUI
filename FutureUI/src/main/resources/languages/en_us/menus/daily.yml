@@ -1,0 +1,21 @@
+title: <!i>Daily supplies
+heading: <!i><white><bold>Daily supplies</bold>  <gray>A little help for your adventure
+description: '<!i><gray>Claim free food once a day.
+
+
+  Usually bread, occasionally golden carrots.'
+calendar: '<!i><gray>Today
+
+  <white><bold>{daily.date}</bold>'
+record: '<!i><gray>Total claims  <white>{daily.total}
+
+  <gray>Today  <green>Ready to claim'
+claim: <!i><white>Claim today's supplies
+reset: '<!i><gray>Resets at midnight, Asia/Shanghai.
+
+  A full inventory does not use your claim.'
+claimed: <!i><green>Your supplies are in your inventory.
+denied: <!i><yellow>Land and return to a normal state first.
+record-claimed: '<!i><gray>Total claims  <white>{daily.total}
+
+  <gray>Today  <yellow>Already claimed'

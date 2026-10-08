@@ -1,0 +1,143 @@
+# 第二套紧凑像素界面；独立配置。
+id: product_card
+type: row
+padding: 9
+gap: 9
+skin: panel
+children:
+- id: artwork
+  type: column
+  width: 72
+  vertical-align: center
+  gap: 9
+  children:
+  - id: image_frame
+    type: column
+    padding: 0
+    skin: readout
+    gap: 0
+    children:
+    - id: picture
+      type: image
+      image: '{item.icon}'
+      fallback-image: shop-emblem
+      size: 72
+  - id: inspect
+    type: button
+    text: '@menus.shop.details'
+    actions:
+    - type: open-menu
+      menu: compact/purchase
+      arguments:
+        shop: '{item.shop}'
+        product: '{item.id}'
+        input.quantity: '{item.quantity}'
+    height: 27
+- id: details
+  type: column
+  gap: 0
+  children:
+  - id: name
+    type: text
+    text: '{item.name}'
+    height: 9
+  - id: numbers
+    type: column
+    skin: readout
+    padding: 9
+    gap: 0
+    children:
+    - id: bundle
+      type: text
+      text: '@menus.shop.card-bundle'
+      height: 9
+      vertical-align: start
+    - id: price
+      type: text
+      text: '@menus.shop.card-price'
+      height: 9
+      vertical-align: start
+    - id: total
+      type: text
+      text: '@menus.shop.card-total'
+      height: 9
+      vertical-align: start
+    - id: item_count
+      type: text
+      text: '@menus.shop.card-items'
+      height: 9
+      vertical-align: start
+  - id: quantity_row
+    type: row
+    gap: 0
+    children:
+    - id: decrease
+      type: button
+      width: 27
+      text: −
+      tooltip: '@menus.shop.decrease'
+      actions:
+      - type: adjust-number
+        key: '{item.quantity-key}'
+        initial: '{item.initial}'
+        delta: '{item.decrement}'
+        step: '{item.step}'
+        min: '{item.minimum}'
+        max: '{item.maximum}'
+      height: 27
+    - id: quantity
+      type: button
+      skin: quantity
+      tooltip: '@menus.shop.edit-quantity'
+      actions:
+      - type: open-menu
+        menu: compact/quantity
+        arguments:
+          shop: '{item.shop}'
+          product: '{item.id}'
+          input.quantity: '{item.quantity}'
+      height: 27
+      text-align: center
+      vertical-align: center
+      text: '{item.quantity}'
+    - id: increase
+      type: button
+      width: 27
+      text: +
+      tooltip: '@menus.shop.increase'
+      actions:
+      - type: adjust-number
+        key: '{item.quantity-key}'
+        initial: '{item.initial}'
+        delta: '{item.step}'
+        step: '{item.step}'
+        min: '{item.minimum}'
+        max: '{item.maximum}'
+      height: 27
+  - id: space_three
+    type: spacer
+    height: 9
+  - id: buy
+    type: button
+    skin: purchase
+    text: '@menus.shop.buy'
+    tooltip: '@menus.shop.card-purchase-hint'
+    enabled:
+      type: equals
+      input: '{item.available}'
+      output: 'true'
+    actions:
+    - type: purchase
+      shop: '{item.shop}'
+      product: '{item.id}'
+      quantity: '{item.quantity}'
+      quoted-price: '{item.price}'
+    - type: sound
+      sound: minecraft:entity.experience_orb.pickup
+    - type: message
+      text: '@menus.receipt.body'
+      condition:
+        type: equals
+        input: '{data.input.notifications}'
+        output: 'true'
+    height: 27

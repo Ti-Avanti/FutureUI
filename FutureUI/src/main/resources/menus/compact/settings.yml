@@ -1,0 +1,532 @@
+# 第二套开关：仅浅灰色滑块按钮可以点击，状态槽和文字不可点击。
+id: compact/settings
+title: '@menus.compact.settings.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  compact.section:
+    value: settings
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: compact/navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: appearance
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: appearance_title
+        type: text
+        text: '@menus.compact.settings.appearance'
+        height: 9
+      - id: nickname_row
+        type: row
+        gap: 9
+        children:
+        - id: nickname_label
+          type: text
+          text: '@menus.settings.nickname'
+          height: 27
+          vertical-align: center
+        - id: edit_nickname
+          type: button
+          text: '{input.nickname}'
+          height: 27
+          actions:
+          - type: open-menu
+            menu: compact/settings-edit
+          skin: readout
+          width: 162
+      - id: hints
+        type: row
+        gap: 9
+        children:
+        - id: hints_label
+          type: text
+          text: '@menus.settings.hints'
+          height: 27
+          vertical-align: center
+        - id: hints_control
+          type: row
+          width: 108
+          gap: 9
+          children:
+          - id: hints_state
+            type: text
+            width: 45
+            height: 27
+            text-align: end
+            vertical-align: center
+            states:
+            - visible: &id001
+                type: equals
+                input: '{input.hints}'
+                output: 'true'
+              text: '@menus.compact.controls.state-on'
+            - visible: true
+              text: '@menus.compact.controls.state-off'
+          - id: hints_switch
+            type: row
+            width: 54
+            gap: 0
+            children:
+            - id: hints_switch_left
+              type: text
+              width: 27
+              height: 27
+              text: ''
+              states:
+              - visible: *id001
+                skin: selected
+                text: I
+                type: text
+              - visible: true
+                skin: switch-thumb
+                text: ''
+                type: button
+                actions:
+                - type: toggle
+                  key: input.hints
+                  persist: true
+              text-align: center
+              vertical-align: center
+            - id: hints_switch_right
+              type: text
+              width: 27
+              height: 27
+              text: ''
+              states:
+              - visible: *id001
+                skin: switch-thumb
+                text: ''
+                type: button
+                actions:
+                - type: toggle
+                  key: input.hints
+                  persist: true
+              - visible: true
+                skin: readout
+                text: O
+                type: text
+              text-align: center
+              vertical-align: center
+      - id: notifications
+        type: row
+        gap: 9
+        children:
+        - id: notifications_label
+          type: text
+          text: '@menus.compact.settings.notifications'
+          height: 27
+          vertical-align: center
+        - id: notifications_control
+          type: row
+          width: 108
+          gap: 9
+          children:
+          - id: notifications_state
+            type: text
+            width: 45
+            height: 27
+            text-align: end
+            vertical-align: center
+            states:
+            - visible: &id002
+                type: equals
+                input: '{input.notifications}'
+                output: 'true'
+              text: '@menus.compact.controls.state-on'
+            - visible: true
+              text: '@menus.compact.controls.state-off'
+          - id: notifications_switch
+            type: row
+            width: 54
+            gap: 0
+            children:
+            - id: notifications_switch_left
+              type: text
+              width: 27
+              height: 27
+              text: ''
+              states:
+              - visible: *id002
+                skin: selected
+                text: I
+                type: text
+              - visible: true
+                skin: switch-thumb
+                text: ''
+                type: button
+                actions:
+                - type: toggle
+                  key: input.notifications
+                  persist: true
+              text-align: center
+              vertical-align: center
+            - id: notifications_switch_right
+              type: text
+              width: 27
+              height: 27
+              text: ''
+              states:
+              - visible: *id002
+                skin: switch-thumb
+                text: ''
+                type: button
+                actions:
+                - type: toggle
+                  key: input.notifications
+                  persist: true
+              - visible: true
+                skin: readout
+                text: O
+                type: text
+              text-align: center
+              vertical-align: center
+    - id: sound
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: sound_title
+        type: text
+        text: '@menus.compact.settings.sound'
+        height: 9
+      - id: volume_row
+        type: row
+        gap: 9
+        children:
+        - id: volume_label
+          type: text
+          text: '@menus.compact.settings.volume'
+          height: 27
+          vertical-align: center
+        - id: volume_controls
+          type: row
+          gap: 0
+          children:
+          - id: volume_down
+            type: button
+            text: ‹
+            height: 27
+            actions:
+            - type: adjust-number
+              key: input.volume
+              initial: 60
+              min: 0
+              max: 100
+              step: 5
+              delta: -5
+            - type: save-preference
+              key: input.volume
+              value: '{input.volume}'
+            - type: sound
+              sound: minecraft:ui.button.click
+              volume: 0.6
+            width: 18
+          - id: volume_ticks
+            type: row
+            width: 160
+            gap: 0
+            children:
+            - id: tick_10
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 10
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 10
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_20
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 20
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 20
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_30
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 30
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 30
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_40
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 40
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 40
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_50
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 50
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 50
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_60
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 60
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 60
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_70
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 70
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 70
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_80
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 80
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 80
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_90
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 90
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 90
+                skin: selected
+              - visible: true
+                skin: readout
+            - id: tick_100
+              type: button
+              text: │
+              height: 27
+              actions:
+              - type: set-variable
+                key: input.volume
+                value: 100
+              - type: save-preference
+                key: input.volume
+                value: '{input.volume}'
+              - type: sound
+                sound: minecraft:ui.button.click
+                volume: 0.6
+              width: 16
+              states:
+              - visible:
+                  type: '>='
+                  input: '{input.volume}'
+                  output: 100
+                skin: selected
+              - visible: true
+                skin: readout
+          - id: volume_up
+            type: button
+            text: ›
+            height: 27
+            actions:
+            - type: adjust-number
+              key: input.volume
+              initial: 60
+              min: 0
+              max: 100
+              step: 5
+              delta: 5
+            - type: save-preference
+              key: input.volume
+              value: '{input.volume}'
+            - type: sound
+              sound: minecraft:ui.button.click
+              volume: 0.6
+            width: 18
+          - id: volume_value
+            type: button
+            text: '{input.volume}%'
+            height: 27
+            actions:
+            - type: open-menu
+              menu: compact/settings-edit
+            skin: readout
+            width: 54
+          width: 250
+      - id: volume_help
+        type: text
+        text: '@menus.compact.settings.volume-help'
+        height: 27
+      - id: settings_links
+        type: row
+        gap: 9
+        children:
+        - id: try_sound
+          type: button
+          text: '@menus.display.sound'
+          height: 27
+          actions:
+          - type: sound
+            sound: minecraft:entity.experience_orb.pickup
+        - id: preferences
+          type: button
+          text: '@menus.preferences.title'
+          height: 27
+          actions:
+          - type: open-menu
+            menu: compact/preferences
+defaults:
+  input.volume: 60
+  input.hints: true
+  input.notifications: false
+  input.nickname: '{player}'

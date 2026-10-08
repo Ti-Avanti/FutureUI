@@ -1,0 +1,722 @@
+# 管理员段位展示。所有数据明确为样例，不会写入或覆盖任何玩家战绩。
+id: rank_showcase
+title: '@integrations.basictool.rank-demo-title'
+renderer: canvas
+permission: futureui.admin
+layout:
+  type: column
+  width: 666
+  padding: 0
+  gap: 9
+  theme: adventure
+  exit-button: false
+on-open:
+- type: set-variable
+  key: rank.sample
+  value: ready
+components:
+- id: page
+  type: list
+  source: static
+  cache: false
+  paginate: false
+  item:
+    id: application
+    type: column
+    gap: 9
+    children:
+    - id: sample_notice
+      type: row
+      gap: 18
+      children:
+      - id: sample_sidebar_space
+        type: spacer
+        width: 144
+        height: 27
+      - id: sample_title
+        type: text
+        text: '@integrations.basictool.rank-demo-notice'
+        height: 27
+        width: 504
+        skin: readout
+        padding: 9
+    - id: workspace
+      type: row
+      gap: 18
+      children:
+      - id: sidebar
+        type: column
+        gap: 0
+        children:
+        - id: sample_ready
+          type: button
+          text: '@integrations.basictool.rank-demo-ready'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: ready
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: ready
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_capped
+          type: button
+          text: '@integrations.basictool.rank-demo-capped'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: capped
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: capped
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_leaderboard
+          type: button
+          text: '@integrations.basictool.rank-demo-leaderboard'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: leaderboard
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: leaderboard
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_rating
+          type: button
+          text: '@integrations.basictool.rank-demo-rating'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: rating
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: rating
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_unrated
+          type: button
+          text: '@integrations.basictool.rank-demo-unrated'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: unrated
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: unrated
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_casual
+          type: button
+          text: '@integrations.basictool.rank-demo-casual'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: casual
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: casual
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_disabled
+          type: button
+          text: '@integrations.basictool.rank-demo-disabled'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: disabled
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: disabled
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_empty
+          type: button
+          text: '@integrations.basictool.rank-demo-empty'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: empty
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: empty
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_select
+          type: button
+          text: '@integrations.basictool.rank-demo-select'
+          height: 27
+          text-align: start
+          padding: 9
+          actions:
+          - type: set-variable
+            key: rank.sample
+            value: select
+          states:
+          - visible:
+              type: equals
+              input: '{rank.sample}'
+              output: select
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sample_close_gap
+          type: spacer
+          height: 81
+        - id: sample_close
+          type: button
+          text: '@integrations.basictool.close'
+          height: 27
+          actions:
+          - type: close
+        width: 144
+        height: 351
+      - id: body
+        type: column
+        gap: 9
+        children:
+        - id: sample_context
+          type: text
+          text: '@integrations.basictool.rank-demo-hint'
+          height: 27
+        - id: rank
+          template: integrations/basictool/rank-card
+          visible:
+            type: equals
+            input: '{item.home}'
+            output: 'false'
+        - id: win_summary
+          type: row
+          padding: 9
+          gap: 9
+          skin: well
+          height: 45
+          visible:
+            type: all
+            conditions:
+            - type: equals
+              input: '{item.menu}'
+              output: details
+            - type: equals
+              input: '{item.has-outcomes}'
+              output: 'true'
+          children:
+          - id: win_rate_label
+            type: text
+            text: '@integrations.basictool.rank-win-rate'
+            height: 27
+            width: 63
+            vertical-align: center
+          - id: win_track
+            type: column
+            gap: 0
+            children:
+            - id: win_space
+              type: spacer
+              height: 9
+            - id: win_bar
+              type: progress
+              height: 9
+              value: '{item.stat.win-rate-fraction}'
+              track-skin: readout
+              fill-skin: chart-main
+          - id: win_rate_value
+            type: text
+            text: '{item.stat.win-rate}%'
+            height: 27
+            width: 63
+            skin: readout
+            text-align: center
+            vertical-align: center
+        - id: fields
+          type: list
+          source: static
+          cache: false
+          paginate: false
+          item:
+            id: field
+            type: row
+            gap: 9
+            children:
+            - id: name
+              type: text
+              text: <!i><#bbbbbb>{item.plain-label}
+              height: 27
+              vertical-align: center
+              states:
+              - visible:
+                  type: equals
+                  input: '{item.metric}'
+                  output: '0'
+                text: '@integrations.basictool.chart-total'
+              - visible:
+                  type: equals
+                  input: '{item.metric}'
+                  output: '1'
+                text: '@integrations.basictool.chart-wins'
+              - visible:
+                  type: equals
+                  input: '{item.metric}'
+                  output: '2'
+                text: '@integrations.basictool.chart-losses'
+              - visible:
+                  type: equals
+                  input: '{item.metric}'
+                  output: '3'
+                text: '@integrations.basictool.chart-sample-kills'
+              - visible: true
+            - id: number
+              type: text
+              text: <!i><white>{item.value}
+              height: 27
+              skin: readout
+              text-align: center
+              vertical-align: center
+              width: 108
+            padding: 9
+            skin: panel
+          layout:
+            type: grid
+            columns: 2
+            gap: 9
+          visible:
+            type: equals
+            input: '{item.has-outcomes}'
+            output: 'true'
+          entries:
+          - plain-label: '@integrations.basictool.chart-total'
+            value: 48
+            metric: '0'
+          - plain-label: '@integrations.basictool.chart-wins'
+            value: 30
+            metric: '1'
+          - plain-label: '@integrations.basictool.chart-losses'
+            value: 18
+            metric: '2'
+          - metric: '3'
+            plain-label: ''
+            value: 12
+        - id: sample_links
+          type: row
+          gap: 9
+          children:
+          - id: real_records
+            type: button
+            text: '@integrations.basictool.rank-demo-source'
+            height: 27
+            actions:
+            - type: player-command
+              command: basictool stats
+            requirements:
+              type: permission
+              permission: basictool.stats
+          - id: chart_sample
+            type: button
+            text: '@integrations.basictool.rank-demo-chart'
+            height: 27
+            actions:
+            - type: open-menu
+              menu: chart_showcase
+        width: 504
+        padding: 9
+        skin: panel
+        min-height: 351
+  entries:
+  - home: false
+    self: true
+    group: statistics
+    menu: details
+    source-id: fotiabattleroyale
+    source: fields
+    status: ready
+    status-label: ''
+    page: 1
+    pages: 1
+    season-label: ''
+    mode-label: ''
+    has-outcomes: true
+    stat.games: 48
+    stat.wins: 30
+    stat.win-rate: 62.5
+    stat.win-rate-fraction: 0.625
+    rank.state: ready
+    rank.name: ''
+    rank.translation: gold
+    rank.division: III
+    rank.icon: gold_ingot
+    rank.score: 2250
+    rank.score-field: points
+    rank.has-score: true
+    rank.progress-state: next
+    rank.fraction: 0.5
+    rank.percent: 50
+    rank.remaining: 150
+    rank.next: 2400
+  states:
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: ready
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: true
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: ready
+      rank.name: ''
+      rank.translation: gold
+      rank.division: III
+      rank.icon: gold_ingot
+      rank.score: 2250
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: next
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: capped
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: true
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: ready
+      rank.name: ''
+      rank.translation: master
+      rank.division: ''
+      rank.icon: iron_sword
+      rank.score: 8000
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: capped
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: leaderboard
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: true
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: ready
+      rank.name: ''
+      rank.translation: king
+      rank.division: ''
+      rank.icon: golden_helmet
+      rank.score: 9200
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: leaderboard
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+      rank.position: 62
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: rating
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: true
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: rating
+      rank.name: ''
+      rank.translation: ''
+      rank.division: III
+      rank.icon: diamond
+      rank.score: 1350
+      rank.score-field: rating
+      rank.has-score: true
+      rank.progress-state: unknown
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: unrated
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: false
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: unrated
+      rank.name: ''
+      rank.translation: ''
+      rank.division: III
+      rank.icon: paper
+      rank.score: —
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: unknown
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: casual
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: true
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: casual
+      rank.name: ''
+      rank.translation: ''
+      rank.division: III
+      rank.icon: book
+      rank.score: —
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: unknown
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: disabled
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: disabled
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: false
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: unavailable
+      rank.name: ''
+      rank.translation: ''
+      rank.division: III
+      rank.icon: golden_helmet
+      rank.score: —
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: unknown
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: empty
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: empty
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: false
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: empty
+      rank.name: ''
+      rank.translation: ''
+      rank.division: III
+      rank.icon: golden_helmet
+      rank.score: —
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: unknown
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible:
+      type: equals
+      input: '{rank.sample}'
+      output: select
+    entries:
+    - home: false
+      self: true
+      group: statistics
+      menu: details
+      source-id: fotiabattleroyale
+      source: fields
+      status: ready
+      status-label: ''
+      page: 1
+      pages: 1
+      season-label: ''
+      mode-label: ''
+      has-outcomes: false
+      stat.games: 48
+      stat.wins: 30
+      stat.win-rate: 62.5
+      stat.win-rate-fraction: 0.625
+      rank.state: select
+      rank.name: ''
+      rank.translation: ''
+      rank.division: III
+      rank.icon: golden_helmet
+      rank.score: —
+      rank.score-field: points
+      rank.has-score: true
+      rank.progress-state: unknown
+      rank.fraction: 0.5
+      rank.percent: 50
+      rank.remaining: 150
+      rank.next: 2400
+  - visible: true

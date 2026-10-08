@@ -1,0 +1,188 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: entry_standard_entry
+type: column
+gap: 0
+children:
+- id: entry_standard_information
+  type: column
+  gap: 0
+  padding: 9
+  visible:
+    type: not
+    condition:
+      type: equals
+      input: '{item.kind}'
+      output: icon
+  children:
+  - id: entry_standard_name
+    type: text
+    text: '{item.name}'
+    height: 9
+    vertical-align: center
+    text-align: center
+    padding: 0
+  - id: entry_standard_name_gap
+    type: spacer
+    height: 9
+  - id: entry_standard_preview
+    type: text
+    text: '{item.preview}'
+    height: 9
+    vertical-align: center
+    text-align: center
+    padding: 0
+  - id: entry_standard_meta_gap
+    type: spacer
+    height: 18
+  - id: entry_standard_meta
+    type: text
+    text: '@integrations.fotiatags.expiry'
+    height: 9
+    vertical-align: center
+    text-align: center
+    states:
+    - visible:
+        type: equals
+        input: '{item.kind}'
+        output: icon
+      text: '@integrations.fotiatags.icon-choice'
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.shop}'
+          output: 'true'
+        - type: equals
+          input: '{item.currency}'
+          output: playerpoints
+      text: '@integrations.fotiatags.price-points'
+    - visible:
+        type: equals
+        input: '{item.shop}'
+        output: 'true'
+      text: '@integrations.fotiatags.price-vault'
+    - visible:
+        type: equals
+        input: '{item.permanent}'
+        output: 'true'
+      text: '@integrations.fotiatags.permanent'
+    - visible: true
+    padding: 0
+- id: entry_standard_icon_information
+  type: row
+  gap: 9
+  padding: 9
+  visible:
+    type: equals
+    input: '{item.kind}'
+    output: icon
+  children:
+  - id: entry_standard_picture
+    type: image
+    image: '{item.image}'
+    size: 36
+    width: 36
+    height: 54
+  - id: entry_standard_icon_text
+    type: column
+    gap: 18
+    padding: 9
+    children:
+    - id: entry_standard_icon_name
+      type: text
+      text: '{item.name}'
+      height: 9
+      vertical-align: center
+      text-align: center
+    - id: entry_standard_icon_hint
+      type: text
+      text: '@integrations.fotiatags.icon-choice'
+      height: 9
+      vertical-align: center
+      text-align: center
+- id: entry_standard_pick
+  type: button
+  text: '@integrations.fotiatags.pick'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: select
+    id: '{item.id}'
+  enabled:
+    type: equals
+    input: '{item.enabled}'
+    output: 'true'
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.kind}'
+        output: icon
+      - type: equals
+        input: '{item.selected}'
+        output: 'true'
+    text: '@integrations.fotiatags.icon-selected'
+    skin: selected
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.kind}'
+        output: custom
+      - type: equals
+        input: '{item.selected}'
+        output: 'true'
+    text: '@integrations.fotiatags.manage-selected'
+    skin: selected
+  - visible:
+      type: equals
+      input: '{item.kind}'
+      output: icon
+    text: '@integrations.fotiatags.pick-icon'
+  - visible:
+      type: equals
+      input: '{item.kind}'
+      output: custom
+    text: '@integrations.fotiatags.manage'
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.shop}'
+        output: 'true'
+      - type: equals
+        input: '{item.owned}'
+        output: 'true'
+    text: '@integrations.fotiatags.owned'
+  - visible:
+      type: equals
+      input: '{item.shop}'
+      output: 'true'
+    text: '@integrations.fotiatags.view-offer'
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.kind}'
+        output: effect
+      - type: equals
+        input: '{item.selected}'
+        output: 'true'
+    text: '@integrations.fotiatags.effect-clear'
+    skin: selected
+  - visible:
+      type: equals
+      input: '{item.kind}'
+      output: effect
+    text: '@integrations.fotiatags.effect-use'
+    skin: button
+  - visible:
+      type: equals
+      input: '{item.selected}'
+      output: 'true'
+    text: '@integrations.fotiatags.unequip'
+    skin: selected
+  - visible: true
+    skin: button
+skin: panel

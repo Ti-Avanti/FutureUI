@@ -1,0 +1,67 @@
+id: search
+template: bedrock-form
+title: "@menus.search.title"
+layout:
+  columns: 2
+components:
+  - id: overview
+    type: canvas
+    width: 594
+    layout:
+      type: row
+      gap: 18
+    children:
+      - id: illustration
+        type: column
+        width: 180
+        skin: surface
+        padding: 18
+        children:
+          - id: image
+            type: image
+            image: shop-emblem
+            size: 144
+      - id: instructions
+        type: column
+        height: 180
+        skin: surface
+        padding: 18
+        gap: 18
+        children:
+          - id: heading
+            type: text
+            text: "@menus.search.title"
+          - id: description
+            type: text
+            text: "@menus.search.description"
+            height: 81
+  - id: query
+    type: text-input
+    label: "@menus.search.query"
+    max-length: 64
+    width: 594
+    initial: "{shop.search}"
+  - id: sort
+    type: select
+    label: "@menus.search.sort"
+    width: 594
+    initial: default
+    options:
+      - value: default
+        label: "@menus.search.default"
+      - value: price
+        label: "@menus.search.price"
+  - id: search
+    type: button
+    text: "@menus.search.apply"
+    actions:
+      - type: set-variable
+        key: shop.search
+        value: "{input.query}"
+      - type: set-variable
+        key: shop.sort
+        value: "{input.sort}"
+      - type: open-menu
+        menu: shop
+  - id: back
+    template: back

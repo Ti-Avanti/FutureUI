@@ -1,0 +1,8 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+title: "<!i>Search & Sort"
+query: "<!i>Product name"
+sort: "<!i>Sort by"
+default: "<!i>Default"
+price: "<!i>Price: low to high"
+apply: "<!i>Search"
+description: "<!i><white>Find your next building block<newline><newline><gray>Enter a product name and choose a sort order.<newline>Leave the name empty to browse your category."

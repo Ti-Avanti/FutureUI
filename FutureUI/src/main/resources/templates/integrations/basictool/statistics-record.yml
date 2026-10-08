@@ -1,0 +1,36 @@
+id: record
+type: row
+gap: 9
+children:
+- id: record_text
+  type: column
+  gap: 0
+  children:
+  - id: record_name
+    type: text
+    text: <!i><white>{item.plain-label}
+    height: 9
+  - id: record_detail
+    type: text
+    text: <!i><#bbbbbb>{item.plain-detail}
+    height: 18
+- id: record_open
+  type: button
+  text: '@integrations.basictool.view-records'
+  height: 27
+  actions:
+  - type: basictool:statistics
+    operation: click
+    control: '{item.control}'
+    click: '{item.primary-click}'
+  width: 108
+  enabled:
+    type: equals
+    input: '{item.enabled}'
+    output: 'true'
+skin: readout
+padding: 9
+visible:
+  type: equals
+  input: '{item.left}'
+  output: 'true'

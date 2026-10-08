@@ -1,0 +1,92 @@
+# 第二套紧凑像素界面；独立配置。
+template: compact/bedrock-page
+id: compact/cart-receipt
+title: '@menus.cart-receipt.title'
+components:
+- id: heading
+  type: text
+  text: '@menus.cart-receipt.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: overview
+    type: column
+    width: 198
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: illustration
+      type: image
+      image: emerald
+      size: 72
+    - id: description
+      type: text
+      text: '@menus.cart-receipt.description'
+      height: 45
+    - id: services
+      type: button
+      text: '@menus.services.title'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/services
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: quantities
+      type: text
+      text: '@menus.cart-receipt.counts'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: total
+      type: text
+      text: '@menus.cart-receipt.total'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: continue
+      type: button
+      text: '@menus.cart.continue'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/shop
+      skin: purchase
+    - id: wallet
+      type: button
+      text: '@menus.receipt.wallet'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/wallet
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+    width: 162
+  - id: home
+    type: button
+    text: '@menus.services.home'
+    height: 27
+    actions:
+    - type: open-menu
+      menu: compact/main
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126

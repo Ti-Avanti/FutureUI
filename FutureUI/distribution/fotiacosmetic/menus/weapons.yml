@@ -1,0 +1,104 @@
+# 普通武器的二级分类与皮肤状态模板；布局、分页按钮和显示引擎统一在 main.yml 配置。
+# 每种类型可设置 enabled: false；不可全部禁用。
+# selected/unselected 支持分别设置 material（或 id）、item-model、custom-model-data、name、lore、glow。
+# 普通武器是否展示未拥有的皮肤；false 时没有已拥有皮肤就留空，不显示屏障。
+# 传奇武器不受此设置影响，始终显示全部皮肤及拥有状态。
+show-unowned: false
+weapon-types:
+  sword:
+    selected:
+      id: NETHERITE_SWORD
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: IRON_SWORD
+      name-key: weapon-tab.name
+  bow:
+    selected:
+      id: BOW
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: BOW
+      name-key: weapon-tab.name
+  axe:
+    selected:
+      id: NETHERITE_AXE
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: IRON_AXE
+      name-key: weapon-tab.name
+  pickaxe:
+    selected:
+      id: NETHERITE_PICKAXE
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: IRON_PICKAXE
+      name-key: weapon-tab.name
+  crossbow:
+    selected:
+      id: CROSSBOW
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: CROSSBOW
+      name-key: weapon-tab.name
+  mace:
+    selected:
+      id: MACE
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: MACE
+      name-key: weapon-tab.name
+  spear:
+    selected:
+      id: NETHERITE_SPEAR
+      # 当前服务端没有此材质时使用备用图标；不影响新版本的长矛图标。
+      fallback-material: TRIDENT
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: IRON_SPEAR
+      fallback-material: TRIDENT
+      name-key: weapon-tab.name
+  trident:
+    selected:
+      id: TRIDENT
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: TRIDENT
+      name-key: weapon-tab.name
+  shield:
+    selected:
+      id: SHIELD
+      glow: true
+      name-key: weapon-tab.name
+    unselected:
+      id: SHIELD
+      name-key: weapon-tab.name
+cosmetic-states:
+  available:
+    name-key: cosmetic.available.name
+    lore-keys:
+    - cosmetic.available.action
+  equipped:
+    glow: true
+    name-key: cosmetic.equipped.name
+    lore-keys:
+    - cosmetic.equipped.action
+  locked:
+    replace-icon: true
+    id: BARRIER
+    name-key: cosmetic.locked.name
+    lore-keys:
+    - cosmetic.locked.action
+  hidden:
+    replace-icon: true
+    id: STRUCTURE_VOID
+    name-key: cosmetic.hidden.name
+    lore-keys:
+    - cosmetic.hidden.action

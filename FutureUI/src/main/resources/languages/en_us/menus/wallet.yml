@@ -1,0 +1,6 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>My Wallet"
+heading: "<!i><white><bold>WALLET</bold>  <gray>Your available currencies"
+balance: "<!i><white>{item.balance}"
+spend: "<!i>Browse items"
+availability: "<!i><gray>Unavailable currencies are shown as a dash."

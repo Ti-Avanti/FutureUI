@@ -1,0 +1,133 @@
+# 所有菜单文本支持 MiniMessage 和旧颜色码；请保留占位符。
+prefix: '<gray>[<gold>FotiaCosmetic</gold>]</gray> '
+general:
+  not-ready: <red>时装系统仍在初始化，请稍后再试。
+  no-permission: <red>你没有权限执行此操作。
+  player-only: <red>该命令只能由玩家执行。
+  player-not-found: <red>找不到玩家 <white>{player}</white>。
+  cosmetic-not-found: <red>找不到时装 <white>{cosmetic}</white>。
+  invalid-target: <red>无效部位或武器类型：<white>{target}</white>。
+  cosmetic-target-mismatch: <red><white>{cosmetic}</white> 实际属于 <white>{actual}</white>，不能按 <white>{expected}</white>
+    操作。
+  invalid-duration: <red>无效期限 <white>{duration}</white>；可用格式：永久、1h、1d12h、7d 或 ISO-8601 时间。
+  operation-failed: <red>操作失败：<white>{reason}</white>。
+  reload-success: <green>配置、语言、目录和菜单已重新加载。
+  reload-failed: <red>重新加载失败，请查看控制台中的精确配置路径。
+command:
+  management-help: <yellow>/fc</yellow> 打开菜单；给予：<yellow>/fc grant [玩家|*] [slot|weapon] [部位|武器类型] [ID] [永久|1h|1d]</yellow>；revoke/equip
+    使用相同分类参数，unequip 不填写 ID。
+  grant-success: <green>已给予 <white>{player}</white> 时装 <white>{cosmetic}</white>。
+  grant-limited-success: <green>已给予 <white>{player}</white> 限时时装 <white>{cosmetic}</white>，期限 <white>{duration}</white>。
+  grant-all-success: <green>已向全部已知玩家给予 <white>{cosmetic}</white>：总计 {total}，更新 {updated}，未变 {unchanged}，失败 {failed}。
+  grant-all-limited-success: <green>已向全部已知玩家给予限时时装 <white>{cosmetic}</white>（{duration}）：总计 {total}，更新 {updated}，未变
+    {unchanged}，失败 {failed}。
+  revoke-success: <green>已收回 <white>{player}</white> 的时装 <white>{cosmetic}</white>。
+  equip-success: <green>已为 <white>{player}</white> 选择 <white>{cosmetic}</white>。
+  unequip-success: <green>已清除 <white>{player}</white> 的 <white>{target}</white> 时装。
+  already-owned: <yellow>玩家已经拥有该时装。
+  not-owned: <red>玩家尚未拥有该时装。
+  not-selected: <yellow>该部位当前没有选择时装。
+  cancelled: <yellow>操作已被其他插件取消。
+  info: <gray>拥有 <white>{owned}</white> 件（其中限时 <white>{limited}</white> 件），穿戴 <white>{equipped}</white> 个普通部位，选择
+    <white>{weapons}</white> 种武器皮肤。
+profile:
+  load-failed: <red>无法加载你的时装资料，请重新连接或联系管理员。
+gui:
+  back-failed: <!i><red>无法打开返回菜单，请联系管理员。
+  layout-usage: <!i><yellow>菜单尺寸：/fc layout compact（紧凑）或 /fc layout standard（标准）。
+  layout-unavailable: <!i><yellow>管理员尚未为此菜单启用 FutureUI 显示。
+  title: <!i><dark_gray>Fotia 时装 <gray>第 {page}/{pages} 页
+  weapon-title: <!i><dark_gray>武器皮肤 <gray>第 {page}/{pages} 页
+  loading: <red>资料仍在加载。
+  preview-unavailable: <!i>暂无模型预览；可预选，在游戏服生成武器时生效。
+  legendary-locked: <!i>当前对局不允许更换传奇武器皮肤。
+  legendary-usage: <!i>用法：/fc legendary [武器ID]
+  legendary-selected: <!i>已保存皮肤 {cosmetic}，之后新生成的该武器将使用此皮肤。
+  legendary-reset: <!i>已恢复该武器的默认外观预选。
+category:
+  head: <!i><gold>帽子
+  chest: <!i><gold>胸甲
+  legs: <!i><gold>裤子
+  feet: <!i><gold>鞋子
+  back: <!i><gold>背饰
+  off_hand: <!i><gold>副手
+  balloon: <!i><gold>气球
+  weapons: <!i><gold>武器皮肤
+weapon:
+  sword: 剑
+  bow: 弓
+  axe: 斧
+  pickaxe: 镐
+  crossbow: 弩
+  mace: 重锤
+  spear: 矛
+  trident: 三叉戟
+  shield: 盾
+weapon-tab:
+  name: <!i><aqua>{weapon}
+cosmetic:
+  available:
+    name: <!i><green>{name}
+    action: <!i><gray>点击选择
+  equipped:
+    name: <!i><gold>{name}
+    action: <!i><yellow>当前已选择
+  locked:
+    name: <!i><red>{name}
+    action: <!i><gray>你尚未拥有该时装
+  hidden:
+    name: <!i><dark_gray>{name}
+    action: <!i><gray>当前服务器或世界不显示该类型
+control:
+  weapon-previous:
+    enabled: <!i><yellow>上一组武器类型
+    disabled: <!i><dark_gray>没有上一组武器类型
+  weapon-next:
+    enabled: <!i><yellow>下一组武器类型
+    disabled: <!i><dark_gray>没有下一组武器类型
+  previous:
+    enabled: <!i><yellow>上一页
+    disabled: <!i><dark_gray>没有上一页
+  next:
+    enabled: <!i><yellow>下一页
+    disabled: <!i><dark_gray>没有下一页
+  unequip:
+    enabled: <!i><red>脱下当前时装
+    disabled: <!i><dark_gray>当前没有时装
+  back: <!i><yellow>返回时装菜单
+  close: <!i><red>关闭
+feedback:
+  equipped: <green>已选择时装 <white>{cosmetic}</white>。
+  unequipped: <green>已脱下 <white>{target}</white> 的时装。
+  locked: <red>你尚未拥有该时装。
+  hidden: <yellow>当前服务器或世界隐藏了这种时装。
+  storage-error: <red>保存资料失败，本次修改已撤销。
+  expired: <yellow>限时时装 <white>{cosmetic}</white> 已到期并自动卸下。
+navigation:
+  back: <!i><yellow>返回上级菜单
+  main: <!i><gold>时装
+  weapons: <!i><gold>武器
+  legendary: <!i><gold>传奇武器
+  category-previous: <!i><gold>上一页分类
+  category-next: <!i><gold>下一页分类
+  reset: <!i><gold>恢复默认外观
+  default-selected: <!i><gold>当前为默认外观
+legendary:
+  lava_sword: <!i><gold>熔岩剑
+  chainsaw: <!i><gold>电锯刀
+  emerald_sword: <!i><gold>绿宝石大剑
+  dragon_sword: <!i><gold>末影龙剑
+  armadillo_cannon: <!i><gold>犰狳大炮
+  toxic_crossbow: <!i><gold>剧毒弩
+  puffer_cannon: <!i><gold>河豚炮
+  sonic_crossbow: <!i><gold>音波弩
+  guardian_cannon: <!i><gold>守卫者大炮
+  bee_gun: <!i><gold>蜜蜂枪
+  poseidon_trident: <!i><gold>海神波塞冬三叉戟
+
+skin-ownership:
+  owned: "<!i><green>已拥有"
+  unowned: "<!i><red>未拥有"
+  selected: "<!i><gold>已拥有 · 使用中"
+  open: "<!i><yellow>点击查看皮肤"
+  collection: "<!i><gray>已拥有 {owned}/{total} 款皮肤"

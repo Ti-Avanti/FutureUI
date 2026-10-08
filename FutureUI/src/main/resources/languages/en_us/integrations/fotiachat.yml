@@ -1,0 +1,22 @@
+title: <!i>Chat colors
+preview: <!i><gray>Preview
+saved: <!i><green>Applied
+reset-done: <!i><green>Reset
+current: <!i><gray>Current color
+no-current: <!i><gray>Default style
+reset: <!i>Reset color
+reset-short: <!i>Reset
+compact: <!i>Compact layout
+expand: <!i>Standard layout
+close: <!i>Close
+filter-all: <!i>All
+filter-single: <!i>Solid
+filter-effects: <!i>Blend
+filter-available: <!i>Owned
+page: <!i><white>{item.page} / {item.pages}
+previous: <!i>‹
+next: <!i>›
+empty: <!i><gray>No matching colors
+empty-short: <!i><gray>No colors
+locked-name: <!i><gray>× {item.name}
+save-failed: <!i><red>Could not save your color. Please try again.

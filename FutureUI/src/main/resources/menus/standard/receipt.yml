@@ -1,0 +1,111 @@
+# 紧凑横向回执；商品图片、数值底板和操作均为通用组件。
+id: receipt
+title: "@menus.receipt.title"
+renderer: canvas
+layout:
+  type: column
+  width: 558
+  padding: 18
+  gap: 9
+components:
+  - id: heading
+    type: text
+    text: "@menus.receipt.heading"
+    height: 27
+    vertical-align: center
+  - id: order
+    type: row
+    gap: 18
+    children:
+      - id: product_preview
+        type: column
+        width: 162
+        skin: surface
+        padding: 9
+        gap: 9
+        children:
+          - id: product_image
+            type: image
+            image: "{product.icon}"
+            fallback-image: shop-emblem
+            size: 144
+          - id: product_name
+            type: text
+            text: "{product.name}"
+            height: 18
+            text-align: center
+      - id: order_details
+        type: column
+        height: 189
+        vertical-align: center
+        gap: 9
+        children:
+          - id: quantities
+            type: row
+            gap: 9
+            children:
+              - id: bundles
+                type: column
+                skin: readout
+                padding: 9
+                gap: 9
+                children:
+                  - id: bundles_label
+                    type: text
+                    text: "@menus.receipt.bundles"
+                  - id: bundles_value
+                    type: text
+                    text: "<!i><white><bold>{purchase.quantity}</bold>"
+                    height: 18
+              - id: items
+                type: column
+                skin: readout
+                padding: 9
+                gap: 9
+                children:
+                  - id: items_label
+                    type: text
+                    text: "@menus.receipt.items"
+                  - id: items_value
+                    type: text
+                    text: "<!i><white><bold>{purchase.items}</bold>"
+                    height: 18
+          - id: payment
+            type: column
+            skin: readout
+            padding: 9
+            gap: 9
+            children:
+              - id: paid_label
+                type: text
+                text: "@menus.receipt.paid"
+              - id: paid_value
+                type: text
+                text: "<!i><green><bold>{purchase.total}</bold> <gray>{product.currency}"
+                height: 18
+          - id: remaining
+            type: text
+            skin: readout
+            padding: 9
+            text: "@menus.receipt.balance"
+            height: 36
+  - id: actions
+    type: row
+    gap: 9
+    children:
+      - id: continue
+        type: button
+        skin: purchase
+        height: 36
+        text: "@menus.receipt.continue"
+        actions:
+          - type: open-menu
+            menu: shop
+      - id: wallet
+        type: button
+        height: 36
+        width: 162
+        text: "@menus.receipt.wallet"
+        actions:
+          - type: open-menu
+            menu: wallet

@@ -1,0 +1,232 @@
+id: setting_entry
+type: row
+gap: 9
+children:
+- id: setting_copy
+  type: column
+  gap: 0
+  children:
+  - id: setting_name
+    type: text
+    text: <!i><white>{item.plain-label}
+    height: 9
+  - id: setting_help
+    type: text
+    text: <!i><#bbbbbb>{item.plain-detail}
+    height: 18
+- id: setting_controls
+  type: column
+  gap: 0
+  children:
+  - id: switch_control
+    type: row
+    gap: 0
+    children:
+    - id: switch_state
+      type: text
+      text: '@integrations.basictool.off'
+      height: 27
+      width: 45
+      vertical-align: center
+      states:
+      - visible:
+          type: equals
+          input: '{item.on}'
+          output: 'true'
+        text: '@integrations.basictool.on'
+      - visible: true
+    - id: slider
+      type: row
+      gap: 0
+      children:
+      - id: switch_left
+        type: text
+        text: I
+        height: 27
+        width: 27
+        skin: selected
+        text-align: center
+        vertical-align: center
+        states:
+        - visible:
+            type: equals
+            input: '{item.on}'
+            output: 'true'
+          type: text
+          skin: selected
+        - visible: true
+          type: button
+          skin: switch-thumb
+          text: ''
+          enabled:
+            type: equals
+            input: '{item.toggle-enabled}'
+            output: 'true'
+          actions:
+          - type: basictool:settings
+            operation: click
+            control: '{item.control}'
+            click: toggle
+      - id: switch_right
+        type: text
+        text: O
+        height: 27
+        width: 27
+        skin: readout
+        text-align: center
+        vertical-align: center
+        states:
+        - visible:
+            type: equals
+            input: '{item.on}'
+            output: 'true'
+          type: button
+          skin: switch-thumb
+          text: ''
+          enabled:
+            type: equals
+            input: '{item.toggle-enabled}'
+            output: 'true'
+          actions:
+          - type: basictool:settings
+            operation: click
+            control: '{item.control}'
+            click: toggle
+        - visible: true
+          type: text
+          skin: readout
+      width: 54
+    width: 99
+    visible:
+      type: equals
+      input: '{item.switch}'
+      output: 'true'
+    align: end
+  - id: small_choices
+    type: list
+    source: basictool:settings
+    view: choices
+    cache: false
+    paginate: false
+    item:
+      id: choice
+      type: button
+      text: '{item.plain-label}'
+      height: 27
+      actions:
+      - type: basictool:settings
+        operation: choose
+        control: '{item.control}'
+        choice-control: '{item.choice-control}'
+      enabled:
+        type: equals
+        input: '{item.enabled}'
+        output: 'true'
+      states:
+      - visible:
+          type: equals
+          input: '{item.selected}'
+          output: 'true'
+        skin: selected
+      - visible: true
+        skin: button
+    control: '{item.control}'
+    layout:
+      type: row
+      gap: 9
+    width: 216
+    visible:
+      type: equals
+      input: '{item.inline}'
+      output: 'true'
+  - id: value
+    type: button
+    text: '{item.value} >'
+    height: 27
+    actions:
+    - type: basictool:settings
+      operation: click
+      control: '{item.control}'
+      click: '{item.primary-click}'
+    width: 144
+    skin: button
+    enabled:
+      type: equals
+      input: '{item.enabled}'
+      output: 'true'
+    visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.switch}'
+        output: 'false'
+      - type: equals
+        input: '{item.inline}'
+        output: 'false'
+    states:
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.switch}'
+          output: 'false'
+        - type: equals
+          input: '{item.inline}'
+          output: 'false'
+        - type: equals
+          input: '{item.action_only}'
+          output: 'true'
+      text: '@integrations.basictool.open-setting'
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.switch}'
+          output: 'false'
+        - type: equals
+          input: '{item.inline}'
+          output: 'false'
+    align: end
+  width: 216
+- id: reset_slot
+  type: column
+  width: 90
+  height: 27
+  gap: 0
+  children:
+  - id: reset
+    type: button
+    text: '@integrations.basictool.restore-default'
+    height: 27
+    actions:
+    - type: basictool:settings
+      operation: click
+      control: '{item.control}'
+      click: right
+    width: 90
+    enabled:
+      type: equals
+      input: '{item.enabled}'
+      output: 'true'
+    visible:
+      type: equals
+      input: '{item.right}'
+      output: 'true'
+    states:
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.right}'
+          output: 'true'
+        - type: equals
+          input: '{item.global}'
+          output: 'true'
+      text: '@integrations.basictool.restore-default'
+    - visible:
+        type: equals
+        input: '{item.right}'
+        output: 'true'
+      text: '@integrations.basictool.use-common'
+padding: 9
+skin: readout

@@ -1,0 +1,164 @@
+template: bedrock-page
+id: conditions
+title: '@menus.conditions.title'
+permission: futureui.admin
+open-commands:
+- fui-conditions
+parameters:
+- name: required
+  type: integer
+  default: 16
+  min: 1
+  max: 4096
+bindings:
+  condition.stone:
+    type: item-count
+    match:
+      material: STONE
+components:
+- id: heading
+  type: text
+  text: '@menus.conditions.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 18
+  children:
+  - id: overview
+    type: column
+    width: 198
+    skin: surface
+    padding: 18
+    gap: 9
+    children:
+    - id: illustration
+      type: image
+      image: diamond
+      size: 144
+    - id: description
+      type: text
+      text: '@menus.conditions.description'
+      height: 45
+    - id: services
+      type: button
+      text: '@menus.services.title'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: services
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: balance
+      type: text
+      text: '@menus.conditions.balance'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: count
+      type: text
+      text: '@menus.conditions.count'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: checks
+      type: row
+      gap: 9
+      children:
+      - id: claim
+        type: button
+        text: '@menus.conditions.coupon'
+        height: 36
+        actions:
+        - type: require
+          requirements:
+            type: requirements
+            minimum: 2
+            conditions:
+            - id: access
+              type: permission
+              permission: futureui.use
+            - id: materials
+              type: has-item
+              material: STONE
+              amount: '{required}'
+              optional: true
+              on-failure:
+              - type: message
+                text: '@menus.conditions.materials-missing'
+            - id: balance
+              type: compare
+              input: '%futureui_value_wallet%'
+              operator: '>='
+              output: 10
+              optional: true
+        - type: data-set
+          key: benefits.shop-discount
+          value: true
+          ttl-seconds: 600
+        - type: message
+          text: '@menus.conditions.activated'
+        skin: purchase
+      - id: remove
+        type: button
+        text: '@menus.conditions.remove'
+        height: 36
+        actions:
+        - type: data-remove
+          key: benefits.shop-discount
+        - type: message
+          text: '@menus.conditions.removed'
+    - id: diagnostics
+      type: grid
+      columns: 2
+      gap: 9
+      children:
+      - id: trace
+        type: button
+        text: '@menus.conditions.trace'
+        height: 36
+        actions:
+        - type: player-command
+          command: fui trace %futureui_value_balance-label%
+          parse:
+            mode: raw
+      - id: inspect
+        type: button
+        text: '@menus.conditions.inspect'
+        height: 36
+        actions:
+        - type: player-command
+          command: fui inspect conditions
+      - id: validate
+        type: button
+        text: '@menus.conditions.validate'
+        height: 36
+        actions:
+        - type: player-command
+          command: fui validate
+      - id: dryrun
+        type: button
+        text: '@menus.conditions.dryrun'
+        height: 36
+        actions:
+        - type: player-command
+          command: fui dryrun conditions claim
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+    width: 162
+  - id: home
+    type: button
+    text: '@menus.services.home'
+    height: 27
+    actions:
+    - type: open-menu
+      menu: main

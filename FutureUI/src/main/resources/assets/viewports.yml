@@ -1,0 +1,11 @@
+# 水平裁切区域：相对于菜单画布左边缘；调整后 /fui reload 并加载新资源包。
+# 菜单中的 viewport 必须与这里的画布宽度、左边缘和区域宽度一致。
+# 同一几何可供多个菜单复用，最多 64 个区域；不添加整页背景。
+crates_standard:
+  canvas-width: 540
+  left: 0
+  width: 540
+crates_compact:
+  canvas-width: 252
+  left: 0
+  width: 252

@@ -1,0 +1,93 @@
+id: panel_control
+type: row
+gap: 0
+children:
+- id: primary
+  type: button
+  text: '{item.label}'
+  height: 27
+  actions:
+  - type: basictool:settings
+    operation: click
+    control: '{item.control}'
+    click: '{item.primary-click}'
+  enabled:
+    type: equals
+    input: '{item.enabled}'
+    output: 'true'
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.action-kind}'
+        output: reset-category
+      - type: equals
+        input: '{item.panel_reset}'
+        output: 'true'
+    text: '@integrations.basictool-panel.confirm'
+    skin: selected
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.action-kind}'
+        output: filter
+      - type: equals
+        input: '{item.panel_modified}'
+        output: 'true'
+    text: '@integrations.basictool-panel.filter'
+    skin: selected
+  - visible:
+      type: equals
+      input: '{item.action-kind}'
+      output: previous
+    text: '@integrations.basictool-panel.previous'
+  - visible:
+      type: equals
+      input: '{item.action-kind}'
+      output: next
+    text: '@integrations.basictool-panel.next'
+  - visible:
+      type: equals
+      input: '{item.action-kind}'
+      output: filter
+    text: '@integrations.basictool-panel.filter'
+  - visible:
+      type: equals
+      input: '{item.action-kind}'
+      output: reset-category
+    text: '@integrations.basictool-panel.reset'
+  - visible:
+      type: equals
+      input: '{item.action-kind}'
+      output: reset-value
+    text: '@integrations.basictool-panel.reset'
+  - visible:
+      type: equals
+      input: '{item.action-kind}'
+      output: back
+    text: '@integrations.basictool-panel.back'
+  - visible: true
+- id: cancel
+  type: button
+  text: '@integrations.basictool-panel.cancel'
+  height: 27
+  visible:
+    type: all
+    conditions:
+    - type: equals
+      input: '{item.action-kind}'
+      output: reset-category
+    - type: equals
+      input: '{item.panel_reset}'
+      output: 'true'
+  actions:
+  - type: basictool:settings
+    operation: click
+    control: '{item.control}'
+    click: right
+  enabled:
+    type: equals
+    input: '{item.enabled}'
+    output: 'true'

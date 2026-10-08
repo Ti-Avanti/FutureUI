@@ -1,0 +1,7 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+id: "subtitle"
+channel: "subtitle"
+duration-seconds: 8
+refresh-ticks: 20
+title: "@hud.title"
+text: "@hud.subtitle"

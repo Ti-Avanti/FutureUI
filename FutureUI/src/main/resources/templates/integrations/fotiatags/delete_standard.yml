@@ -1,0 +1,89 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: delete_standard_delete
+type: column
+gap: 9
+children:
+- id: delete_standard_target_overview
+  type: row
+  gap: 9
+  children:
+  - id: delete_standard_target_icon
+    type: image
+    image: '{item.target-image}'
+    size: 36
+    height: 90
+    width: 72
+  - id: delete_standard_target_text
+    type: column
+    gap: 0
+    children:
+    - id: delete_standard_name
+      type: text
+      text: '{item.target-name}'
+      height: 27
+      vertical-align: center
+      padding: 9
+    - id: delete_standard_preview
+      type: text
+      text: '{item.target-preview}'
+      height: 63
+      vertical-align: center
+      padding: 9
+  skin: panel
+- id: delete_standard_delete_warning
+  type: text
+  text: '@integrations.fotiatags.delete-warning'
+  height: 27
+  vertical-align: center
+  padding: 9
+- id: delete_standard_refund
+  type: text
+  text: '@integrations.fotiatags.refund-vault'
+  height: 27
+  vertical-align: center
+  skin: readout
+  states:
+  - visible:
+      type: equals
+      input: '{item.refund-currency}'
+      output: playerpoints
+    text: '@integrations.fotiatags.refund-points'
+  - visible: true
+  padding: 9
+- id: delete_standard_bottom_gutter
+  type: spacer
+  height: 18
+- id: delete_standard_delete_actions
+  type: row
+  gap: 9
+  children:
+  - id: delete_standard_confirm_delete
+    type: button
+    text: '@integrations.fotiatags.confirm-delete'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: confirm
+    skin: selected
+    enabled:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.can-delete}'
+        output: 'true'
+      - type: equals
+        input: '{item.target-exists}'
+        output: 'true'
+      - type: equals
+        input: '{item.busy}'
+        output: 'false'
+  - id: delete_standard_back
+    type: button
+    text: '@integrations.fotiatags.back'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: back
+padding: 9
+min-height: 243
+skin: panel

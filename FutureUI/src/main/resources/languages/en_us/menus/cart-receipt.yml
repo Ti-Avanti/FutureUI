@@ -1,0 +1,5 @@
+title: "<!i>Order complete"
+heading: "<!i><green><bold>Order complete</bold>  <gray>Items delivered"
+description: "<!i><gray>Thanks for shopping.\n\nEvery product in your cart was settled and delivered together."
+counts: "<!i><gray>Products  <white>{purchase.quantity}\n<gray>Total items  <white>{purchase.items}"
+total: "<!i><gray>Paid\n<green><bold>{purchase.total}</bold>"

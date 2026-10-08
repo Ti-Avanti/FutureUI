@@ -1,0 +1,86 @@
+# 只引用 Minecraft 原版像素图标；行宽按原图 Alpha 像素计算。
+images:
+  book:
+    vanilla: minecraft:item/book.png
+    height: 16
+    ascent: 14
+    row-widths:
+    - 0
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 15
+    - 15
+    - 16
+    - 16
+    - 14
+    - 12
+    - 10
+    - 8
+    - 0
+  paper:
+    vanilla: minecraft:item/paper.png
+    height: 16
+    ascent: 14
+    row-widths:
+    - 0
+    - 0
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 15
+    - 14
+    - 13
+    - 11
+    - 10
+    - 8
+    - 0
+    - 0
+  name_tag:
+    vanilla: minecraft:item/name_tag.png
+    height: 16
+    ascent: 14
+    row-widths:
+    - 0
+    - 14
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 14
+    - 13
+    - 11
+    - 10
+    - 9
+    - 8
+    - 7
+    - 6
+    - 5
+  golden_helmet:
+    vanilla: minecraft:item/golden_helmet.png
+    height: 16
+    ascent: 14
+    row-widths:
+    - 0
+    - 0
+    - 0
+    - 11
+    - 12
+    - 13
+    - 13
+    - 13
+    - 13
+    - 13
+    - 13
+    - 12
+    - 0
+    - 0
+    - 0
+    - 0

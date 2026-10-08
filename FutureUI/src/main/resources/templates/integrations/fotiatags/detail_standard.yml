@@ -1,0 +1,88 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: detail_standard_detail
+type: column
+gap: 9
+children:
+- id: detail_standard_target_overview
+  type: row
+  gap: 9
+  children:
+  - id: detail_standard_target_icon
+    type: image
+    image: '{item.target-image}'
+    size: 36
+    height: 90
+    width: 72
+  - id: detail_standard_target_text
+    type: column
+    gap: 0
+    children:
+    - id: detail_standard_name
+      type: text
+      text: '{item.target-name}'
+      height: 27
+      vertical-align: center
+      padding: 9
+    - id: detail_standard_preview
+      type: text
+      text: '{item.target-preview}'
+      height: 63
+      vertical-align: center
+      padding: 9
+  skin: panel
+- id: detail_standard_target_prefix
+  type: text
+  text: '@integrations.fotiatags.prefix-value'
+  height: 27
+  vertical-align: center
+  skin: readout
+  padding: 9
+- id: detail_standard_target_suffix
+  type: text
+  text: '@integrations.fotiatags.suffix-value'
+  height: 27
+  vertical-align: center
+  skin: readout
+  padding: 9
+- id: detail_standard_bottom_gutter
+  type: spacer
+  height: 18
+- id: detail_standard_detail_actions
+  type: row
+  gap: 9
+  children:
+  - id: detail_standard_equip
+    type: button
+    text: '@integrations.fotiatags.equip'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: equip
+    enabled:
+      type: not
+      condition:
+        type: equals
+        input: '{item.busy}'
+        output: 'true'
+    states:
+    - visible:
+        type: equals
+        input: '{item.target-selected}'
+        output: 'true'
+      text: '@integrations.fotiatags.unequip'
+      skin: selected
+    - visible: true
+  - id: detail_standard_delete
+    type: button
+    text: '@integrations.fotiatags.delete'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: delete
+    enabled:
+      type: equals
+      input: '{item.can-delete}'
+      output: 'true'
+padding: 9
+min-height: 243
+skin: panel

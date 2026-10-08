@@ -1,0 +1,263 @@
+renderer: canvas
+permission: fotiachat.color
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 0
+  theme: adventure
+  exit-button: false
+refresh-ticks: 0
+on-open:
+- type: fotiachat:colors
+  operation: opened
+on-close:
+- type: fotiachat:colors
+  operation: closed
+components:
+- id: page
+  type: list
+  source: fotiachat:colors
+  view: page
+  cache: false
+  paginate: false
+  item:
+    id: workspace
+    type: column
+    gap: 9
+    children:
+    - id: header
+      type: row
+      gap: 9
+      children:
+      - id: title
+        type: text
+        text: '@integrations.fotiachat.title'
+        height: 27
+        width: 171
+        vertical-align: center
+      - id: filter_bar
+        type: row
+        width: 360
+        gap: 0
+        children:
+        - id: filter_all
+          type: button
+          text: '@integrations.fotiachat.filter-all'
+          height: 27
+          actions:
+          - type: fotiachat:colors
+            operation: filter
+            id: all
+          states:
+          - visible:
+              type: equals
+              input: '{item.filter}'
+              output: all
+            skin: selected
+          - visible: true
+            skin: button
+        - id: filter_single
+          type: button
+          text: '@integrations.fotiachat.filter-single'
+          height: 27
+          actions:
+          - type: fotiachat:colors
+            operation: filter
+            id: single
+          states:
+          - visible:
+              type: equals
+              input: '{item.filter}'
+              output: single
+            skin: selected
+          - visible: true
+            skin: button
+        - id: filter_effects
+          type: button
+          text: '@integrations.fotiachat.filter-effects'
+          height: 27
+          actions:
+          - type: fotiachat:colors
+            operation: filter
+            id: effects
+          states:
+          - visible:
+              type: equals
+              input: '{item.filter}'
+              output: effects
+            skin: selected
+          - visible: true
+            skin: button
+        - id: filter_available
+          type: button
+          text: '@integrations.fotiachat.filter-available'
+          height: 27
+          actions:
+          - type: fotiachat:colors
+            operation: filter
+            id: available
+          states:
+          - visible:
+              type: equals
+              input: '{item.filter}'
+              output: available
+            skin: selected
+          - visible: true
+            skin: button
+    - id: body
+      type: row
+      gap: 9
+      children:
+      - id: preview_panel
+        type: column
+        width: 171
+        skin: panel
+        padding: 9
+        gap: 0
+        min-height: 189
+        children:
+        - id: preview_heading
+          type: text
+          text: '@integrations.fotiachat.preview'
+          height: 18
+          states:
+          - visible:
+              type: equals
+              input: '{item.feedback}'
+              output: saved
+            text: '@integrations.fotiachat.saved'
+          - visible:
+              type: equals
+              input: '{item.feedback}'
+              output: reset
+            text: '@integrations.fotiachat.reset-done'
+          - visible: true
+        - id: preview_message
+          type: text
+          text: '{item.preview}'
+          height: 54
+          padding: 9
+          skin: readout
+          vertical-align: center
+        - id: preview_gap
+          type: spacer
+          height: 9
+        - id: current_label
+          type: text
+          text: '@integrations.fotiachat.current'
+          height: 18
+        - id: current_color
+          type: text
+          text: <!i><white>{item.current-name}
+          height: 27
+          skin: readout
+          text-align: center
+          vertical-align: center
+          states:
+          - visible:
+              type: equals
+              input: '{item.has-current}'
+              output: 'false'
+            text: '@integrations.fotiachat.no-current'
+          - visible: true
+        - id: reset_gap
+          type: spacer
+          height: 9
+        - id: reset
+          type: button
+          text: '@integrations.fotiachat.reset'
+          height: 27
+          actions:
+          - type: fotiachat:colors
+            operation: reset
+      - id: choices_panel
+        type: column
+        width: 360
+        gap: 9
+        children:
+        - id: palette
+          type: column
+          gap: 0
+          min-height: 153
+          children:
+          - id: colors
+            type: list
+            source: fotiachat:colors
+            view: entries
+            cache: false
+            paginate: false
+            visible:
+              type: equals
+              input: '{item.empty}'
+              output: 'false'
+            layout:
+              type: grid
+              columns: 3
+              gap: 9
+            item:
+              id: color
+              template: integrations/fotiachat/color
+          - id: no_colors
+            type: text
+            text: '@integrations.fotiachat.empty'
+            height: 153
+            skin: panel
+            text-align: center
+            vertical-align: center
+            visible:
+              type: equals
+              input: '{item.empty}'
+              output: 'true'
+        - id: pager
+          type: row
+          gap: 9
+          children:
+          - id: previous
+            type: button
+            text: '@integrations.fotiachat.previous'
+            height: 27
+            actions:
+            - type: fotiachat:colors
+              operation: previous
+            enabled:
+              type: equals
+              input: '{item.previous}'
+              output: 'true'
+          - id: page_number
+            type: text
+            text: '@integrations.fotiachat.page'
+            height: 27
+            skin: readout
+            text-align: center
+            vertical-align: center
+          - id: next
+            type: button
+            text: '@integrations.fotiachat.next'
+            height: 27
+            actions:
+            - type: fotiachat:colors
+              operation: next
+            enabled:
+              type: equals
+              input: '{item.next}'
+              output: 'true'
+    - id: footer
+      type: row
+      gap: 9
+      children:
+      - id: layout
+        type: button
+        text: '@integrations.fotiachat.compact'
+        height: 27
+        actions:
+        - type: fotiachat:colors
+          operation: layout
+          id: compact
+      - id: close
+        type: button
+        text: '@integrations.fotiachat.close'
+        height: 27
+        actions:
+        - type: fotiachat:colors
+          operation: close

@@ -1,0 +1,142 @@
+# 第二套紧凑像素界面；独立配置。
+template: compact/bedrock-page
+id: compact/daily
+title: '@menus.daily.title'
+bindings:
+  daily.date:
+    type: date
+    timezone: Asia/Shanghai
+  daily.total:
+    type: data
+    key: daily.total
+    default: 0
+  daily.state:
+    type: condition
+    condition:
+      type: data
+      key: daily.claimed
+      value: 1
+components:
+- id: heading
+  type: text
+  text: '@menus.daily.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: overview
+    type: column
+    width: 198
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: illustration
+      type: image
+      image: golden_apple
+      size: 72
+    - id: description
+      type: text
+      text: '@menus.daily.description'
+      height: 45
+    - id: services
+      type: button
+      text: '@menus.services.title'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/services
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: calendar
+      type: text
+      text: '@menus.daily.calendar'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: record
+      type: text
+      text: '@menus.daily.record'
+      height: 54
+      skin: readout
+      padding: 9
+      states:
+      - visible:
+          type: equals
+          input: '{daily.state}'
+          output: true
+        text: '@menus.daily.record-claimed'
+      - visible:
+          type: 'true'
+        text: '@menus.daily.record'
+    - id: claim
+      type: button
+      text: '@menus.daily.claim'
+      height: 27
+      actions:
+      - type: require
+        requirements:
+          type: named
+          rule: daily-access
+      - type: call
+        function: reward-roll
+        output: reward.material
+      - type: transaction
+        id: daily-supplies
+        actions:
+        - type: quota
+          key: daily.claimed
+          limit: 1
+          amount: 1
+          reset: daily
+          timezone: Asia/Shanghai
+        - type: give-item
+          amount: 4
+          item:
+            material: '{reward.material}'
+        - type: data-add
+          key: daily.total
+          amount: 1
+        on-success:
+        - type: sound
+          sound: minecraft:entity.player.levelup
+        - type: message
+          text: '@menus.daily.claimed'
+      skin: purchase
+      enabled:
+        type: '!data'
+        key: daily.claimed
+        value: 1
+    - id: reset
+      type: text
+      text: '@menus.daily.reset'
+      height: 45
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+    width: 162
+  - id: home
+    type: button
+    text: '@menus.services.home'
+    height: 27
+    actions:
+    - type: open-menu
+      menu: compact/main
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126

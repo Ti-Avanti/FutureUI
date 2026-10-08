@@ -1,0 +1,67 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: body_standard_content
+type: column
+gap: 0
+children:
+- id: body_standard_list
+  template: integrations/fotiatags/list_standard
+  visible:
+    type: equals
+    input: '{item.list-view}'
+    output: 'true'
+- id: body_standard_creator
+  template: integrations/fotiatags/create_standard
+  visible:
+    type: equals
+    input: '{item.view}'
+    output: custom-tag
+- id: body_standard_detail
+  template: integrations/fotiatags/detail_standard
+  visible:
+    type: all
+    conditions:
+    - type: equals
+      input: '{item.view}'
+      output: custom-tag-detail
+    - type: equals
+      input: '{item.target-exists}'
+      output: 'true'
+- id: body_standard_delete
+  template: integrations/fotiatags/delete_standard
+  visible:
+    type: all
+    conditions:
+    - type: equals
+      input: '{item.view}'
+      output: custom-tag-delete
+    - type: equals
+      input: '{item.target-exists}'
+      output: 'true'
+- id: body_standard_purchase
+  template: integrations/fotiatags/purchase_standard
+  visible:
+    type: all
+    conditions:
+    - type: equals
+      input: '{item.view}'
+      output: gradient-purchase-confirm
+    - type: equals
+      input: '{item.target-exists}'
+      output: 'true'
+- id: body_standard_missing
+  type: text
+  text: '@integrations.fotiatags.missing'
+  height: 243
+  vertical-align: center
+  skin: panel
+  visible:
+    type: all
+    conditions:
+    - type: equals
+      input: '{item.detail-view}'
+      output: 'true'
+    - type: equals
+      input: '{item.target-exists}'
+      output: 'false'
+  padding: 9
+min-height: 243

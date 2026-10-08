@@ -1,0 +1,4 @@
+# 从 BasicTool 原命令进入；只在对应菜单的 Options.ui-engine 为 futureui 时使用。
+id: basictool/settings/category
+template: integrations/basictool/settings
+title: '@integrations.basictool.settings-title'

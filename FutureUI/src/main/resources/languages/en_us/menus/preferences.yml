@@ -1,0 +1,8 @@
+title: "<!i>Quick preferences"
+heading: "<!i><white><bold>Quick preferences</bold>"
+description: "<!i><gray>Choose which interface features to enable.\nYour choices are saved between sessions."
+label: "<!i>Enabled features"
+hints: "<!i>Show button hints"
+sounds: "<!i>Play menu sounds"
+hud: "<!i>Show status HUD"
+saved: "<!i><green>Preferences saved: {preferences.summary}"

@@ -1,0 +1,93 @@
+# 第二套紧凑像素界面；导航固定，右侧切换内容。
+nav:
+  main: <!i>玩家中心
+  profile: <!i>玩家资料
+  settings: <!i>偏好设置
+  display: <!i>显示设置
+  language: <!i>界面语言
+  services: <!i>服务大厅
+  shop: <!i>系统商店
+  help: <!i>使用帮助
+  search: <!i>搜索商品
+  back: <!i>返回主菜单
+  selected-main: <!i><#172411>玩家中心
+  selected-profile: <!i><#172411>玩家资料
+  selected-settings: <!i><#172411>偏好设置
+  selected-display: <!i><#172411>显示设置
+  selected-language: <!i><#172411>界面语言
+  selected-services: <!i><#172411>服务大厅
+  selected-shop: <!i><#172411>系统商店
+  selected-help: <!i><#172411>使用帮助
+  selected-search: <!i><#172411>搜索商品
+controls:
+  'on': <!i>开启
+  'off': <!i>关闭
+  on-selected: <!i><#172411>开启
+  off-selected: <!i><#172411>关闭
+  state-on: <!i><gray>开启
+  state-off: <!i><gray>关闭
+home:
+  heading: <!i>玩家中心
+  welcome: '<!i><white>{player.display}</white>
+
+    <gray>{player.world}'
+  coins: <!i><gray>当前金币  <white>{compact.balance}
+  online: <!i><gray>在线玩家  <white>{server.online}
+  quick: <!i>常用服务
+settings:
+  title: <!i>玩家设置
+  appearance: <!i>界面与提醒
+  notifications: <!i><gray>购买聊天提醒
+  sound: <!i>菜单音效
+  volume: <!i><gray>音量
+  volume-help: '<!i><gray>点击刻度或箭头调节音量。
+
+    点击右侧数值可打开拖动滑块。'
+  edit: <!i>昵称与音量
+  edit-help: <!i><gray>修改昵称或拖动滑块，保存后立即生效。
+display:
+  hud: <!i>信息显示位置
+  interface: <!i>界面选项
+language:
+  heading: <!i>当前语言
+  choices: <!i>选择语言
+help:
+  title: <!i>使用帮助
+  heading: <!i>操作指南
+  body: '<!i><gray>左侧导航可切换常用页面。
+
+    绿色表示当前选择或主要操作。
+
+
+    商店支持调整份数和查看总价。
+
+    设置中的开关立即保存。
+
+    表单填写完成后，点击保存或返回。
+
+
+    语言默认跟随客户端，也可单独选择。'
+  links: <!i>继续浏览
+  original: <!i>切换到原界面
+purchase:
+  product-info: '<!i><gray>每份 <white>{product.amount}</white> 个
+
+    单价 <green>{product.price}</green> {product.currency}
+
+    份数 <white>{product.minimum}–{product.maximum}</white>
+
+    步长 <white>{product.step}</white>'
+profile:
+  status: <!i>当前状态
+services:
+  balance: <!i><gray>当前金币  <green>%futureui_value_wallet%
+search:
+  filters: <!i>名称与排序
+  value: <!i>{shop.search}
+  empty: <!i><gray>点击输入商品名称
+  category: <!i>商品分类（可多选，再次点击取消）
+  clear: <!i>清空条件
+  results: <!i>查看商品
+  help: '<!i><gray>输入商品名称，保存后返回筛选页面。
+
+    留空可查看已选分类的全部商品；未选分类时搜索所有商品。'

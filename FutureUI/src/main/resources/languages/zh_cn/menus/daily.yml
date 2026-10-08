@@ -1,0 +1,21 @@
+title: <!i>每日补给
+heading: <!i><white><bold>每日补给</bold>  <gray>领取今日探险物资
+description: '<!i><gray>每天领取一次免费食物。
+
+
+  补给包含面包，偶尔也有金胡萝卜。'
+calendar: '<!i><gray>今天
+
+  <white><bold>{daily.date}</bold>'
+record: '<!i><gray>累计领取  <white>{daily.total} 次
+
+  <gray>今日状态  <green>尚未领取'
+claim: <!i><white>领取今日补给
+reset: '<!i><gray>北京时间每日零点重置。
+
+  背包空间不足时不会消耗领取次数。'
+claimed: <!i><green>今日补给已放入背包。
+denied: <!i><yellow>请落地并保持正常状态后领取。
+record-claimed: '<!i><gray>累计领取  <white>{daily.total} 次
+
+  <gray>今日状态  <yellow>已经领取'

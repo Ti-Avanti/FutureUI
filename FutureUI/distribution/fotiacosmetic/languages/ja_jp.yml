@@ -1,0 +1,134 @@
+# 所有菜单文本支持 MiniMessage 和旧颜色码；请保留占位符。
+prefix: '<gray>[<gold>FotiaCosmetic</gold>]</gray> '
+general:
+  not-ready: <red>コスメシステムを初期化中です。しばらくお待ちください。
+  no-permission: <red>この操作を行う権限がありません。
+  player-only: <red>このコマンドはプレイヤーのみ使用できます。
+  player-not-found: <red>プレイヤー <white>{player}</white> が見つかりません。
+  cosmetic-not-found: <red>コスメ <white>{cosmetic}</white> が見つかりません。
+  invalid-target: <red>無効なスロットまたは武器タイプです：<white>{target}</white>。
+  cosmetic-target-mismatch: <red><white>{cosmetic}</white> は <white>{actual}</white> 用であり、<white>{expected}</white>
+    には使用できません。
+  invalid-duration: <red>期限 <white>{duration}</white> は無効です。permanent、1h、1d12h、7d、または ISO-8601 時刻を使用してください。
+  operation-failed: <red>操作に失敗しました：<white>{reason}</white>。
+  reload-success: <green>設定、言語、カタログ、メニューを再読み込みしました。
+  reload-failed: <red>再読み込みに失敗しました。コンソールの設定パスを確認してください。
+command:
+  management-help: <yellow>/fc</yellow> でメニューを開きます。付与：<yellow>/fc grant [player|*] [slot|weapon] [slot|weapon-type]
+    [ID] [permanent|1h|1d]</yellow>。revoke/equip も同じ対象指定を使い、unequip では ID を省略します。
+  grant-success: <green><white>{player}</white> に <white>{cosmetic}</white> を付与しました。
+  grant-limited-success: <green><white>{player}</white> に <white>{cosmetic}</white> を <white>{duration}</white>
+    付与しました。
+  grant-all-success: <green>既知の全プレイヤーに <white>{cosmetic}</white> を付与しました：合計 {total}、更新 {updated}、変更なし {unchanged}、失敗
+    {failed}。
+  grant-all-limited-success: <green>既知の全プレイヤーに <white>{cosmetic}</white> を {duration} 付与しました：合計 {total}、更新 {updated}、変更なし
+    {unchanged}、失敗 {failed}。
+  revoke-success: <green><white>{player}</white> から <white>{cosmetic}</white> を回収しました。
+  equip-success: <green><white>{player}</white> に <white>{cosmetic}</white> を選択しました。
+  unequip-success: <green><white>{player}</white> の <white>{target}</white> コスメを解除しました。
+  already-owned: <yellow>そのプレイヤーは既にこのコスメを所有しています。
+  not-owned: <red>そのプレイヤーはこのコスメを所有していません。
+  not-selected: <yellow>この対象にはコスメが選択されていません。
+  cancelled: <yellow>他のプラグインによって操作がキャンセルされました。
+  info: <gray>所有数 <white>{owned}</white>（期限付き <white>{limited}</white>）、通常装備 <white>{equipped}</white>、武器スキン <white>{weapons}</white>。
+profile:
+  load-failed: <red>コスメデータを読み込めませんでした。再接続するか管理者に連絡してください。
+gui:
+  back-failed: <!i><red>前のメニューを開けませんでした。管理者に連絡してください。
+  layout-usage: <!i><yellow>メニューサイズ：/fc layout compact または /fc layout standard。
+  layout-unavailable: <!i><yellow>このメニューでは管理者が FutureUI を有効にしていません。
+  title: <!i><dark_gray>Fotia Cosmetics <gray>{page}/{pages} ページ
+  weapon-title: <!i><dark_gray>武器スキン <gray>{page}/{pages} ページ
+  loading: <red>プロフィールを読み込み中です。
+  preview-unavailable: <!i>プレビューなし。選択はゲームサーバーで新しく生成される武器に適用されます。
+  legendary-locked: <!i>この試合中は伝説の武器の外観を変更できません。
+  legendary-usage: <!i>使い方：/fc legendary [武器ID]
+  legendary-selected: <!i>{cosmetic} を保存しました。新しく生成される同種の武器に適用されます。
+  legendary-reset: <!i>この武器の外観選択を標準に戻しました。
+category:
+  head: <!i><gold>帽子
+  chest: <!i><gold>胸当て
+  legs: <!i><gold>脚
+  feet: <!i><gold>靴
+  back: <!i><gold>背中
+  off_hand: <!i><gold>オフハンド
+  balloon: <!i><gold>風船
+  weapons: <!i><gold>武器スキン
+weapon:
+  sword: 剣
+  bow: 弓
+  axe: 斧
+  pickaxe: ツルハシ
+  crossbow: クロスボウ
+  mace: メイス
+  spear: 槍
+  trident: トライデント
+  shield: 盾
+weapon-tab:
+  name: <!i><aqua>{weapon}
+cosmetic:
+  available:
+    name: <!i><green>{name}
+    action: <!i><gray>クリックして選択
+  equipped:
+    name: <!i><gold>{name}
+    action: <!i><yellow>選択中
+  locked:
+    name: <!i><red>{name}
+    action: <!i><gray>このコスメを所有していません
+  hidden:
+    name: <!i><dark_gray>{name}
+    action: <!i><gray>このサーバーまたはワールドでは非表示です
+control:
+  weapon-previous:
+    enabled: <!i><yellow>前の武器タイプ
+    disabled: <!i><dark_gray>前の武器タイプなし
+  weapon-next:
+    enabled: <!i><yellow>次の武器タイプ
+    disabled: <!i><dark_gray>次の武器タイプなし
+  previous:
+    enabled: <!i><yellow>前のページ
+    disabled: <!i><dark_gray>前のページなし
+  next:
+    enabled: <!i><yellow>次のページ
+    disabled: <!i><dark_gray>次のページなし
+  unequip:
+    enabled: <!i><red>現在のコスメを外す
+    disabled: <!i><dark_gray>装備なし
+  back: <!i><yellow>コスメメニューに戻る
+  close: <!i><red>閉じる
+feedback:
+  equipped: <green>コスメ <white>{cosmetic}</white> を選択しました。
+  unequipped: <green><white>{target}</white> のコスメを外しました。
+  locked: <red>そのコスメを所有していません。
+  hidden: <yellow>現在のサーバーまたはワールドではこのタイプは非表示です。
+  storage-error: <red>保存に失敗したため、変更を元に戻しました。
+  expired: <yellow>期限付きコスメ <white>{cosmetic}</white> の期限が切れ、自動的に解除されました。
+navigation:
+  back: <!i><yellow>前のメニューに戻る
+  main: <!i><gold>コスメ
+  weapons: <!i><gold>武器
+  legendary: <!i><gold>伝説の武器
+  category-previous: <!i><gold>前のカテゴリ
+  category-next: <!i><gold>次のカテゴリ
+  reset: <!i><gold>標準の外観に戻す
+  default-selected: <!i><gold>標準の外観を選択中
+legendary:
+  lava_sword: <!i><gold>溶岩の剣
+  chainsaw: <!i><gold>チェーンソー
+  emerald_sword: <!i><gold>エメラルドの大剣
+  dragon_sword: <!i><gold>エンダードラゴンの剣
+  armadillo_cannon: <!i><gold>アルマジロ砲
+  toxic_crossbow: <!i><gold>猛毒のクロスボウ
+  puffer_cannon: <!i><gold>フグ砲
+  sonic_crossbow: <!i><gold>音波のクロスボウ
+  guardian_cannon: <!i><gold>ガーディアン砲
+  bee_gun: <!i><gold>ミツバチ銃
+  poseidon_trident: <!i><gold>ポセイドンのトライデント
+
+skin-ownership:
+  owned: "<!i><green>所有済み"
+  unowned: "<!i><red>未所有"
+  selected: "<!i><gold>所有済み · 選択中"
+  open: "<!i><yellow>スキンを見る"
+  collection: "<!i><gray>所有スキン：{owned}/{total}"

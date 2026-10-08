@@ -1,0 +1,15 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>Administration"
+heading: "<!i><white><bold>ADMINISTRATION</bold>"
+description: "<!i><gray>Configuration, resource packs and transactions. Administrators only."
+pack: "<!i>Build resource pack"
+reload: "<!i>Reload configuration"
+transactions: "<!i>Unresolved transactions"
+status: "<!i>Runtime status"
+metrics: "<!i>Usage statistics"
+currencies: "<!i>Currencies"
+data: "<!i>Data sources"
+actions: "<!i>Custom actions"
+extension: "<!i><gray>{item.name}  <white>{item.value}"
+
+toolkit: "<!i>Admin tools"

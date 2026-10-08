@@ -1,0 +1,4 @@
+interface:
+  display_name: "FutureUI 界面制作"
+  short_description: "用自然语言制作 FutureUI 菜单，生成统一像素界面、多语言与实际交互配置"
+  default_prompt: "使用 $futureui-ui 为我的服务器创建自定义界面，先读取目标版本和现有主题，再生成可用的菜单、多语言及资源配置。"

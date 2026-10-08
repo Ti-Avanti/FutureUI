@@ -1,0 +1,41 @@
+title: <!i>抽奖
+tab-preview: <!i>奖池
+tab-history: <!i>历史
+tab-results: <!i>结果
+ready: <!i>选择抽奖次数
+preparing: <!i>正在确认抽奖…
+spinning: <!i>正在抽奖…
+revealed: <!i>本次中奖
+settling: <!i>正在结算奖励…
+complete: <!i><green>抽奖完成
+failed: <!i><red>未能开始，请重试
+keys: <!i>钥匙  {item.keys}
+less: <!i>−
+more: <!i>+
+quantity-label: <!i>抽奖次数
+single: <!i>单抽
+maximum-short: <!i>最大
+draw-selected: <!i>抽取 {item.amount} 次
+draw-compact: <!i>抽取 {item.amount} 次
+pity-heading: <!i>保底进度 · 下一档
+pity: <!i>保底 {item.pity} / {item.pity-target} · {item.pity-rarity}
+pity-short: <!i>保底 {item.pity}/{item.pity-target}
+no-pity: <!i>未设置保底
+page: <!i>{item.page} / {item.pages}
+previous: <!i>‹
+next: <!i>›
+empty: <!i>暂无记录或奖励
+loading: <!i>正在加载…
+compact: <!i>紧凑布局
+expand: <!i>标准布局
+close: <!i>关闭
+spin-hint: <!i>指针所指的卡片为中奖奖励
+reward-meta: <!i>{item.rarity} <dark_gray>· <white>{item.detail}
+obtained: <!i>已收集
+your-reward: <!i><green>本次获得
+reward-weight: <!i><gray>权重 <white>{item.detail}
+reward-result: <!i><gray>第 <white>{item.draw-index}<gray> 次抽取
+reward-result-compact: <!i>{item.rarity} <dark_gray>· <white>第 {item.draw-index} 项
+braking: <!i><yellow>即将揭晓…
+reel-pointer: <!i><yellow>▼
+expand-short: <!i>放大

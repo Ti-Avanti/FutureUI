@@ -1,0 +1,68 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: detail_compact_detail
+type: column
+gap: 0
+children:
+- id: detail_compact_target_preview
+  type: text
+  text: '{item.target-preview}'
+  height: 27
+  vertical-align: center
+  skin: panel
+  text-align: center
+  padding: 9
+- id: detail_compact_details_hint
+  type: text
+  text: '@integrations.fotiatags.details-hint'
+  height: 27
+  vertical-align: center
+  padding: 9
+- id: detail_compact_action_gutter
+  type: spacer
+  height: 9
+- id: detail_compact_detail_actions
+  type: row
+  gap: 0
+  children:
+  - id: detail_compact_equip
+    type: button
+    text: '@integrations.fotiatags.equip'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: equip
+    enabled:
+      type: not
+      condition:
+        type: equals
+        input: '{item.busy}'
+        output: 'true'
+    states:
+    - visible:
+        type: equals
+        input: '{item.target-selected}'
+        output: 'true'
+      text: '@integrations.fotiatags.unequip'
+      skin: selected
+    - visible: true
+  - id: detail_compact_delete
+    type: button
+    text: '@integrations.fotiatags.delete'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: delete
+    enabled:
+      type: equals
+      input: '{item.can-delete}'
+      output: 'true'
+- id: detail_compact_back
+  type: button
+  text: '@integrations.fotiatags.back'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: back
+padding: 9
+min-height: 135
+skin: panel

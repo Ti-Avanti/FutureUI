@@ -1,0 +1,119 @@
+# BasicTool 设置页独立主题。更改后通过 FutureUI 重载生成并分发资源包。
+skin-aliases:
+  surface: panel
+  header: panel
+  well: readout
+  quantity: readout
+  navigation: button
+  purchase: selected
+  disabled: readout
+canvas:
+  image-sizes:
+  - 9
+  - 18
+  - 36
+  - 72
+  - 144
+  background:
+    enabled: false
+  interaction:
+    cover-focus-outline: false
+    hover: true
+    hover-heights:
+    - 27
+    - 36
+    - 72
+    pointer-descriptions: false
+  styles:
+    paper:
+      fill: '#30383A'
+      light: '#566365'
+      shadow: '#22282A'
+      outline: '#22282A'
+      shadow-depth: 0
+      bevel: false
+    panel:
+      fill: '#30383A'
+      light: '#566365'
+      shadow: '#22282A'
+      outline: '#22282A'
+      shadow-depth: 0
+      bevel: false
+    readout:
+      fill: '#252D2F'
+      light: '#252D2F'
+      shadow: '#252D2F'
+      outline: '#30383A'
+      bevel: false
+      shadow-depth: 0
+    button:
+      fill: '#485457'
+      light: '#77898B'
+      shadow: '#293134'
+      outline: '#202729'
+      hover:
+        fill: '#ffffff'
+        opacity: 32
+        outline: '#d6d9da'
+      shadow-depth: 0
+    selected:
+      fill: '#357F78'
+      light: '#73B5AB'
+      shadow: '#255751'
+      outline: '#213D39'
+      hover:
+        fill: '#ffffff'
+        opacity: 24
+        outline: '#d6d9da'
+      shadow-depth: 0
+    switch-thumb:
+      fill: '#c9cbcc'
+      light: '#eeeeee'
+      shadow: '#888b8d'
+      outline: '#232526'
+      hover:
+        fill: '#ffffff'
+        opacity: 32
+        outline: '#d6d9da'
+      shadow-depth: 0
+    chart-main:
+      fill: '#5eae37'
+      outline: '#5eae37'
+      bevel: false
+      shadow-depth: 0
+      light: '#5eae37'
+      shadow: '#5eae37'
+    chart-win:
+      fill: '#979c9e'
+      outline: '#979c9e'
+      bevel: false
+      shadow-depth: 0
+      light: '#979c9e'
+      shadow: '#979c9e'
+    chart-other:
+      fill: '#54585a'
+      outline: '#54585a'
+      bevel: false
+      shadow-depth: 0
+      light: '#54585a'
+      shadow: '#54585a'
+    ticket:
+      fill: '#30383A'
+      light: '#566365'
+      shadow: '#22282A'
+      outline: '#22282A'
+      shadow-depth: 0
+      bevel: false
+    switch-on:
+      fill: '#5eae37'
+      light: '#a1d87d'
+      shadow: '#3e7029'
+      outline: '#304c25'
+      hover:
+        fill: '#ffffff'
+        opacity: 24
+        outline: '#d6d9da'
+      shadow-depth: 0
+native-widgets:
+  background:
+    enabled: false

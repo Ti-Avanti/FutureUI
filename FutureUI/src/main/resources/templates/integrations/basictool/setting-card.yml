@@ -1,0 +1,101 @@
+id: entry
+type: column
+gap: 9
+children:
+- id: open
+  type: button
+  text: '{item.plain-label}'
+  height: 27
+  actions:
+  - type: basictool:settings
+    operation: click
+    control: '{item.control}'
+    click: '{item.primary-click}'
+  enabled:
+    type: equals
+    input: '{item.enabled}'
+    output: 'true'
+  states:
+  - visible:
+      type: equals
+      input: '{item.selected}'
+      output: 'true'
+    skin: selected
+  - visible: true
+    skin: button
+- id: entry_hint
+  type: text
+  text: '@integrations.basictool.open-category-hint'
+  height: 18
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.choice}'
+        output: 'true'
+      - type: equals
+        input: '{item.selected}'
+        output: 'true'
+    text: '@integrations.basictool.selected-hint'
+  - visible:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.choice}'
+        output: 'true'
+      - type: equals
+        input: '{item.menu}'
+        output: scopes
+    text: '@integrations.basictool.scope-hint'
+  - visible:
+      type: equals
+      input: '{item.choice}'
+      output: 'true'
+    text: '@integrations.basictool.choice-hint'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: general
+    text: '@integrations.basictool.category-general'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: chat
+    text: '@integrations.basictool.category-chat'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: appearance
+    text: '@integrations.basictool.category-appearance'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: broadcast
+    text: '@integrations.basictool.category-broadcast'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: sound
+    text: '@integrations.basictool.category-sound'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: privacy
+    text: '@integrations.basictool.category-privacy'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: requests
+    text: '@integrations.basictool.category-requests'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: frost
+    text: '@integrations.basictool.category-frost'
+  - visible:
+      type: equals
+      input: '{item.category}'
+      output: quick
+    text: '@integrations.basictool.category-quick'
+  - visible: true

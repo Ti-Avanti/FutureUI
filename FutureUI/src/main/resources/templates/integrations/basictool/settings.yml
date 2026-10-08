@@ -1,0 +1,901 @@
+renderer: canvas
+permission: basictool.settings
+layout:
+  type: column
+  width: 666
+  padding: 0
+  gap: 9
+  theme: adventure
+  exit-button: false
+refresh-ticks: 0
+on-open:
+- type: basictool:settings
+  operation: opened
+on-close:
+- type: basictool:settings
+  operation: closed
+components:
+- id: page
+  type: list
+  source: basictool:settings
+  view: page
+  cache: false
+  paginate: false
+  item:
+    id: application
+    type: column
+    gap: 9
+    children:
+    - id: topbar
+      type: row
+      gap: 18
+      children:
+      - id: tab_left_space
+        type: spacer
+        width: 144
+        height: 27
+      - id: top_module_tabs
+        template: integrations/basictool/module-tabs
+        width: 504
+    - id: workspace
+      type: row
+      gap: 18
+      children:
+      - id: sidebar
+        type: column
+        gap: 0
+        children:
+        - id: home
+          type: button
+          text: '@integrations.basictool.settings-home'
+          height: 27
+          actions:
+          - type: basictool:settings
+            operation: home
+            control: '{item.control}'
+            click: '{item.primary-click}'
+          states:
+          - visible:
+              type: equals
+              input: '{item.home}'
+              output: 'true'
+            skin: selected
+          - visible: true
+            skin: button
+          text-align: start
+          padding: 9
+        - id: nav_top_gap
+          type: spacer
+          height: 9
+        - id: nav_items
+          type: column
+          gap: 0
+          children:
+          - id: navigation
+            type: list
+            source: basictool:settings
+            view: navigation
+            cache: false
+            paginate: true
+            item:
+              id: nav
+              type: button
+              text: '{item.plain-label}'
+              height: 27
+              actions:
+              - type: basictool:settings
+                operation: navigate
+                control: '{item.control}'
+                click: '{item.primary-click}'
+              text-align: start
+              padding: 9
+              enabled:
+                type: equals
+                input: '{item.enabled}'
+                output: 'true'
+              states:
+              - visible:
+                  type: equals
+                  input: '{item.selected}'
+                  output: 'true'
+                skin: selected
+              - visible: true
+                skin: button
+            icons:
+              general: book
+              chat: paper
+              appearance: name_tag
+              broadcast: gold_ingot
+              sound: experience_bottle
+              privacy: glass
+              requests: golden_apple
+              frost: iron_sword
+              quick: emerald
+              b: iron_sword
+              s: diamond
+              f: iron_axe
+              battle-royale-room-ticket: paper
+              playerpoints-summer-80: emerald
+            page-size: 7
+            layout:
+              type: column
+              gap: 0
+            visible:
+              type: equals
+              input: '{item.has-navigation}'
+              output: 'true'
+          height: 189
+        - id: nav_bottom_gap
+          type: spacer
+          height: 9
+        - id: nav_switcher
+          type: column
+          gap: 0
+          children:
+          - id: nav_pages
+            type: row
+            gap: 9
+            children:
+            - id: nav_prev
+              type: button
+              text: <
+              height: 27
+              actions:
+              - type: page
+                offset: -1
+              text-align: start
+              padding: 9
+            - id: nav_next
+              type: button
+              text: '>'
+              height: 27
+              actions:
+              - type: page
+                offset: 1
+              text-align: start
+              padding: 9
+            visible:
+              type: equals
+              input: '{item.navigation-paged}'
+              output: 'true'
+          height: 27
+        - id: nav_close_gap
+          type: spacer
+          height: 63
+        - id: close
+          type: button
+          text: '@integrations.basictool.close'
+          height: 27
+          actions:
+          - type: close
+          text-align: start
+          padding: 9
+        width: 144
+        height: 351
+      - id: body
+        type: column
+        gap: 9
+        children:
+        - id: heading
+          type: row
+          gap: 18
+          children:
+          - id: header_icon
+            type: image
+            image: book
+            size: 36
+            width: 54
+            height: 54
+            skin: readout
+          - id: heading_text
+            type: column
+            gap: 9
+            children:
+            - id: heading_title
+              type: text
+              text: '@integrations.basictool.section-settings'
+              height: 18
+              states:
+              - visible:
+                  type: equals
+                  input: '{item.menu}'
+                  output: category
+                text: <!i><bold>{item.category-label}
+              - visible:
+                  type: equals
+                  input: '{item.menu}'
+                  output: values
+                text: '@integrations.basictool.choose-setting'
+              - visible:
+                  type: equals
+                  input: '{item.menu}'
+                  output: scopes
+                text: '@integrations.basictool.scope-title'
+              - visible:
+                  type: equals
+                  input: '{item.menu}'
+                  output: reset
+                text: '@integrations.basictool.reset-title'
+              - visible: true
+            - id: identity
+              type: row
+              gap: 9
+              children:
+              - id: query_subject
+                type: text
+                text: <!i>{item.subject}
+                height: 27
+                skin: readout
+                padding: 9
+                visible:
+                  type: all
+                  conditions:
+                  - type: equals
+                    input: '{item.group}'
+                    output: statistics
+                  - type: equals
+                    input: '{item.self}'
+                    output: 'false'
+              - id: scope
+                type: text
+                text: '{item.scope}'
+                height: 27
+                skin: readout
+                visible:
+                  type: all
+                  conditions:
+                  - type: equals
+                    input: '{item.has-scope}'
+                    output: 'true'
+                  - type: not
+                    condition:
+                      type: equals
+                      input: '{item.menu}'
+                      output: overview
+                text-align: start
+                vertical-align: center
+                padding: 9
+              - id: page_number
+                type: text
+                text: '{item.page} / {item.pages}'
+                height: 27
+                width: 63
+                skin: readout
+                text-align: center
+                vertical-align: center
+                visible:
+                  type: not
+                  condition:
+                    type: equals
+                    input: '{item.pages}'
+                    output: '1'
+              height: 27
+        - id: categories
+          type: list
+          source: basictool:settings
+          view: entries
+          cache: false
+          paginate: false
+          item:
+            id: category
+            template: integrations/basictool/setting-card
+          icons:
+            general: book
+            chat: paper
+            appearance: name_tag
+            broadcast: gold_ingot
+            sound: experience_bottle
+            privacy: glass
+            requests: golden_apple
+            frost: iron_sword
+            quick: emerald
+            b: iron_sword
+            s: diamond
+            f: iron_axe
+            battle-royale-room-ticket: paper
+            playerpoints-summer-80: emerald
+            locale: emerald
+            display.players: name_tag
+            display.tab: name_tag
+            display.nametags: name_tag
+            chat.receive: book
+            chat.public: book
+            chat.private: paper
+            chat.party: book
+            chat.mention: gold_ingot
+            chat.channel: book
+            chat.color: book
+            chat.background: book
+            shout.player: book
+            shout.system: book
+            announcement.honor: book
+            announcement.recruitment: emerald
+            announcement.regular: book
+            announcement.chatgame: book
+            announcement.combat: iron_sword
+            notification.sound: experience_bottle
+            menu.sound: book
+            privacy.presence: emerald
+            nick.active: book
+            nick.reveal-friends: name_tag
+            privacy.statistics: book
+            privacy.api: book
+            manage.social-blocks: glass
+            manage.chat-blocks: gold_ingot
+            request.friend: book
+            request.party: book
+            request.duel: book
+            request.teleport: emerald
+            notification.friends: gold_ingot
+            frost.spectators: glass
+            frost.ping-scoreboard: book
+            frost.multi-platform: book
+            frost.ping-range: book
+            frost.time: book
+            frost.effect: book
+            frost.clear-inventory: book
+            frost.start-flying: paper
+            frost.kit-editor: book
+            quiet: book
+          layout:
+            type: grid
+            columns: 2
+            gap: 9
+          visible:
+            type: equals
+            input: '{item.menu}'
+            output: overview
+        - id: settings
+          type: list
+          source: basictool:settings
+          view: entries
+          cache: false
+          paginate: false
+          item:
+            id: setting
+            template: integrations/basictool/setting-entry
+          icons:
+            general: book
+            chat: paper
+            appearance: name_tag
+            broadcast: gold_ingot
+            sound: experience_bottle
+            privacy: glass
+            requests: golden_apple
+            frost: iron_sword
+            quick: emerald
+            b: iron_sword
+            s: diamond
+            f: iron_axe
+            battle-royale-room-ticket: paper
+            playerpoints-summer-80: emerald
+            locale: emerald
+            display.players: name_tag
+            display.tab: name_tag
+            display.nametags: name_tag
+            chat.receive: book
+            chat.public: book
+            chat.private: paper
+            chat.party: book
+            chat.mention: gold_ingot
+            chat.channel: book
+            chat.color: book
+            chat.background: book
+            shout.player: book
+            shout.system: book
+            announcement.honor: book
+            announcement.recruitment: emerald
+            announcement.regular: book
+            announcement.chatgame: book
+            announcement.combat: iron_sword
+            notification.sound: experience_bottle
+            menu.sound: book
+            privacy.presence: emerald
+            nick.active: book
+            nick.reveal-friends: name_tag
+            privacy.statistics: book
+            privacy.api: book
+            manage.social-blocks: glass
+            manage.chat-blocks: gold_ingot
+            request.friend: book
+            request.party: book
+            request.duel: book
+            request.teleport: emerald
+            notification.friends: gold_ingot
+            frost.spectators: glass
+            frost.ping-scoreboard: book
+            frost.multi-platform: book
+            frost.ping-range: book
+            frost.time: book
+            frost.effect: book
+            frost.clear-inventory: book
+            frost.start-flying: paper
+            frost.kit-editor: book
+            quiet: book
+          inline-choices: true
+          layout:
+            type: column
+            gap: 9
+          visible:
+            type: equals
+            input: '{item.menu}'
+            output: category
+        - id: choices
+          type: list
+          source: basictool:settings
+          view: entries
+          cache: false
+          paginate: false
+          item:
+            id: choice
+            template: integrations/basictool/setting-card
+          icons:
+            general: book
+            chat: paper
+            appearance: name_tag
+            broadcast: gold_ingot
+            sound: experience_bottle
+            privacy: glass
+            requests: golden_apple
+            frost: iron_sword
+            quick: emerald
+            b: iron_sword
+            s: diamond
+            f: iron_axe
+            battle-royale-room-ticket: paper
+            playerpoints-summer-80: emerald
+            locale: emerald
+            display.players: name_tag
+            display.tab: name_tag
+            display.nametags: name_tag
+            chat.receive: book
+            chat.public: book
+            chat.private: paper
+            chat.party: book
+            chat.mention: gold_ingot
+            chat.channel: book
+            chat.color: book
+            chat.background: book
+            shout.player: book
+            shout.system: book
+            announcement.honor: book
+            announcement.recruitment: emerald
+            announcement.regular: book
+            announcement.chatgame: book
+            announcement.combat: iron_sword
+            notification.sound: experience_bottle
+            menu.sound: book
+            privacy.presence: emerald
+            nick.active: book
+            nick.reveal-friends: name_tag
+            privacy.statistics: book
+            privacy.api: book
+            manage.social-blocks: glass
+            manage.chat-blocks: gold_ingot
+            request.friend: book
+            request.party: book
+            request.duel: book
+            request.teleport: emerald
+            notification.friends: gold_ingot
+            frost.spectators: glass
+            frost.ping-scoreboard: book
+            frost.multi-platform: book
+            frost.ping-range: book
+            frost.time: book
+            frost.effect: book
+            frost.clear-inventory: book
+            frost.start-flying: paper
+            frost.kit-editor: book
+            quiet: book
+          layout:
+            type: grid
+            columns: 2
+            gap: 9
+          visible:
+            type: any
+            conditions:
+            - type: equals
+              input: '{item.menu}'
+              output: values
+            - type: equals
+              input: '{item.menu}'
+              output: scopes
+        - id: reset_confirmation
+          type: column
+          gap: 18
+          children:
+          - id: reset_intro
+            type: row
+            gap: 9
+            children:
+            - id: reset_copy
+              type: column
+              gap: 0
+              children:
+              - id: reset_title
+                type: text
+                text: '@integrations.basictool.restore-title'
+                height: 18
+              - id: reset_help
+                type: text
+                text: '@integrations.basictool.restore-help'
+                height: 36
+              - id: reset_scope
+                type: text
+                text: <!i><white>{item.category-label} · {item.scope-label}
+                height: 18
+          - id: reset_actions
+            type: list
+            source: basictool:settings
+            view: entries
+            cache: false
+            paginate: false
+            item:
+              id: reset_action
+              type: button
+              text: '{item.plain-label}'
+              height: 27
+              actions:
+              - type: basictool:settings
+                operation: click
+                control: '{item.control}'
+                click: '{item.primary-click}'
+              enabled:
+                type: equals
+                input: '{item.enabled}'
+                output: 'true'
+              states:
+              - visible:
+                  type: equals
+                  input: '{item.symbol}'
+                  output: y
+                skin: selected
+              - visible: true
+            layout:
+              type: grid
+              columns: 2
+              gap: 9
+            icons:
+              locale: emerald
+              display.players: name_tag
+              display.tab: name_tag
+              display.nametags: name_tag
+              chat.receive: book
+              chat.public: book
+              chat.private: paper
+              chat.party: book
+              chat.mention: gold_ingot
+              chat.channel: book
+              chat.color: book
+              chat.background: book
+              shout.player: book
+              shout.system: book
+              announcement.honor: book
+              announcement.recruitment: emerald
+              announcement.regular: book
+              announcement.chatgame: book
+              announcement.combat: iron_sword
+              notification.sound: experience_bottle
+              menu.sound: book
+              privacy.presence: emerald
+              nick.active: book
+              nick.reveal-friends: name_tag
+              privacy.statistics: book
+              privacy.api: book
+              manage.social-blocks: glass
+              manage.chat-blocks: gold_ingot
+              request.friend: book
+              request.party: book
+              request.duel: book
+              request.teleport: emerald
+              notification.friends: gold_ingot
+              frost.spectators: glass
+              frost.ping-scoreboard: book
+              frost.multi-platform: book
+              frost.ping-range: book
+              frost.time: book
+              frost.effect: book
+              frost.clear-inventory: book
+              frost.start-flying: paper
+              frost.kit-editor: book
+              quiet: book
+          visible:
+            type: equals
+            input: '{item.menu}'
+            output: reset
+        - id: empty
+          type: text
+          text: '@integrations.basictool.empty'
+          height: 54
+          skin: readout
+          padding: 9
+          visible:
+            type: all
+            conditions:
+            - type: equals
+              input: '{item.empty}'
+              output: 'true'
+            - type: equals
+              input: '{item.menu}'
+              output: category
+          vertical-align: center
+        - id: category_footer
+          type: column
+          gap: 9
+          children:
+          - id: category_options
+            type: list
+            source: basictool:settings
+            view: controls
+            cache: false
+            paginate: false
+            item:
+              id: filtered_control
+              type: column
+              gap: 0
+              visible:
+                type: any
+                conditions:
+                - type: equals
+                  input: '{item.action-kind}'
+                  output: scope
+                - type: equals
+                  input: '{item.action-kind}'
+                  output: reset-category
+              children:
+              - id: control
+                type: button
+                text: '{item.plain-label}'
+                height: 27
+                actions:
+                - type: basictool:settings
+                  operation: click
+                  control: '{item.control}'
+                  click: '{item.primary-click}'
+                enabled:
+                  type: equals
+                  input: '{item.enabled}'
+                  output: 'true'
+                states:
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: previous
+                  text: '@integrations.basictool.previous'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: next
+                  text: '@integrations.basictool.next'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: back
+                  text: '@integrations.basictool.back-category'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: scope
+                  text: '@integrations.basictool.edit-scope'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: reset-category
+                  text: '@integrations.basictool.restore-category'
+                - visible:
+                    type: all
+                    conditions:
+                    - type: equals
+                      input: '{item.action-kind}'
+                      output: reset-value
+                    - type: equals
+                      input: '{item.global}'
+                      output: 'true'
+                  text: '@integrations.basictool.restore-default'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: reset-value
+                  text: '@integrations.basictool.use-common'
+                - visible: true
+            layout:
+              type: grid
+              columns: 2
+              gap: 9
+            visible:
+              type: equals
+              input: '{item.has-controls}'
+              output: 'true'
+            after-items:
+            - id: test_notification_sound
+              template: integrations/basictool/setting-preview
+          - id: category_pager
+            type: list
+            source: basictool:settings
+            view: controls
+            cache: false
+            paginate: false
+            item:
+              id: filtered_control
+              type: column
+              gap: 0
+              visible:
+                type: any
+                conditions:
+                - type: equals
+                  input: '{item.action-kind}'
+                  output: previous
+                - type: equals
+                  input: '{item.action-kind}'
+                  output: next
+              children:
+              - id: control
+                type: button
+                text: '{item.plain-label}'
+                height: 27
+                actions:
+                - type: basictool:settings
+                  operation: click
+                  control: '{item.control}'
+                  click: '{item.primary-click}'
+                enabled:
+                  type: equals
+                  input: '{item.enabled}'
+                  output: 'true'
+                states:
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: previous
+                  text: '@integrations.basictool.previous'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: next
+                  text: '@integrations.basictool.next'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: back
+                  text: '@integrations.basictool.back-category'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: scope
+                  text: '@integrations.basictool.edit-scope'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: reset-category
+                  text: '@integrations.basictool.restore-category'
+                - visible:
+                    type: all
+                    conditions:
+                    - type: equals
+                      input: '{item.action-kind}'
+                      output: reset-value
+                    - type: equals
+                      input: '{item.global}'
+                      output: 'true'
+                  text: '@integrations.basictool.restore-default'
+                - visible:
+                    type: equals
+                    input: '{item.action-kind}'
+                    output: reset-value
+                  text: '@integrations.basictool.use-common'
+                - visible: true
+            layout:
+              type: grid
+              columns: 2
+              gap: 9
+            visible:
+              type: all
+              conditions:
+              - type: equals
+                input: '{item.has-controls}'
+                output: 'true'
+              - type: not
+                condition:
+                  type: equals
+                  input: '{item.pages}'
+                  output: '1'
+          visible:
+            type: equals
+            input: '{item.menu}'
+            output: category
+        - id: controls
+          type: list
+          source: basictool:settings
+          view: controls
+          cache: false
+          paginate: false
+          item:
+            id: control
+            type: button
+            text: '{item.plain-label}'
+            height: 27
+            actions:
+            - type: basictool:settings
+              operation: click
+              control: '{item.control}'
+              click: '{item.primary-click}'
+            enabled:
+              type: equals
+              input: '{item.enabled}'
+              output: 'true'
+            states:
+            - visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: previous
+              text: '@integrations.basictool.previous'
+            - visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: next
+              text: '@integrations.basictool.next'
+            - visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: back
+              text: '@integrations.basictool.back-category'
+            - visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: scope
+              text: '@integrations.basictool.edit-scope'
+            - visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: reset-category
+              text: '@integrations.basictool.restore-category'
+            - visible:
+                type: all
+                conditions:
+                - type: equals
+                  input: '{item.action-kind}'
+                  output: reset-value
+                - type: equals
+                  input: '{item.global}'
+                  output: 'true'
+              text: '@integrations.basictool.restore-default'
+            - visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: reset-value
+              text: '@integrations.basictool.use-common'
+            - visible: true
+          layout:
+            type: grid
+            columns: 3
+            gap: 9
+          visible:
+            type: all
+            conditions:
+            - type: equals
+              input: '{item.has-controls}'
+              output: 'true'
+            - type: not
+              condition:
+                type: equals
+                input: '{item.menu}'
+                output: category
+        width: 504
+        padding: 9
+        skin: panel
+        min-height: 351
+  icons:
+    general: book
+    chat: paper
+    appearance: name_tag
+    broadcast: gold_ingot
+    sound: experience_bottle
+    privacy: glass
+    requests: golden_apple
+    frost: iron_sword
+    quick: emerald
+    b: iron_sword
+    s: diamond
+    f: iron_axe
+    battle-royale-room-ticket: paper
+    playerpoints-summer-80: emerald

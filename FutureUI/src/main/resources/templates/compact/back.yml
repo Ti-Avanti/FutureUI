@@ -1,0 +1,7 @@
+# 第二套紧凑像素界面；独立配置。
+id: back
+type: button
+text: '@common.back'
+validate: false
+actions:
+- type: back

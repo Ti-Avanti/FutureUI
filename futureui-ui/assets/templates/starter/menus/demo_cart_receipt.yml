@@ -1,0 +1,49 @@
+# 导航栏目与当前页面分别绑定，子功能页可返回栏目主页。
+id: demo_cart_receipt
+template: demo_workspace
+title: '@menus.demo.cart_receipt.title'
+bindings:
+  demo.section:
+    value: services
+  demo.page:
+    value: demo_cart_receipt
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: demo_navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: receipt
+      type: column
+      gap: 9
+      children:
+      - id: heading
+        type: text
+        text: '@menus.demo.cart_receipt.title'
+        height: 9
+      - id: counts
+        type: text
+        text: '@menus.demo.cart_receipt.counts'
+        height: 45
+        skin: readout
+        padding: 9
+      - id: paid
+        type: text
+        text: '@menus.demo.cart_receipt.total'
+        height: 45
+        skin: readout
+        padding: 9
+      - id: continue
+        type: button
+        text: '@menus.demo.receipt.continue'
+        height: 27
+        actions:
+        - type: open-menu
+          menu: demo_shop
+        skin: purchase
+      skin: surface
+      padding: 9

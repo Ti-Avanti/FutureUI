@@ -1,0 +1,12 @@
+title: <!i>Display
+heading: <!i><white><bold>DISPLAY</bold>
+description: <!i><gray>Choose where information appears, then return to the game.
+status: <!i>Top status bar
+actionbar: <!i>Coordinates
+tab: <!i>Player list details
+subtitle: <!i>Screen notice (8s)
+stop: <!i>Hide active display
+notifications: <!i>Purchase notices
+sound: <!i>Preview sound
+render-auto: <!i>Pixel interface
+render-native: <!i>Simple interface

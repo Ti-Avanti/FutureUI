@@ -1,0 +1,74 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/help
+title: '@menus.compact.help.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  compact.section:
+    value: help
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: compact/navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: help_group
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: help_group_title
+        type: text
+        text: '@menus.compact.help.heading'
+        height: 9
+      - id: help_text
+        type: text
+        text: '@menus.compact.help.body'
+        height: 72
+    - id: help_links
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: help_links_title
+        type: text
+        text: '@menus.compact.help.links'
+        height: 9
+      - id: help_actions
+        type: row
+        gap: 9
+        children:
+        - id: help_services
+          type: button
+          text: '@menus.services.title'
+          height: 27
+          actions:
+          - type: open-menu
+            menu: compact/services
+        - id: help_toolkit
+          type: button
+          text: '@menus.toolkit.title'
+          height: 27
+          actions:
+          - type: open-menu
+            menu: compact/toolkit
+      - id: original_ui
+        type: button
+        text: '@menus.compact.help.original'
+        height: 27
+        actions:
+        - type: open-menu
+          menu: main

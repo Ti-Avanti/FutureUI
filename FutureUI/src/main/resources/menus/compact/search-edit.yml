@@ -1,0 +1,31 @@
+# 第二套紧凑像素界面；导航固定，右侧切换内容。
+id: compact/search-edit
+template: compact/bedrock-form
+title: '@menus.search.query'
+layout:
+  panel-width: 450
+  panel-height: 225
+  button-width: 179
+  validation-feedback:
+    width: 360
+components:
+- id: search_help
+  type: text
+  text: '@menus.compact.search.help'
+  height: 27
+  width: 360
+- id: query
+  type: text-input
+  label: '@menus.search.query'
+  width: 360
+  initial: '{shop.search}'
+  max-length: 64
+- id: save
+  type: button
+  text: '@common.save'
+  actions:
+  - type: back
+    values:
+      shop.search: '{input.query}'
+- id: back
+  template: compact/back

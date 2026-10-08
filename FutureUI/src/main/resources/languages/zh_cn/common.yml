@@ -1,0 +1,17 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+back: "<!i>返回"
+close: "<!i>关闭"
+save: "<!i>保存"
+previous: "<!i>上一页"
+next: "<!i>下一页"
+"on": "<!i><green>开启"
+"off": "<!i><gray>关闭"
+
+ready: "<!i><green>已就绪"
+not-ready: "<!i><gray>未满足"
+refresh: "<!i>刷新"
+decrease: "<!i>减少"
+increase: "<!i>增加"
+maximum: "<!i>最大值"
+form-hint: "<!i><gray>填写后点击操作按钮提交；点击返回取消本次编辑。"
+confirm: "<!i><green>确认"

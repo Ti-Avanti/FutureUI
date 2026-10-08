@@ -1,0 +1,67 @@
+# 玩家菜单显示引擎：inventory / futureui；未安装 FutureUI 时保留原菜单。
+ui-engine: futureui
+
+# 自定义称号详情菜单
+
+title: "<gold><!i>自定义称号详情"
+size: 45
+
+# P = 称号预览
+# E = 佩戴/取消佩戴
+# D = 删除按钮，custom-tags.delete.enabled 为 false 时自动隐藏
+# B = 返回称号仓库
+# X = 装饰
+layout:
+  - "XXXXXXXXX"
+  - "XXXXPXXXX"
+  - "XXEXDXBXX"
+  - "XXXXXXXXX"
+  - "XXXXXXXXX"
+
+items:
+  X:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+    lore: []
+
+  P:
+    material: NAME_TAG
+    name: "<gold><!i>%tag_name%"
+    lore:
+      - "<gray>ID: %tag_id%"
+      - "<gray>展示: %tag_full%"
+      - "<gray>前缀: %tag_prefix%"
+      - "<gray>后缀: %tag_suffix%"
+      - "<gray>购买方式: %payment_provider%"
+      - "<gray>购买金额: %purchase_price%"
+      - "<gray>退款比例: %refund_percent%%"
+      - "<gray>退款金额: %refund_amount%"
+    actions: []
+
+  E:
+    material: EMERALD
+    name: "<green><!i>佩戴/取消佩戴"
+    lore:
+      - "<gray>点击切换这个自定义称号"
+    actions:
+      - "equip"
+
+  D:
+    material: BARRIER
+    name: "<red><!i>删除自定义称号"
+    lore:
+      - "<gray>只能删除自己的自定义称号"
+      - "<gray>删除功能: %delete_status%"
+      - "<gray>退款金额: %refund_amount%"
+      - ""
+      - "<yellow>点击进入确认菜单"
+    actions:
+      - "delete"
+
+  B:
+    material: ARROW
+    name: "<yellow><!i>返回称号仓库"
+    lore:
+      - "<gray>点击返回称号仓库"
+    actions:
+      - "back"

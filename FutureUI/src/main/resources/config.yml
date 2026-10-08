@@ -1,0 +1,69 @@
+# FutureUI 配置：所有文件均使用 UTF-8 无 BOM。
+config-version: 1
+# /fui 的默认入口，可改为任意已加载的菜单 ID。
+default-menu: main
+language:
+  default: zh_cn
+  fotiatranslator: true
+  aliases:
+    zh_hk: zh_tw
+    zh: zh_cn
+    en: en_us
+resources:
+  # auto：已启用 CraftEngine 时使用其合包分发，否则使用 external 下载地址。
+  # craftengine：明确要求 CraftEngine；external：独立生成 ZIP，由你上传到托管服务。
+  backend: auto
+  # 可编辑资源统一位于 FutureUI/assets：images.yml、theme.yml、pack.yml、versions.yml、textures、shaders。
+  # 完整目录：generated/resourcepack；独立 ZIP：generated/futureui-resource-pack.zip。
+  # 以下两个命令只在 craftengine 后端生效，保留已有服务器的自定义命令。
+  build-command: "ce reload all"
+  # 启动时触发 CraftEngine 合包；FutureUI 自身的资源和独立 ZIP 始终会生成。
+  build-on-start: true
+  # 菜单直接打开，不以资源包加载回执拦截；旧 require-pack / pack-fallback 配置不再生效。
+  # 由资源分发入口重新发送时使用的命令；打开菜单不会触发重发。
+  resend-command: "ce feature send-pack {player} --silent"
+  # CraftEngine 使用固定资源包 UUID 时填写；留空按文件 SHA-1 推导。
+  # external 后端始终按文件 SHA-1 推导 UUID，避免旧版本加载回执被误认。
+  expected-pack-uuid: ""
+  external:
+    # 上传生成的 ZIP 后填写玩家可访问的 HTTP(S) 直链；不会自动上传或开启 HTTP 服务。
+    # 可使用 {sha1}、{uuid} 占位符，例如在查询参数中区分每次构建。
+    url: ""
+    # 留空校验 FutureUI 独立 ZIP；手动合包时填写最终 ZIP 的本地路径。
+    # 相对路径以 FutureUI 数据目录为基准；下载直链必须提供该文件的相同内容。
+    verify-pack-path: ""
+    send-on-join: true
+    # true 时客户端拒绝资源包会被踢出；false 不强制接受，也不限制菜单打开。
+    required: false
+    prompt: "@messages.pack-prompt"
+metrics:
+  enabled: true
+transactions:
+  # 购物车按整单结算，任一步骤失败都会回滚已经完成的可逆操作。
+  max-cart-lines: 16
+  # 单笔发货物品总量上限；仍受商品规则、余额、库存及真实背包空间限制。
+  max-total-items: 65536
+currencies:
+  emeralds:
+    type: item
+    label: "@currencies.emeralds"
+    material: EMERALD
+placeholders:
+  # raw 保留原文；once 解析一轮；recursive 解析到稳定或达到上限。
+  mode: recursive
+  max-rounds: 5
+  max-length: 32768
+  order: local-first
+  # 玩家输入默认保持字面文本；配置中可用 {expand:input.xxx} 显式允许展开。
+  expand-input: false
+  exports:
+    coins: "%futureui_balance_vault%"
+    wallet: "%futureui_value_coins%"
+    balance-label: "&a%futureui_value_wallet%"
+actions:
+  # 单次动作流程的总步数；函数、分支与循环共用预算。
+  max-steps: 1024
+input-ui:
+  width: 594
+  panel-width: 662
+  panel-height: 369

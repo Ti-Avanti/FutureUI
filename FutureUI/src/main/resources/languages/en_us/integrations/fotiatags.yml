@@ -1,0 +1,93 @@
+title: <!i>Titles
+nav-tags: <!i>My titles
+nav-create: <!i>Create title
+nav-effects: <!i>My effects
+nav-shop: <!i>Effect shop
+nav-tags-short: <!i>Titles
+nav-create-short: <!i>Create
+nav-effects-short: <!i>Effects
+nav-shop-short: <!i>Shop
+view-tag-select: <!i>My titles
+view-custom-tag: <!i>Create your title
+view-custom-tag-icons: <!i>Choose an icon
+view-custom-tag-detail: <!i>Custom title
+view-custom-tag-delete: <!i>Delete this title?
+view-gradient-storage: <!i>My effects
+view-gradient-shop: <!i>Effect shop
+view-gradient-purchase-confirm: <!i>Unlock this effect?
+equipped: <!i>Equipped
+none: <!i>Nothing equipped
+count: <!i>{item.count} entries
+filter-all: <!i>All titles
+filter-normal: <!i>Standard
+filter-custom: <!i>Custom
+list-tip: <!i>Choose your style
+icons-tip: <!i>Choose an icon to return to the editor
+shop-tip: <!i>Preview an effect before unlocking
+empty: <!i>Nothing available here
+pick: <!i>Equip title
+pick-icon: <!i>Use icon
+manage: <!i>View details
+owned: <!i>Owned
+view-offer: <!i>View offer
+unequip: <!i>Unequip
+pick-name: <!i>Equip {item.name}
+pick-icon-name: <!i>Use {item.name}
+manage-name: <!i>View {item.name}
+owned-name: '<!i>Owned: {item.name}'
+view-offer-name: <!i>Unlock {item.name}
+unequip-name: <!i>Unequip {item.name}
+expiry: <!i>{item.days} d {item.hours} h left
+price-vault: <!i>Coins <green>{item.price}
+price-points: <!i>Points <green>{item.price}
+permanent: <!i>Permanent
+icon-choice: <!i>Tag icon
+confirm: <!i>Confirm unlock
+create: <!i>Create title
+processing: <!i>Processing…
+payment-unavailable: <!i>Payment unavailable
+funds: <!i>Insufficient funds
+limit: <!i>Title limit reached
+incomplete: <!i>Complete your title
+edit-prefix: <!i>Edit prefix >
+edit-suffix: <!i>Edit suffix >
+edit-icon: <!i>Choose icon >
+unset: <!i>Use the edit button
+equip: <!i>Equip title
+delete: <!i>Delete title
+back: <!i>Back
+details-hint: <!i>Equip or remove this title
+prefix-value: '<!i>Prefix: {item.target-prefix}'
+suffix-value: '<!i>Suffix: {item.target-suffix}'
+refund-vault: '<!i>Refund: <yellow>{item.refund} coins'
+refund-points: '<!i>Refund: <yellow>{item.refund} points'
+delete-warning: <!i>This removes the title from your collection
+confirm-delete: <!i>Confirm delete
+offer-hint: <!i>Equip it from My effects after unlocking
+missing: <!i>This entry is no longer available
+page: <!i>{item.page} / {item.pages}
+previous: <!i>‹
+next: <!i>›
+compact: <!i>Compact layout
+expand-short: <!i>Expand
+close: <!i>Close
+clear-tag: <!i>Unequip title
+clear-effect: <!i>Clear effect
+input-title: <!i>Edit title text
+input-heading: <!i>Save your text, then preview your title
+input-hint: <!i>Server rules apply to colors, length and content.
+input-label: <!i>Title text
+apply: <!i>Save text
+icon-selected: <!i>Selected icon
+icon-selected-name: '<!i>Selected: {item.name}'
+manage-selected: <!i>Equipped · Manage
+manage-selected-name: <!i>Manage {item.name}
+effect-use: <!i>Enable effect
+effect-clear: <!i>Disable effect
+effect-use-name: <!i>Enable {item.name}
+effect-clear-name: <!i>Disable {item.name}
+duration-permanent: <!i>Permanent unlock
+duration-days: <!i>Valid for {item.duration-value} days
+duration-hours: <!i>Valid for {item.duration-value} hours
+duration-minutes: <!i>Valid for {item.duration-value} minutes
+duration-seconds: <!i>Valid for {item.duration-value} seconds

@@ -1,0 +1,95 @@
+menu-unavailable: <!i><red>菜单不存在或没有权限。
+requirement-failed: <!i><red>尚未满足操作条件。
+busy: <!i><yellow>操作正在处理中，请稍候。
+cancelled: <!i><gray>操作已取消。
+currency-unavailable: <!i><red>该货币服务暂不可用。
+insufficient-funds: <!i><red>余额不足。
+refund-failed: <!i><red>退款尚未完成，请联系管理员核查交易记录。
+transaction-pending: <!i><yellow>存在待核查交易，请勿重复购买并联系管理员。
+invalid-product: <!i><red>商品或数量无效。
+invalid-price: <!i><red>商品价格配置无效。
+price-changed: <!i><yellow>商品价格已更新，请核对新的价格后再次购买。本次未扣款。
+out-of-stock: <!i><red>商品库存不足。
+inventory-full: <!i><red>背包空间不足，请先整理背包。
+delivery-failed: <!i><red>发货失败，款项已退回。
+storage-error: <!i><red>无法保存交易记录，本次未扣款。
+field-required: <!i><red>请填写此项。
+field-length: <!i><red>输入长度不符合要求。
+field-format: <!i><red>输入格式不正确。
+field-range: <!i><red>数值不符合允许范围、整数或步长要求。
+action-limit: <!i><red>动作链超过长度限制。
+action-failed: <!i><red>操作失败，请稍后重试。
+action-timeout: <!i><yellow>操作等待超时，请确认结果后再操作。
+invalid-command: <!i><red>命令参数无效。
+command-failed: <!i><red>命令未能执行。
+unknown-action: <!i><red>所需功能扩展未安装。
+translator-unavailable: <!i><yellow>FotiaTranslator 尚未就绪，当前跟随客户端语言。
+click-link: <!i><yellow>点击继续
+hud-unavailable: <!i><red>HUD 不存在。
+render-failed: <!i><red>菜单暂时无法显示，请联系管理员。
+data-unavailable: <!i><red>数据源不可用。
+loading: <!i><gray>正在加载……
+data-failed: <!i><red>数据读取失败，请重新打开。
+empty: <!i><gray>暂无内容。
+reload-success: <!i><green>FutureUI 配置已重载。
+reload-failed: <!i><red>重载失败，保留上一次有效配置。
+pack-building: <!i><yellow>资源已生成，CraftEngine 正在构建并发送。
+admin-only: <!i><red>没有管理权限。
+runtime-status: '<!i><green>FutureUI <gray>· 菜单 {menus} · 会话 {sessions} · 配置版本 {revision}
+
+  <gray>可用货币：<white>{currencies}'
+player-status: <!i><gray>语言 {locale} · 翻译插件 {translator} · 资源包已加载 {pack}
+transactions-empty: <!i><green>没有待处理的交易。
+transaction-entry: <!i><yellow>{id} <gray>{record}
+transaction-reviewed: <!i><green>交易 {id} 已标记处理完成。
+transaction-review-failed: <!i><red>交易 {id} 处理失败，请检查交易编号和服务器日志。
+transaction-usage: <!i><yellow>/fui transactions resolve <uuid> <DELIVERED|REFUNDED|CANCELLED>
+command-usage: <!i><gray>/fui open <menu> | close | reload | pack | status | transactions
+quantity-invalid: <!i><red>购买份数不符合商品范围或步长。
+purchase-limit: <!i><red>物品总数超过单笔发货上限，请减少份数。
+quote-changed: <!i><yellow>数量或商品信息已变化，已更新预览，请核对后再次确认。本次未扣款。
+items-missing: <!i><red>符合要求的物品不足，请检查背包或手持物品。
+quota-exceeded: <!i><yellow>本次操作超过今日可用额度。
+unknown-function: <!i><red>找不到配置中的动作函数。
+selection-range: <!i><red>选择数量不符合要求，请调整勾选项目。
+argument-invalid: <!i><red>参数 {argument} 不符合类型、范围或允许值。
+player-required: <!i><yellow>此操作需要由玩家执行。
+validation-failed: <!i><red>配置检查失败：{reason}
+validation-success: <!i><green>配置检查通过：{menus} 个菜单、{functions} 个函数、{rules} 个命名条件。
+inspect: <!i><gray>菜单 <white>{menu}<gray> / {renderer} / {components} 个组件 / 可用：{allowed} / {locale}
+trace-step: <!i><gray>第 {index} 轮：<white>{value}
+trace-result: '<!i><gray>结束原因：{stop}
+
+  <white>{value}'
+dryrun-step: '<!i><gray>{id} <white>条件：{allowed}
+
+  <gray>动作：{actions}'
+dryrun-note: <!i><yellow>仅检查当前条件和动作计划；未执行命令、扣款或物品修改，后续状态将在真正执行时重检。
+input-prompt: '<!i><white>请输入内容
+
+
+  <gray>内容通过校验后会保存并返回原来的菜单。'
+input-title: <!i>编辑内容
+input-label: <!i>内容
+input-hint: <!i><gray>确认保存，或点击返回放弃修改。原生输入中可使用 /fui cancel 取消。
+input-cancelled: <!i><gray>已取消输入。
+input-timeout: <!i><yellow>输入已超时，请重新打开。
+cart-full: <!i><yellow>购物车商品种类达到上限，请先结算或移除商品。
+cart-empty: <!i><gray>购物车为空，先去选购商品。
+client-unsupported: <!i><yellow>当前客户端协议无法确认支持 Dialog，请使用服务器支持的新版客户端。
+input-book: '<!i><white>右键手中的临时书页开始编辑，点击完成保存。
+
+  <gray>切换手持栏位或使用 /fui cancel 可取消。'
+shader-unsupported: "<!i><yellow>当前客户端协议 {protocol} 尚无着色器适配，请使用已支持的客户端版本。"
+client-profile: "<!i><gray>客户端协议 <white>{protocol}</white> · 资源覆盖层 <white>{profile}</white>"
+pack-verification: "<!i><yellow>资源包校验等待中：{reason}"
+pack-build-started: "<!i><yellow>正在生成 FutureUI 资源包。"
+pack-built: "<!i><green>本地 ZIP 已生成：<white>{path}</white>。分发后端：<white>{backend}</white>。external 模式请将 ZIP 上传到配置的下载地址。"
+pack-build-failed: "<!i><red>资源包构建失败，请查看服务器日志。"
+pack-backend: "<!i><gray>资源包分发后端：<white>{backend}"
+pack-prompt: "<!i><white>加载 FutureUI 菜单资源，以显示完整的图片与交互效果。"
+external-pack-unconfigured: "<!i>已生成独立资源包 {path}；请上传 ZIP，并在 resources.external.url 配置下载直链。当前未配置下载地址，图形菜单将按资源包回退设置处理。"
+pack-download-unconfigured: "<!i><yellow>管理员尚未配置菜单资源包下载地址，请联系管理员。"
+pack-send-failed: "<!i><red>资源包下载请求发送失败，请联系管理员。"
+
+chart-empty: "<!i><gray>暂无可绘制的数据。"

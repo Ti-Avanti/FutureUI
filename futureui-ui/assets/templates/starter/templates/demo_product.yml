@@ -1,0 +1,50 @@
+# 紧凑商品卡片，调整数量和交易在对应详情页完成。
+id: product_card
+type: column
+skin: panel
+padding: 9
+gap: 9
+children:
+  - id: name
+    type: text
+    text: '{item.name}'
+    height: 9
+  - id: overview
+    type: row
+    gap: 9
+    children:
+      - id: picture
+        type: image
+        image: '{item.icon}'
+        fallback-image: demo_stone
+        size: 72
+        width: 72
+      - id: amounts
+        type: column
+        skin: readout
+        padding: 9
+        gap: 0
+        children:
+          - id: bundle
+            type: text
+            text: '@menus.demo.shop.card-bundle'
+            height: 18
+          - id: price
+            type: text
+            text: '@menus.demo.shop.card-price'
+            height: 18
+          - id: total
+            type: text
+            text: '@menus.demo.shop.card-total'
+            height: 18
+  - id: details
+    type: button
+    text: '@menus.demo.shop.details'
+    height: 27
+    actions:
+      - type: open-menu
+        menu: demo_detail
+        arguments:
+          shop: '{item.shop}'
+          product: '{item.id}'
+          input.quantity: '{item.quantity}'

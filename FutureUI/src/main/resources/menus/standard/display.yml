@@ -1,0 +1,149 @@
+id: display
+title: '@menus.display.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 18
+  gap: 9
+components:
+- id: heading
+  type: text
+  text: '@menus.display.heading'
+  height: 27
+- id: description
+  type: text
+  text: '@menus.display.description'
+  height: 27
+- id: modes
+  type: grid
+  columns: 2
+  gap: 18
+  children:
+  - id: mode_status
+    type: button
+    text: '@menus.display.status'
+    actions:
+    - type: hud
+      hud: status
+    - type: sound
+      sound: minecraft:ui.button.click
+    - type: close
+    height: 36
+    states:
+    - visible:
+        type: equals
+        input: '{display.mode}'
+        output: status
+      skin: selected
+    - visible:
+        type: 'true'
+      skin: button
+  - id: mode_actionbar
+    type: button
+    text: '@menus.display.actionbar'
+    actions:
+    - type: hud
+      hud: actionbar
+    - type: sound
+      sound: minecraft:ui.button.click
+    - type: close
+    height: 36
+    states:
+    - visible:
+        type: equals
+        input: '{display.mode}'
+        output: actionbar
+      skin: selected
+    - visible:
+        type: 'true'
+      skin: button
+  - id: mode_tab
+    type: button
+    text: '@menus.display.tab'
+    actions:
+    - type: hud
+      hud: tab
+    - type: sound
+      sound: minecraft:ui.button.click
+    - type: close
+    height: 36
+    states:
+    - visible:
+        type: equals
+        input: '{display.mode}'
+        output: tab
+      skin: selected
+    - visible:
+        type: 'true'
+      skin: button
+  - id: mode_subtitle
+    type: button
+    text: '@menus.display.subtitle'
+    actions:
+    - type: hud
+      hud: subtitle
+    - type: sound
+      sound: minecraft:ui.button.click
+    - type: close
+    height: 36
+    states:
+    - visible:
+        type: equals
+        input: '{display.mode}'
+        output: subtitle
+      skin: selected
+    - visible:
+        type: 'true'
+      skin: button
+- id: stop
+  type: button
+  text: '@menus.display.stop'
+  actions:
+  - type: hide-hud
+  - type: refresh
+- id: options
+  type: row
+  gap: 18
+  children:
+  - id: notifications
+    type: toggle
+    key: input.notifications
+    persist: true
+    text: '@menus.display.notifications'
+  - id: sound
+    type: button
+    text: '@menus.display.sound'
+    actions:
+    - type: sound
+      sound: minecraft:entity.experience_orb.pickup
+- id: render_modes
+  type: row
+  gap: 18
+  children:
+  - id: render_auto
+    type: button
+    text: '@menus.display.render-auto'
+    height: 27
+    actions:
+    - type: save-preference
+      key: input.renderer
+      value: auto
+    - type: open-menu
+      menu: display
+  - id: render_native
+    type: button
+    text: '@menus.display.render-native'
+    height: 27
+    actions:
+    - type: save-preference
+      key: input.renderer
+      value: native
+    - type: open-menu
+      menu: display
+- id: back
+  type: button
+  text: '@common.back'
+  actions:
+  - type: back
+  width: 108

@@ -1,0 +1,41 @@
+title: <!i>Crates
+tab-preview: <!i>Rewards
+tab-history: <!i>History
+tab-results: <!i>Results
+ready: <!i>Choose your draws
+preparing: <!i>Confirming draws…
+spinning: <!i>Opening…
+revealed: <!i>Your reward
+settling: <!i>Processing rewards…
+complete: <!i><green>Draw complete
+failed: <!i><red>Unable to start
+keys: <!i>Keys  {item.keys}
+less: <!i>−
+more: <!i>+
+quantity-label: <!i>Draw amount
+single: <!i>One
+maximum-short: <!i>Max
+draw-selected: <!i>Open {item.amount}
+draw-compact: <!i>Open {item.amount}
+pity-heading: <!i>Next guarantee progress
+pity: <!i>Pity {item.pity} / {item.pity-target} · {item.pity-rarity}
+pity-short: <!i>Pity {item.pity}/{item.pity-target}
+no-pity: <!i>No guarantee
+page: <!i>{item.page} / {item.pages}
+previous: <!i>‹
+next: <!i>›
+empty: <!i>Nothing here yet
+loading: <!i>Loading…
+compact: <!i>Compact layout
+expand: <!i>Standard layout
+close: <!i>Close
+spin-hint: <!i>The pointer marks the winning reward
+reward-meta: <!i>{item.rarity} <dark_gray>· <white>{item.detail}
+obtained: <!i>Collected
+your-reward: <!i><green>Your reward
+reward-weight: <!i><gray>Weight <white>{item.detail}
+reward-result: <!i><gray>Draw <white>#{item.draw-index}
+reward-result-compact: <!i>{item.rarity} <dark_gray>· <white>Draw {item.draw-index}
+braking: <!i><yellow>Slowing down…
+reel-pointer: <!i><yellow>▼
+expand-short: <!i>Expand

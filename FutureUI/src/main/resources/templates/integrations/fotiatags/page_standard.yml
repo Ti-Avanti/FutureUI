@@ -1,0 +1,174 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 0
+  theme: adventure
+  exit-button: false
+refresh-ticks: 4
+on-open:
+- type: fotiatags:menu
+  operation: opened
+on-close:
+- type: fotiatags:menu
+  operation: closed
+components:
+- id: page_standard_page
+  type: list
+  source: fotiatags:menu
+  view: page
+  cache: false
+  paginate: false
+  item:
+    id: page_standard_workspace
+    type: column
+    gap: 9
+    children:
+    - id: page_standard_heading
+      type: text
+      text: '@integrations.fotiatags.view-tag-select'
+      height: 27
+      vertical-align: center
+      states:
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: custom-tag
+        text: '@integrations.fotiatags.view-custom-tag'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: custom-tag-icons
+        text: '@integrations.fotiatags.view-custom-tag-icons'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: custom-tag-detail
+        text: '@integrations.fotiatags.view-custom-tag-detail'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: custom-tag-delete
+        text: '@integrations.fotiatags.view-custom-tag-delete'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: gradient-storage
+        text: '@integrations.fotiatags.view-gradient-storage'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: gradient-shop
+        text: '@integrations.fotiatags.view-gradient-shop'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: gradient-purchase-confirm
+        text: '@integrations.fotiatags.view-gradient-purchase-confirm'
+      - visible: true
+      skin: readout
+      padding: 9
+    - id: page_standard_workspace_body
+      type: row
+      gap: 18
+      children:
+      - id: page_standard_nav
+        template: integrations/fotiatags/navigation_standard
+      - id: page_standard_content
+        template: integrations/fotiatags/body_standard
+    - id: page_standard_footer
+      type: row
+      gap: 9
+      children:
+      - id: page_standard_paging
+        type: row
+        gap: 0
+        children:
+        - id: page_standard_prev
+          type: button
+          text: '@integrations.fotiatags.previous'
+          height: 27
+          actions:
+          - type: fotiatags:menu
+            operation: previous
+          width: 27
+          enabled:
+            type: equals
+            input: '{item.previous}'
+            output: 'true'
+        - id: page_standard_page
+          type: text
+          text: '@integrations.fotiatags.page'
+          height: 27
+          vertical-align: center
+          skin: readout
+          width: 54
+          text-align: center
+          padding: 9
+        - id: page_standard_next
+          type: button
+          text: '@integrations.fotiatags.next'
+          height: 27
+          actions:
+          - type: fotiatags:menu
+            operation: next
+          width: 27
+          enabled:
+            type: equals
+            input: '{item.next}'
+            output: 'true'
+        width: 108
+      - id: page_standard_footer_action
+        type: button
+        text: '@integrations.fotiatags.back'
+        height: 27
+        actions:
+        - type: fotiatags:menu
+          operation: footer
+        width: 126
+        enabled:
+          type: equals
+          input: '{item.busy}'
+          output: 'false'
+        states:
+        - visible:
+            type: equals
+            input: '{item.view}'
+            output: tag-select
+          text: '@integrations.fotiatags.clear-tag'
+          enabled:
+            type: equals
+            input: '{item.can-clear}'
+            output: 'true'
+        - visible:
+            type: equals
+            input: '{item.view}'
+            output: gradient-storage
+          text: '@integrations.fotiatags.clear-effect'
+          enabled:
+            type: equals
+            input: '{item.can-clear}'
+            output: 'true'
+        - visible: true
+      - id: page_standard_layout
+        type: button
+        text: '@integrations.fotiatags.compact'
+        height: 27
+        actions:
+        - type: fotiatags:menu
+          operation: layout
+        width: 144
+        enabled:
+          type: equals
+          input: '{item.busy}'
+          output: 'false'
+      - id: page_standard_close
+        type: button
+        text: '@integrations.fotiatags.close'
+        height: 27
+        actions:
+        - type: fotiatags:menu
+          operation: close
+        width: 135

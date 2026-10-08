@@ -1,0 +1,161 @@
+id: preview_panel
+type: column
+width: 81
+padding: 0
+gap: 0
+skin: panel
+children:
+- id: title_row
+  type: row
+  gap: 0
+  height: 18
+  children:
+  - id: title_inset
+    type: spacer
+    width: 9
+    height: 18
+  - id: preview_title_text
+    type: text
+    text: '@integrations.fotiacosmetic.compact-current'
+    height: 18
+    states:
+    - visible:
+        type: equals
+        input: '{item.weapon}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.compact-weapon'
+    - visible: true
+- id: preview_stage
+  type: raster
+  height: 90
+  value: '{item.preview}'
+  skin: readout
+  states:
+  - visible:
+      type: equals
+      input: '{item.preview-available}'
+      output: 'true'
+  - visible:
+      type: equals
+      input: '{item.preview-loading}'
+      output: 'true'
+    type: text
+    text: '@integrations.fotiacosmetic.preview-loading'
+    padding: 0
+    text-align: center
+    vertical-align: center
+  - visible:
+      type: equals
+      input: '{item.has-selection}'
+      output: 'false'
+    type: text
+    text: '@integrations.fotiacosmetic-unified.choose-on-right'
+    padding: 0
+    text-align: center
+    vertical-align: center
+  - visible: true
+    type: text
+    text: '@integrations.fotiacosmetic.preview-unavailable'
+    padding: 0
+    text-align: center
+    vertical-align: center
+- id: status_row
+  type: row
+  gap: 0
+  height: 9
+  children:
+  - id: status_inset
+    type: spacer
+    width: 9
+    height: 9
+  - id: preview_status_text
+    type: text
+    text: '@integrations.fotiacosmetic.current-appearance'
+    height: 9
+    states:
+    - visible:
+        type: equals
+        input: '{item.preview-loading}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.thumbnail-loading'
+    - visible:
+        type: equals
+        input: '{item.section}'
+        output: legendary
+      text: '@integrations.fotiacosmetic-unified.legendary-help-short'
+    - visible:
+        type: equals
+        input: '{item.hidden}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.compact-hidden'
+    - visible:
+        type: equals
+        input: '{item.preview-partial}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.compact-partial'
+    - visible:
+        type: equals
+        input: '{item.preview-fallback}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.compact-default-skin'
+    - visible:
+        type: equals
+        input: '{item.equipped}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.equipped'
+    - visible: true
+- id: preview_actions
+  type: row
+  gap: 0
+  children:
+  - id: rotate_left
+    type: button
+    text: '@integrations.fotiacosmetic.rotate-left'
+    height: 27
+    actions:
+    - type: calculate
+      key: wardrobe.yaw
+      expression: '{wardrobe.yaw}  - 45'
+    width: 18
+  - id: unequip
+    type: button
+    text: '@integrations.fotiacosmetic.unequip-short'
+    height: 27
+    actions:
+    - type: fotiacosmetic:menu
+      operation: unequip
+    enabled:
+      type: all
+      conditions:
+      - type: equals
+        input: '{item.can-unequip}'
+        output: 'true'
+      - type: equals
+        input: '{item.hidden}'
+        output: 'false'
+      - type: equals
+        input: '{item.busy}'
+        output: 'false'
+    skin: button
+    disabled-skin: readout
+    states:
+    - visible:
+        type: equals
+        input: '{item.busy}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic.working'
+    - visible:
+        type: equals
+        input: '{item.weapon}'
+        output: 'true'
+      text: '@integrations.fotiacosmetic-unified.reset-short'
+    - visible: true
+  - id: rotate_right
+    type: button
+    text: '@integrations.fotiacosmetic.rotate-right'
+    height: 27
+    actions:
+    - type: calculate
+      key: wardrobe.yaw
+      expression: '{wardrobe.yaw}  + 45'
+    width: 18

@@ -1,0 +1,129 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: list_standard_list
+type: column
+gap: 9
+children:
+- id: list_standard_list_controls
+  type: row
+  gap: 0
+  children:
+  - id: list_standard_filters
+    type: row
+    gap: 9
+    children:
+    - id: list_standard_filter_all
+      type: button
+      text: '@integrations.fotiatags.filter-all'
+      height: 27
+      actions:
+      - type: fotiatags:menu
+        operation: filter
+        id: all
+      states:
+      - visible:
+          type: equals
+          input: '{item.filter}'
+          output: all
+        skin: selected
+      - visible: true
+        skin: button
+    - id: list_standard_filter_normal
+      type: button
+      text: '@integrations.fotiatags.filter-normal'
+      height: 27
+      actions:
+      - type: fotiatags:menu
+        operation: filter
+        id: normal
+      states:
+      - visible:
+          type: equals
+          input: '{item.filter}'
+          output: normal
+        skin: selected
+      - visible: true
+        skin: button
+    - id: list_standard_filter_custom
+      type: button
+      text: '@integrations.fotiatags.filter-custom'
+      height: 27
+      actions:
+      - type: fotiatags:menu
+        operation: filter
+        id: custom
+      states:
+      - visible:
+          type: equals
+          input: '{item.filter}'
+          output: custom
+        skin: selected
+      - visible: true
+        skin: button
+    visible:
+      type: equals
+      input: '{item.view}'
+      output: tag-select
+  - id: list_standard_list_tip_visibility
+    type: column
+    gap: 0
+    visible:
+      type: not
+      condition:
+        type: equals
+        input: '{item.view}'
+        output: tag-select
+    children:
+    - id: list_standard_list_tip
+      type: text
+      text: '@integrations.fotiatags.list-tip'
+      height: 27
+      vertical-align: center
+      skin: readout
+      states:
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: custom-tag-icons
+        text: '@integrations.fotiatags.icons-tip'
+      - visible:
+          type: equals
+          input: '{item.view}'
+          output: gradient-shop
+        text: '@integrations.fotiatags.shop-tip'
+      - visible: true
+      padding: 9
+- id: list_standard_entries_area
+  type: column
+  gap: 0
+  children:
+  - id: list_standard_entries
+    type: list
+    source: fotiatags:menu
+    view: entries
+    cache: false
+    paginate: false
+    item:
+      id: list_standard_entry
+      template: integrations/fotiatags/entry_standard
+    layout:
+      type: grid
+      columns: 2
+      gap: 9
+    visible:
+      type: equals
+      input: '{item.empty}'
+      output: 'false'
+  - id: list_standard_empty
+    type: text
+    text: '@integrations.fotiatags.empty'
+    height: 207
+    vertical-align: center
+    skin: panel
+    text-align: center
+    visible:
+      type: equals
+      input: '{item.empty}'
+      output: 'true'
+    padding: 9
+  min-height: 207
+min-height: 243

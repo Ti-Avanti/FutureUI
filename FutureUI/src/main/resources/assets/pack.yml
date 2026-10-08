@@ -1,0 +1,6 @@
+# FutureUI 资源元数据；使用 craftengine 后端时同步到其内容包。
+# namespace 与插件字体标识绑定，固定为 futureui；其余信息可修改。
+namespace: futureui
+author: Fotia
+version: beta
+description: FutureUI 菜单资源

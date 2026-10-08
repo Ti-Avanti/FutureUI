@@ -1,0 +1,88 @@
+# 控件外观配置：按钮、数字底板、悬停与表单背景。
+# 修改后执行 /fui reload，插件会重新生成资源，并使用所选后端分发。
+# 高级纹理覆盖：放到 assets/overrides/assets/<命名空间>/...，同路径文件优先于自动生成结果。
+# 完整生成结果位于 FutureUI/generated/resourcepack，请将长期修改放回配置或 overrides。
+# 通用基岩版风格主题：使用像素面板与立体按钮，画布外侧保持透明。
+canvas:
+  image-sizes: [36, 72, 144]
+  background:
+    enabled: false
+    color: "#313233"
+  interaction:
+    cover-focus-outline: false
+    outline-color: "#313233"
+    hover: true
+    # 默认仅显示按钮高亮；启用后在指针旁显示无底框的说明文字。
+    pointer-descriptions: false
+  styles:
+    # 通用只读数值底板：余额、价格、总数和页码共用，无按钮悬停效果。
+    readout:
+      bevel: false
+      shadow-depth: 0
+      fill: "#242526"
+      outline: "#626364"
+    # 可点击数字框：内凹底板，和两侧加减按钮区分。
+    quantity:
+      bevel: false
+      shadow-depth: 0
+      fill: "#242526"
+      light: "#141516"
+      shadow: "#747576"
+      outline: "#626364"
+      hover: {fill: "#4e8b39", opacity: 96, outline: "#a4dc82"}
+    panel:
+      fill: "#454647"
+      light: "#606162"
+      shadow: "#242526"
+      outline: "#242526"
+    surface:
+      fill: "#393a3b"
+      light: "#393a3b"
+      shadow: "#393a3b"
+      outline: "#393a3b"
+    header:
+      fill: "#202122"
+      light: "#202122"
+      shadow: "#202122"
+      outline: "#202122"
+    well:
+      fill: "#242526"
+      light: "#18191a"
+      shadow: "#606162"
+      outline: "#242526"
+    navigation:
+      fill: "#454647"
+      light: "#5f6061"
+      shadow: "#202122"
+      outline: "#202122"
+      hover: {fill: "#63bd45", opacity: 160, outline: "#c0e99a"}
+    button:
+      fill: "#565758"
+      light: "#8a8b8c"
+      shadow: "#292a2b"
+      outline: "#202122"
+      hover: {fill: "#63bd45", opacity: 160, outline: "#c0e99a"}
+    selected:
+      fill: "#3c8527"
+      light: "#79bb5b"
+      shadow: "#1d4d13"
+      outline: "#1d4d13"
+      hover: {fill: "#a4f07a", opacity: 72, outline: "#c0e99a"}
+    purchase:
+      fill: "#3c8527"
+      light: "#79bb5b"
+      shadow: "#1d4d13"
+      outline: "#1d4d13"
+      hover: {fill: "#a4f07a", opacity: 72, outline: "#c0e99a"}
+    disabled:
+      fill: "#393a3b"
+      light: "#565758"
+      shadow: "#242526"
+      outline: "#242526"
+# 原生按钮贴图会同时影响其他使用原版按钮的界面；底板只用于 FutureUI 的表单。
+native-widgets:
+  enabled: true
+  background: {enabled: true, color: "#313233"}
+  normal: {fill: "#565758", light: "#8a8b8c", shadow: "#292a2b", outline: "#202122"}
+  hover: {fill: "#3c8527", light: "#a4f07a", shadow: "#1d4d13", outline: "#1d4d13"}
+  disabled: {fill: "#393a3b", light: "#565758", shadow: "#242526", outline: "#242526"}

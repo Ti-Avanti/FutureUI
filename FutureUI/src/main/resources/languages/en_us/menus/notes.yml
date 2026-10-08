@@ -1,0 +1,7 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>Travel Notes"
+intro: "<!i><gray>Keep coordinates, plans and reminders for your next visit."
+label: "<!i>Note"
+saved: "<!i><green>Note saved."
+copy: "<!i>Copy note"
+copy-link: "<!i><green>Click to copy your note"

@@ -1,0 +1,18 @@
+# 通用表单外框；菜单可覆盖此布局，统一调整只需改本文件。
+renderer: dialog
+layout:
+  columns: 2
+  button-width: 296
+  panel-width: 662
+  panel-height: 369
+  exit-width: 200
+  exit-button: true
+  resize-for-errors: false
+  # 正常说明和校验错误共用底板，预留两行文字，避免出错时页面跳动。
+  validation-feedback:
+    width: 594
+    skin: readout
+    padding: 9
+    min-height: 36
+    show-label: false
+    text: "@common.form-hint"

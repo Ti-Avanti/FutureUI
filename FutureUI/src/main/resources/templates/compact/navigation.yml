@@ -1,0 +1,196 @@
+# 第二套紧凑像素界面；导航固定，右侧切换内容。
+id: navigation
+type: column
+width: 126
+gap: 0
+children:
+- id: nav_search
+  type: button
+  text: '@menus.compact.nav.search'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/search
+  icon: diamond
+  text-align: start
+  padding: 9
+  icon-size: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: search
+    skin: selected
+    text: '@menus.compact.nav.selected-search'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+- id: nav_gap_top
+  type: spacer
+  height: 9
+- id: nav_profile
+  type: button
+  text: '@menus.compact.nav.profile'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/profile
+    arguments:
+      target.uuid: '{player.uuid}'
+  icon: iron_sword
+  text-align: start
+  padding: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: profile
+    skin: selected
+    text: '@menus.compact.nav.selected-profile'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+  icon-size: 9
+- id: nav_settings
+  type: button
+  text: '@menus.compact.nav.settings'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/settings
+  icon: iron_pickaxe
+  text-align: start
+  padding: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: settings
+    skin: selected
+    text: '@menus.compact.nav.selected-settings'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+  icon-size: 9
+- id: nav_display
+  type: button
+  text: '@menus.compact.nav.display'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/display
+  icon: glass
+  text-align: start
+  padding: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: display
+    skin: selected
+    text: '@menus.compact.nav.selected-display'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+  icon-size: 9
+- id: nav_language
+  type: button
+  text: '@menus.compact.nav.language'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/language
+  icon: experience_bottle
+  text-align: start
+  padding: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: language
+    skin: selected
+    text: '@menus.compact.nav.selected-language'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+  icon-size: 9
+- id: nav_services
+  type: button
+  text: '@menus.compact.nav.services'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/services
+  icon: golden_apple
+  text-align: start
+  padding: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: services
+    skin: selected
+    text: '@menus.compact.nav.selected-services'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+  icon-size: 9
+- id: nav_shop
+  type: button
+  text: '@menus.compact.nav.shop'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/shop
+    arguments:
+      category: building
+      shop.search: ''
+  icon: emerald
+  text-align: start
+  padding: 9
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: shop
+    skin: selected
+    text: '@menus.compact.nav.selected-shop'
+    actions:
+    - type: refresh
+  - visible: true
+    skin: button
+  icon-size: 9
+- id: nav_gap_bottom
+  type: spacer
+  height: 18
+- id: nav_back
+  type: button
+  text: '@menus.compact.nav.back'
+  height: 27
+  actions:
+  - type: open-menu
+    menu: compact/main
+  states:
+  - visible:
+      type: equals
+      input: '{compact.section}'
+      output: main
+    text: '@menus.compact.nav.back'
+    actions:
+    - type: refresh
+  - visible: true
+- id: nav_gap_refresh
+  type: spacer
+  height: 9
+- id: nav_refresh
+  type: button
+  text: '@common.refresh'
+  height: 27
+  actions:
+  - type: refresh

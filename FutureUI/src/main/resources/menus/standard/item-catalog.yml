@@ -1,0 +1,82 @@
+template: bedrock-page
+id: item-catalog
+title: '@menus.item-catalog.title'
+permission: futureui.admin
+components:
+- id: heading
+  type: text
+  text: '@menus.item-catalog.heading'
+  height: 18
+- id: hint
+  type: text
+  text: '@menus.item-catalog.hint'
+  height: 45
+  skin: readout
+  padding: 9
+- id: catalog
+  type: list
+  source: item-catalog
+  cache: false
+  page-size: 4
+  layout:
+    type: grid
+    columns: 2
+    gap: 9
+    min-height: 207
+  item:
+    id: item
+    type: column
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: name
+      type: text
+      text: <!i><white>{item.name}
+      height: 9
+    - id: provider
+      type: text
+      text: <!i><gray>{item.provider} · {item.item-type}
+      height: 27
+      skin: readout
+      padding: 9
+    - id: give
+      type: button
+      text: '@menus.item-catalog.give'
+      height: 27
+      actions:
+      - type: give-item
+        item:
+          provider: '{item.provider}'
+          id: '{item.id}'
+          item-type: '{item.item-type}'
+- id: controls
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+  - id: page
+    type: text
+    text: <!i>{page} / {pages}
+    height: 27
+    skin: readout
+    padding: 9
+  - id: previous
+    type: button
+    text: '@common.previous'
+    height: 27
+    actions:
+    - type: page
+      offset: -1
+  - id: next
+    type: button
+    text: '@common.next'
+    height: 27
+    actions:
+    - type: page
+      offset: 1

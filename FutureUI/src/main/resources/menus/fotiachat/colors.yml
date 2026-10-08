@@ -1,0 +1,3 @@
+id: fotiachat/colors
+template: integrations/fotiachat/page
+title: '@integrations.fotiachat.title'

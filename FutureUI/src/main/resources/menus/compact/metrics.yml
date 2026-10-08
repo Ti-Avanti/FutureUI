@@ -1,0 +1,69 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/metrics
+title: '@menus.metrics.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+components:
+- id: heading
+  type: text
+  text: '@menus.metrics.heading'
+  height: 27
+- id: counts
+  type: list
+  source: metrics
+  cache: false
+  page-size: 8
+  layout:
+    type: column
+    gap: 0
+    min-height: 216
+  item:
+    id: count
+    type: text
+    skin: readout
+    padding: 9
+    text: '@menus.metrics.row'
+    height: 27
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    actions:
+    - type: back
+    width: 108
+    height: 27
+  - id: previous
+    type: button
+    text: '@common.previous'
+    actions:
+    - type: page
+      offset: -1
+    width: 108
+    height: 27
+  - id: page
+    type: text
+    skin: readout
+    text: '{page} / {pages}'
+    height: 27
+    text-align: center
+    vertical-align: center
+  - id: next
+    type: button
+    text: '@common.next'
+    actions:
+    - type: page
+      offset: 1
+    width: 108
+    height: 27
+permission: futureui.admin
+refresh-ticks: 100

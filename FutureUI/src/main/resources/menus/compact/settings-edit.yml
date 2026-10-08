@@ -1,0 +1,62 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/settings-edit
+template: compact/bedrock-form
+title: '@menus.compact.settings.edit'
+layout:
+  panel-width: 450
+  panel-height: 252
+  button-width: 179
+  validation-feedback:
+    width: 360
+components:
+- id: guide
+  type: canvas
+  width: 360
+  children:
+  - id: guide_panel
+    type: column
+    skin: panel
+    padding: 9
+    gap: 9
+    children:
+    - id: guide_panel_title
+      type: text
+      text: '@menus.compact.settings.edit'
+      height: 9
+    - id: guide_text
+      type: text
+      text: '@menus.compact.settings.edit-help'
+      height: 27
+- id: nickname
+  type: text-input
+  label: '@menus.settings.nickname'
+  width: 360
+  initial: '{player}'
+  max-length: 24
+  validation:
+    required: true
+    min-length: 2
+- id: volume
+  type: slider
+  label: '@menus.settings.volume'
+  width: 360
+  min: 0
+  max: 100
+  step: 5
+  initial: 60
+- id: save
+  type: button
+  text: '@common.save'
+  actions:
+  - type: save-preference
+    key: input.nickname
+    value: '{input.nickname}'
+  - type: save-preference
+    key: input.volume
+    value: '{input.volume}'
+  - type: back
+    values:
+      input.nickname: '{input.nickname}'
+      input.volume: '{input.volume}'
+- id: cancel
+  template: compact/back

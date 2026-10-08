@@ -1,0 +1,9 @@
+# 第二套紧凑像素界面；独立配置。
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: false

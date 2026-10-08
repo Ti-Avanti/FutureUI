@@ -1,0 +1,92 @@
+id: shop
+title: "@menus.shop.title"
+renderer: canvas
+# 通用布局，坐标单位为 GUI 像素；纵向高度、间距使用 9 的倍数。
+layout:
+  type: column
+  width: 666
+  gap: 9
+components:
+  - id: header
+    type: row
+    gap: 18
+    children:
+      - id: heading
+        type: text
+        width: 300
+        height: 27
+        vertical-align: center
+        text: "@menus.shop.welcome"
+      - id: account
+        type: text
+        skin: readout
+        padding: 9
+        text: "@menus.shop.card-account"
+  - id: storefront
+    type: row
+    gap: 18
+    children:
+      - id: categories
+        type: list
+        source: shop-categories
+        shop: system
+        width: 108
+        cache: false
+        paginate: false
+        layout:
+          type: column
+          gap: 9
+        item:
+          template: shop-category
+      - id: products
+        type: list
+        source: shop-products
+        shop: system
+        cache: false
+        page-size: 4
+        layout:
+          type: grid
+          columns: 2
+          gap: 9
+          min-height: 297
+        item:
+          template: shop-product
+  - id: footer
+    type: row
+    gap: 18
+    children:
+      - id: previous
+        type: button
+        width: 108
+        text: "@common.previous"
+        actions:
+          - type: page
+            offset: -1
+      - id: page
+        type: text
+        skin: readout
+        height: 27
+        text-align: center
+        vertical-align: center
+        text: "{page} / {pages}"
+      - id: search
+        type: button
+        width: 126
+        text: "@menus.shop.search"
+        actions:
+          - type: open-menu
+            menu: search
+      - id: settings
+        type: button
+        width: 108
+        text: "@menus.main.title"
+        actions:
+          - type: open-menu
+            menu: main
+      - id: next
+        type: button
+        width: 108
+        text: "@common.next"
+        actions:
+          - type: page
+            offset: 1

@@ -1,0 +1,6 @@
+id: back
+type: button
+text: "@common.back"
+validate: false
+actions:
+  - type: back

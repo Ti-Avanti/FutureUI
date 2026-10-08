@@ -1,0 +1,6 @@
+title: "<!i>物品回收"
+heading: "<!i><white><bold>物品回收</bold>  <gray>将多余材料换成金币"
+description: "<!i><gray>回收背包中的普通材料。\n\n价格按每份计算，点击即可出售一份。"
+price: "<!i><gray>每份 {item.amount} 个\n<green>{item.price} <gray>{item.currency}\n<gray>持有 <white>{item.owned}"
+sell: "<!i>出售一份"
+sold: "<!i><green>已出售 {sale.items} 个物品，获得 {sale.total}。"

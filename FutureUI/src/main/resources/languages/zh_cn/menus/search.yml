@@ -1,0 +1,8 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+title: "<!i>搜索与排序"
+query: "<!i>商品名称"
+sort: "<!i>排序方式"
+default: "<!i>默认顺序"
+price: "<!i>价格从低到高"
+apply: "<!i>搜索"
+description: "<!i><white>快速找到需要的商品<newline><newline><gray>输入商品名称，选择排序方式。<newline>留空可查看当前分类的全部商品。"

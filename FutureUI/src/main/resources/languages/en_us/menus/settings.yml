@@ -1,0 +1,9 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+title: "<!i>Preferences"
+description: "<!i><gray>These preferences apply to FutureUI."
+nickname: "<!i>Menu nickname"
+volume: "<!i>Menu sound volume"
+hints: "<!i>Show page guidance"
+notifications: "<!i>Purchase chat notifications"
+sort: "<!i>Default shop sort"
+saved: "<!i><green>Preferences saved."

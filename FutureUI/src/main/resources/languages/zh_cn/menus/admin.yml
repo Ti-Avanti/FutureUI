@@ -1,0 +1,15 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>管理中心"
+heading: "<!i><white><bold>管理中心</bold>"
+description: "<!i><gray>管理菜单配置、资源包与交易记录。仅管理员可用。"
+pack: "<!i>重建资源包"
+reload: "<!i>重载配置"
+transactions: "<!i>待处理交易"
+status: "<!i>查看运行状态"
+metrics: "<!i>使用统计"
+currencies: "<!i>货币接口"
+data: "<!i>数据源"
+actions: "<!i>扩展动作"
+extension: "<!i><gray>{item.name}  <white>{item.value}"
+
+toolkit: "<!i>管理工具"

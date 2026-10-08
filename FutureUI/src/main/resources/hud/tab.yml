@@ -1,0 +1,7 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+id: "tab"
+channel: "tab"
+duration-seconds: 0
+refresh-ticks: 20
+text: "@hud.tab-header"
+footer: "@hud.tab-footer"

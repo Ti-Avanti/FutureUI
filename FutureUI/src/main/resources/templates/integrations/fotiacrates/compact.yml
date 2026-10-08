@@ -1,0 +1,399 @@
+renderer: canvas
+permission: fotiacrates.use
+layout:
+  type: column
+  width: 252
+  padding: 0
+  gap: 0
+  theme: adventure
+  exit-button: false
+refresh-ticks: 0
+on-open:
+- type: fotiacrates:menu
+  operation: opened
+on-close:
+- type: fotiacrates:menu
+  operation: closed
+components:
+- id: page
+  type: list
+  source: fotiacrates:menu
+  view: page
+  cache: false
+  paginate: false
+  item:
+    id: workspace
+    type: column
+    children:
+    - id: header
+      type: row
+      gap: 9
+      children:
+      - id: crate_name
+        type: text
+        text: '{item.name}'
+        height: 27
+        text-align: center
+        vertical-align: center
+        width: 81
+        skin: readout
+        states:
+        - visible:
+            type: equals
+            input: '{item.history-other}'
+            output: 'true'
+          text: <!i>{item.history-name}
+        - visible: true
+      - id: tabs
+        type: row
+        gap: 0
+        children:
+        - id: tab_preview
+          type: button
+          text: '@integrations.fotiacrates.tab-preview'
+          height: 27
+          actions:
+          - type: fotiacrates:menu
+            operation: tab
+            id: preview
+          enabled:
+            type: equals
+            input: '{item.can-preview}'
+            output: 'true'
+          states:
+          - visible:
+              type: equals
+              input: '{item.view}'
+              output: preview
+            skin: selected
+          - visible: true
+            skin: button
+        - id: tab_history
+          type: button
+          text: '@integrations.fotiacrates.tab-history'
+          height: 27
+          actions:
+          - type: fotiacrates:menu
+            operation: tab
+            id: history
+          enabled:
+            type: equals
+            input: '{item.can-history}'
+            output: 'true'
+          states:
+          - visible:
+              type: equals
+              input: '{item.view}'
+              output: history
+            skin: selected
+          - visible: true
+            skin: button
+        - id: tab_results
+          type: button
+          text: '@integrations.fotiacrates.tab-results'
+          height: 27
+          actions:
+          - type: fotiacrates:menu
+            operation: tab
+            id: results
+          enabled:
+            type: equals
+            input: '{item.can-results}'
+            output: 'true'
+          states:
+          - visible:
+              type: equals
+              input: '{item.view}'
+              output: results
+            skin: selected
+          - visible: true
+            skin: button
+        width: 162
+    - id: metrics
+      type: row
+      gap: 9
+      children:
+      - id: keys
+        type: text
+        text: '@integrations.fotiacrates.keys'
+        height: 27
+        text-align: center
+        vertical-align: center
+        skin: readout
+        width: 81
+      - id: pity
+        type: text
+        text: '@integrations.fotiacrates.pity-short'
+        height: 27
+        text-align: center
+        vertical-align: center
+        skin: readout
+        states:
+        - visible:
+            type: equals
+            input: '{item.feedback}'
+            output: preparing
+          text: '@integrations.fotiacrates.preparing'
+        - visible:
+            type: equals
+            input: '{item.feedback}'
+            output: spinning
+          text: '@integrations.fotiacrates.spinning'
+        - visible:
+            type: equals
+            input: '{item.feedback}'
+            output: braking
+          text: '@integrations.fotiacrates.braking'
+        - visible:
+            type: equals
+            input: '{item.feedback}'
+            output: revealed
+          text: '@integrations.fotiacrates.revealed'
+        - visible:
+            type: equals
+            input: '{item.feedback}'
+            output: settling
+          text: '@integrations.fotiacrates.settling'
+        - visible:
+            type: equals
+            input: '{item.view}'
+            output: results
+          text: '@integrations.fotiacrates.complete'
+        - visible:
+            type: equals
+            input: '{item.feedback}'
+            output: failed
+          text: '@integrations.fotiacrates.failed'
+        - visible:
+            type: equals
+            input: '{item.has-pity}'
+            output: 'false'
+          text: '@integrations.fotiacrates.no-pity'
+        - visible: true
+    - id: content
+      type: column
+      gap: 0
+      children:
+      - id: entries
+        type: list
+        source: fotiacrates:menu
+        view: entries
+        cache: false
+        paginate: false
+        item:
+          id: reward
+          template: integrations/fotiacrates/reward_compact
+        layout:
+          type: grid
+          columns: 2
+          gap: 9
+        visible:
+          type: all
+          conditions:
+          - type: not
+            condition:
+              type: equals
+              input: '{item.view}'
+              output: spin
+          - type: equals
+            input: '{item.empty}'
+            output: 'false'
+          - type: not
+            condition:
+              type: all
+              conditions:
+              - type: equals
+                input: '{item.view}'
+                output: results
+              - type: equals
+                input: '{item.count}'
+                output: '1'
+      - id: empty_container
+        type: column
+        gap: 0
+        visible:
+          type: all
+          conditions:
+          - type: equals
+            input: '{item.empty}'
+            output: 'true'
+          - type: not
+            condition:
+              type: equals
+              input: '{item.view}'
+              output: spin
+        children:
+        - id: empty
+          type: text
+          text: '@integrations.fotiacrates.empty'
+          height: 72
+          text-align: center
+          vertical-align: center
+          skin: panel
+          states:
+          - visible:
+              type: equals
+              input: '{item.loading}'
+              output: 'true'
+            text: '@integrations.fotiacrates.loading'
+          - visible: true
+      - id: spin
+        type: column
+        children:
+        - id: pointer
+          type: text
+          text: '@integrations.fotiacrates.reel-pointer'
+          height: 9
+          text-align: center
+          vertical-align: center
+        - id: reel
+          type: viewport
+          region: crates_compact
+          height: 54
+          visible-items: '{item.reel-slots}'
+          position: '{item.reel-position}'
+          direction: '{item.reel-direction}'
+          gap: 0
+          children:
+          - id: frames
+            type: list
+            source: fotiacrates:menu
+            view: frames
+            cache: false
+            paginate: false
+            item:
+              id: frame
+              template: integrations/fotiacrates/frame_compact
+        gap: 0
+        visible:
+          type: equals
+          input: '{item.view}'
+          output: spin
+      - id: single_result
+        type: list
+        source: fotiacrates:menu
+        view: entries
+        cache: false
+        paginate: false
+        visible:
+          type: all
+          conditions:
+          - type: equals
+            input: '{item.view}'
+            output: results
+          - type: equals
+            input: '{item.count}'
+            output: '1'
+        item:
+          id: result_card
+          template: integrations/fotiacrates/result_compact
+      min-height: 72
+    - id: actions
+      type: row
+      gap: 9
+      children:
+      - id: quantity
+        type: row
+        gap: 0
+        children:
+        - id: less
+          type: button
+          text: '@integrations.fotiacrates.less'
+          height: 27
+          actions:
+          - type: fotiacrates:menu
+            operation: less
+          width: 27
+          enabled:
+            type: equals
+            input: '{item.can-less}'
+            output: 'true'
+        - id: amount
+          type: text
+          text: '{item.amount}'
+          height: 27
+          text-align: center
+          vertical-align: center
+          skin: readout
+        - id: more
+          type: button
+          text: '@integrations.fotiacrates.more'
+          height: 27
+          actions:
+          - type: fotiacrates:menu
+            operation: more
+          width: 27
+          enabled:
+            type: equals
+            input: '{item.can-more}'
+            output: 'true'
+        width: 81
+      - id: draw
+        type: button
+        text: '@integrations.fotiacrates.draw-compact'
+        height: 27
+        actions:
+        - type: fotiacrates:menu
+          operation: draw
+          id: selected
+        skin: selected
+        enabled:
+          type: equals
+          input: '{item.can-draw}'
+          output: 'true'
+    - id: footer
+      type: row
+      gap: 0
+      children:
+      - id: previous
+        type: button
+        text: '@integrations.fotiacrates.previous'
+        height: 27
+        actions:
+        - type: fotiacrates:menu
+          operation: previous
+        enabled:
+          type: equals
+          input: '{item.previous}'
+          output: 'true'
+        width: 27
+      - id: page
+        type: text
+        text: '@integrations.fotiacrates.page'
+        height: 27
+        text-align: center
+        vertical-align: center
+        skin: readout
+        width: 54
+      - id: next
+        type: button
+        text: '@integrations.fotiacrates.next'
+        height: 27
+        actions:
+        - type: fotiacrates:menu
+          operation: next
+        enabled:
+          type: equals
+          input: '{item.next}'
+          output: 'true'
+        width: 27
+      - id: layout
+        type: button
+        text: '@integrations.fotiacrates.expand-short'
+        height: 27
+        actions:
+        - type: fotiacrates:menu
+          operation: layout
+          id: standard
+        enabled:
+          type: equals
+          input: '{item.can-layout}'
+          output: 'true'
+      - id: close
+        type: button
+        text: '@integrations.fotiacrates.close'
+        height: 27
+        actions:
+        - type: close
+        width: 63
+    gap: 0

@@ -1,0 +1,20 @@
+# 模型和纹理相对于 plugins/FotiaCosmetic/previews；由管理员单独放置。
+# 本文件不附带测试模型，验证使用的模型和配置不可放进插件源码或发布包。
+# 可选的默认皮肤；留空时使用明确标注的灰色人形，在线皮肤优先。
+fallback-skin: ''
+# 每项对应一个真实时装 ID，支持 Blockbench 立方体模型或平面物品纹理。
+# file 与 texture 二选一；所有路径限制在 previews 目录内。
+# 示例（取消注释前先放置你自己的模型和纹理）：
+# models:
+#   your_hat:
+#     file: hats/your_hat.bbmodel
+#     exclude-groups: [Head]
+#     translation: [0, 0, 0]
+#     rotation: [0, 0, 0]
+#     scale: [1, 1, 1]
+#   your_weapon:
+#     texture: weapons/your_weapon.png
+#     translation: [0, 0, 0]
+#     rotation: [0, 0, 0]
+#     scale: [1, 1, 1]
+models: {}

@@ -1,0 +1,175 @@
+# 左右布局的份数选择页；数字框打开完整键盘录入页，所有操作均由配置定义。
+id: quantity
+title: "@menus.quantity.title"
+renderer: canvas
+layout:
+  type: column
+  width: 630
+  padding: 18
+  gap: 9
+components:
+  - id: heading
+    type: text
+    text: "@menus.quantity.heading"
+    height: 18
+  - id: checkout
+    type: row
+    gap: 18
+    children:
+      - id: product_panel
+        type: column
+        width: 216
+        height: 270
+        padding: 18
+        gap: 9
+        skin: surface
+        children:
+          - id: product_name
+            type: text
+            text: "{product.name}"
+            height: 9
+            text-align: center
+          - id: product_image
+            type: image
+            image: "{product.icon}"
+            fallback-image: shop-emblem
+            size: 144
+          - id: product_numbers
+            type: column
+            skin: readout
+            padding: 9
+            gap: 0
+            children:
+              - id: product_info
+                type: text
+                text: "@menus.purchase.product-info"
+                height: 27
+              - id: balance
+                type: text
+                text: "@menus.purchase.balance"
+      - id: payment_panel
+        type: column
+        padding: 9
+        gap: 9
+        skin: surface
+        children:
+          - id: quantity_label
+            type: text
+            text: "@menus.purchase.quantity"
+          - id: quantity_row
+            type: row
+            gap: 9
+            children:
+              - id: decrease
+                type: button
+                text: "−"
+                height: 36
+                actions:
+                  - type: adjust-number
+                    key: input.quantity
+                    initial: "{product.initial}"
+                    min: "{product.minimum}"
+                    max: "{product.maximum}"
+                    delta: "{product.decrement}"
+                    step: "{product.step}"
+              - id: quantity
+                type: button
+                text: "{product.quantity}"
+                skin: quantity
+                height: 36
+                tooltip: "@menus.shop.edit-quantity"
+                actions:
+                  - type: open-menu
+                    menu: quantity-input
+              - id: increase
+                type: button
+                text: "+"
+                height: 36
+                actions:
+                  - type: adjust-number
+                    key: input.quantity
+                    initial: "{product.initial}"
+                    min: "{product.minimum}"
+                    max: "{product.maximum}"
+                    delta: "{product.step}"
+                    step: "{product.step}"
+          - id: presets
+            type: list
+            source: variable-list
+            key: product.presets
+            cache: false
+            paginate: false
+            layout:
+              type: grid
+              columns: 3
+              gap: 9
+              min-height: 81
+            item:
+              id: preset
+              type: button
+              text: "{item.value}"
+              height: 36
+              states:
+                - visible:
+                    type: equals
+                    input: "{input.quantity}"
+                    output: "{item.value}"
+                  skin: selected
+                - visible:
+                    type: true
+                  skin: button
+              actions:
+                - type: set-variable
+                  key: input.quantity
+                  value: "{item.value}"
+            after-items:
+              - id: maximum
+                type: button
+                height: 36
+                text: "@menus.quantity.maximum"
+                enabled:
+                  type: equals
+                  input: "{product.any-available}"
+                  output: "true"
+                actions:
+                  - type: set-variable
+                    key: input.quantity
+                    value: "{product.available-maximum}"
+          - id: totals
+            type: column
+            skin: readout
+            padding: 9
+            gap: 0
+            children:
+              - id: item_count
+                type: text
+                text: "@menus.purchase.item-count"
+              - id: total_price
+                type: text
+                text: "@menus.purchase.total-price"
+              - id: availability
+                type: text
+                text: "{product.status}"
+                height: 18
+          - id: apply
+            type: button
+            text: "@menus.quantity.apply"
+            skin: purchase
+            height: 36
+            actions:
+              - type: back
+                values:
+                  "{product.quantity-key}": "{input.quantity}"
+                  input.quantity: "{input.quantity}"
+  - id: footer
+    type: row
+    gap: 18
+    children:
+      - id: back
+        template: back
+        width: 108
+      - id: help
+        type: text
+        text: "@menus.purchase.input-hint"
+        height: 27
+        vertical-align: center

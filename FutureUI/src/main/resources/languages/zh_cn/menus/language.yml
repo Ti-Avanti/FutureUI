@@ -1,0 +1,9 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>语言"
+heading: "<!i><white><bold>语言</bold>"
+current: "<!i><gray>当前菜单语言  <white>{player.language}\n<gray>客户端语言  <white>{client.language}"
+auto: "<!i>跟随客户端"
+zh_cn: "<!i>简体中文"
+en_us: "<!i>English"
+help: "<!i><gray>安装 FotiaTranslator 后，可为自己单独选择语言。"
+client-only: "<!i><gray>菜单正在跟随你的客户端语言。"

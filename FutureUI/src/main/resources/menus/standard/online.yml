@@ -1,0 +1,79 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+id: "online"
+title: "@menus.online.title"
+renderer: "canvas"
+layout:
+  type: "column"
+  width: 576
+  padding: 18
+  gap: 9
+components:
+  - id: "heading"
+    type: "text"
+    skin: "readout"
+    padding: 9
+    text: "@menus.online.heading"
+    height: 27
+  - id: "players"
+    type: "list"
+    source: "online-players"
+    cache: false
+    page-size: 6
+    layout:
+      type: "grid"
+      columns: 2
+      gap: 9
+      min-height: 243
+    item:
+      id: "player"
+      type: "column"
+      skin: "readout"
+      padding: 9
+      gap: 9
+      children:
+        - id: "player_name"
+          type: "text"
+          text: "@menus.online.player"
+        - id: "world"
+          type: "text"
+          text: "@menus.online.world"
+        - id: "inspect"
+          type: "button"
+          text: "@menus.online.inspect"
+          actions:
+            - type: "open-menu"
+              menu: "profile"
+              arguments:
+                target.uuid: "{item.uuid}"
+  - id: "footer"
+    type: "row"
+    gap: 9
+    children:
+      - id: "back"
+        type: "button"
+        text: "@common.back"
+        actions:
+          - type: "back"
+        width: 108
+      - id: "previous"
+        type: "button"
+        text: "@common.previous"
+        actions:
+          - type: "page"
+            offset: -1
+        width: 108
+      - id: "page"
+        type: "text"
+        skin: "readout"
+        text: "{page} / {pages}"
+        height: 27
+        vertical-align: "center"
+        text-align: "center"
+      - id: "next"
+        type: "button"
+        text: "@common.next"
+        actions:
+          - type: "page"
+            offset: 1
+        width: 108
+refresh-ticks: 100

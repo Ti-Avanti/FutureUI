@@ -1,0 +1,4 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>使用统计"
+heading: "<!i><white><bold>使用统计</bold>  <gray>当前运行期间的聚合次数"
+row: "<!i><gray>{item.name}  <green>{item.count}"

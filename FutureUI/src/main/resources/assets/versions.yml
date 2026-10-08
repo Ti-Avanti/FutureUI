@@ -1,0 +1,73 @@
+# 一个 ZIP；客户端按资源格式选择覆盖层，ViaVersion 只负责协议转换。
+# 修改后执行 /fui reload。新增版本必须同时适配着色器和协议，不能只扩大格式范围。
+config-version: 1
+description: 'FutureUI · Minecraft 1.21.8–26.3'
+# 未匹配的客户端：native 使用原生 Dialog，deny 拒绝打开图形菜单。
+unsupported-client: native
+craftengine:
+  # 本节仅用于 craftengine 后端；external 后端不会修改 CraftEngine 配置。
+  # CE 26.9+ 实际分发的包 ID；self 托管会自动定位到该包的 storage_path。
+  pack-id: default
+  # 留空自动定位；外部托管/自定义工作流可填写相对于 CraftEngine 的最终 ZIP 路径。
+  verify-pack-path: ''
+  # 同步 CE 的打包范围，防止其默认 min: server 把旧客户端排除。
+  # 配置首次被修改前会保存到 FutureUI/generated/migrations；合包仍由 CE 负责。
+  sync-supported-versions: true
+  min-version: '1.21.8'
+  max-version: '26.3'
+# 公共着色器逻辑；键为输出到 assets/futureui/shaders/include 的文件名。
+includes:
+  canvas_vertex.glsl: shaders/shared/canvas_vertex.glsl
+  canvas_fragment.glsl: shaders/shared/canvas_fragment.glsl
+# min/max-format 必须写成 [主版本, 次版本]；区间不能重叠，协议不能重复。
+# shaders 的键为客户端核心着色器文件名，值相对于 FutureUI/assets。
+# 图片/字体等公共覆盖文件放 overrides/assets；单版本覆盖放 overrides/<覆盖层名>/assets。
+profiles:
+  futureui_1218:
+    clients: '1.21.8'
+    protocols: [772]
+    min-format: [64, 0]
+    max-format: [64, 0]
+    shaders:
+      rendertype_text.vsh: shaders/1_21_8/rendertype_text.vsh
+      rendertype_text.fsh: shaders/1_21_8/rendertype_text.fsh
+  futureui_1219:
+    clients: '1.21.9–1.21.10'
+    protocols: [773]
+    min-format: [69, 0]
+    max-format: [69, 0]
+    shaders:
+      rendertype_text.vsh: shaders/1_21_9/rendertype_text.vsh
+      rendertype_text.fsh: shaders/1_21_9/rendertype_text.fsh
+  futureui_12111:
+    clients: '1.21.11'
+    protocols: [774]
+    min-format: [75, 0]
+    max-format: [75, 0]
+    shaders:
+      rendertype_text.vsh: shaders/1_21_11/rendertype_text.vsh
+      rendertype_text.fsh: shaders/1_21_11/rendertype_text.fsh
+  futureui_261:
+    clients: '26.1–26.1.2'
+    protocols: [775]
+    min-format: [84, 0]
+    max-format: [84, 0]
+    shaders:
+      rendertype_text.vsh: shaders/26_1/rendertype_text.vsh
+      rendertype_text.fsh: shaders/26_1/rendertype_text.fsh
+  futureui_262:
+    clients: '26.2'
+    protocols: [776]
+    min-format: [88, 0]
+    max-format: [88, 0]
+    shaders:
+      text.vsh: shaders/26_2/text.vsh
+      text.fsh: shaders/26_2/text.fsh
+  futureui_263:
+    clients: '26.3'
+    protocols: [777]
+    min-format: [97, 1]
+    max-format: [97, 1]
+    shaders:
+      text.vsh: shaders/26_3/text.vsh
+      text.fsh: shaders/26_3/text.fsh

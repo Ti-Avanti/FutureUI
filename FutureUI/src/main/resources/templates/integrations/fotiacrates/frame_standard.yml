@@ -1,0 +1,30 @@
+id: frame
+type: column
+children:
+- id: icon
+  type: image
+  image: '{item.image}'
+  size: 36
+  height: 54
+- id: name
+  type: text
+  text: <!i><white>{item.name}
+  height: 27
+  text-align: center
+  vertical-align: center
+- id: rarity
+  type: text
+  text: <!i>{item.rarity}
+  height: 18
+  text-align: center
+  vertical-align: center
+gap: 0
+skin: panel
+states:
+- visible:
+    type: equals
+    input: '{item.selected}'
+    output: 'true'
+  skin: selected
+- visible: true
+  skin: panel

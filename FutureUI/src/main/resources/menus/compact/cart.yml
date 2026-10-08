@@ -1,0 +1,142 @@
+# 第二套紧凑像素界面；独立配置。
+template: compact/bedrock-page
+id: compact/cart
+title: '@menus.cart.title'
+cart-summary: true
+components:
+- id: heading
+  type: text
+  text: '@menus.cart.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: summary
+    type: column
+    width: 198
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: icon
+      type: image
+      image: emerald
+      size: 72
+    - id: counts
+      type: text
+      text: '@menus.cart.counts'
+      height: 45
+      skin: readout
+      padding: 9
+    - id: total
+      type: text
+      text: '@menus.cart.total'
+      height: 54
+      skin: readout
+      padding: 9
+    - id: checkout
+      type: button
+      text: '@menus.cart.checkout'
+      height: 27
+      actions:
+      - type: cart-checkout
+        on-success:
+        - type: sound
+          sound: minecraft:entity.player.levelup
+        - type: message
+          text: '@menus.cart.purchased'
+        - type: open-menu
+          menu: compact/cart-receipt
+      skin: purchase
+      enabled:
+        type: compare
+        input: '{cart.lines}'
+        operator: '>'
+        output: 0
+  - id: entries
+    type: list
+    source: cart
+    cache: false
+    page-size: 2
+    layout:
+      type: column
+      gap: 9
+      min-height: 270
+    item:
+      id: line
+      type: row
+      skin: surface
+      padding: 9
+      gap: 9
+      children:
+      - id: icon
+        type: image
+        image: '{item.icon}'
+        fallback-image: shop-emblem
+        width: 72
+        size: 72
+      - id: info
+        type: column
+        gap: 0
+        children:
+        - id: name
+          type: text
+          text: '{item.name}'
+          height: 18
+        - id: amount
+          type: text
+          text: '@menus.cart.line'
+          height: 36
+          skin: readout
+          padding: 9
+        - id: remove
+          type: button
+          text: '@menus.cart.remove'
+          height: 27
+          actions:
+          - type: cart-remove
+            shop: '{item.shop}'
+            product: '{item.id}'
+- id: controls
+  type: row
+  gap: 9
+  children:
+  - id: shop
+    type: button
+    text: '@menus.cart.continue'
+    height: 27
+    actions:
+    - type: open-menu
+      menu: compact/shop
+  - id: clear
+    type: button
+    text: '@menus.cart.clear'
+    height: 27
+    actions:
+    - type: cart-clear
+    width: 108
+  - id: previous
+    type: button
+    text: '@common.previous'
+    height: 27
+    actions:
+    - type: page
+      offset: -1
+    width: 81
+  - id: next
+    type: button
+    text: '@common.next'
+    height: 27
+    actions:
+    - type: page
+      offset: 1
+    width: 81
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126

@@ -1,0 +1,122 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/inventory
+renderer: canvas
+title: '@menus.inventory.title'
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  workshop.stone:
+    type: item-count
+    match:
+      material: STONE
+      plain: true
+  workshop.emeralds:
+    type: item-count
+    match:
+      material: EMERALD
+      plain: true
+components:
+- id: heading
+  type: text
+  text: '@menus.inventory.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: guide
+    type: column
+    width: 198
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: emblem
+      type: image
+      image: shop-emblem
+      size: 72
+    - id: instructions
+      type: text
+      text: '@menus.inventory.instructions'
+      height: 45
+    - id: store
+      type: button
+      text: '@menus.inventory.shop'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/shop
+  - id: operations
+    type: column
+    gap: 9
+    children:
+    - id: counts
+      type: text
+      text: '@menus.inventory.counts'
+      skin: readout
+      padding: 9
+      height: 54
+    - id: recipe
+      type: text
+      text: '@menus.inventory.recipe'
+      skin: readout
+      padding: 9
+      height: 54
+    - id: exchange
+      type: button
+      text: '@menus.inventory.exchange'
+      skin: purchase
+      height: 27
+      requirements:
+        type: item
+        material: STONE
+        plain: true
+        amount: 16
+      actions:
+      - type: transaction
+        id: stone-exchange
+        actions:
+        - type: take-item
+          amount: 16
+          match:
+            material: STONE
+            plain: true
+        - type: give-item
+          amount: 1
+          item:
+            material: EMERALD
+        - type: data-add
+          key: workshop.exchanges
+          amount: 1
+        on-success:
+        - type: sound
+          sound: minecraft:entity.experience_orb.pickup
+        - type: message
+          text: '@menus.inventory.exchanged'
+    - id: details
+      type: button
+      text: '@menus.inventory.advanced'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/toolkit
+      visible:
+        type: permission
+        permission: futureui.admin
+    - id: note
+      type: text
+      text: '@menus.inventory.note'
+      height: 45
+- id: back
+  type: button
+  text: '@common.back'
+  height: 27
+  width: 162
+  actions:
+  - type: back

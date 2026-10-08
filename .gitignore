@@ -1,0 +1,15 @@
+*
+!/.gitignore
+!/.gitattributes
+!/AGENTS.md
+!/FutureUI/
+!/FutureUI/**
+!/futureui-ui/
+!/futureui-ui/**
+**/target/
+**/.codegraph/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.idea/
+**/*.iml

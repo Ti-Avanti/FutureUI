@@ -1,0 +1,158 @@
+settings-title: <!i>个人设置
+statistics-title: <!i>个人战绩
+vouchers-title: <!i>我的票券
+settings-home: <!i>设置总览
+statistics-home: <!i>战绩总览
+vouchers-home: <!i>票券列表
+home: <!i>返回总览
+close: <!i>关闭
+previous: <!i>上一页
+next: <!i>下一页
+back: <!i>返回
+back-category: <!i>返回
+edit-scope: <!i>设置适用位置
+restore-category: <!i>恢复本分类
+restore-default: <!i>恢复默认
+use-common: <!i>用通用设置
+'on': <!i><white>开启
+'off': <!i><#bbbbbb>关闭
+open-page: <!i>打开设置
+open-setting: <!i>打开设置 >
+choose: <!i>使用此选项
+selected: <!i>正在使用
+preview: <!i>设置预览
+preview-name: <!i>玩家
+preview-sidebar: <!i>侧边栏
+restore-title: <!i><white>恢复当前分类
+restore-help: '<!i><#bbbbbb>只恢复当前分类和适用位置内的设置。
+
+  其他分类保持现状。'
+empty: <!i><#bbbbbb>这里暂时没有可显示的内容。
+open: <!i>查看
+execute: <!i>确认
+inherit: <!i>恢复默认
+secondary: <!i>更多
+view-records: <!i>查看档案
+wins: <!i><white>胜场
+other-games: <!i><#bbbbbb>其他对局
+outcomes-title: <!i><white>对局表现
+outcomes-note: '<!i><#bbbbbb>图形根据已保存的对局数生成。
+
+  切换模式后更新统计。'
+no-records: '<!i><#bbbbbb>这份档案还没有可展示的战绩。
+
+  数据可用后会在这里显示。'
+records-note: <!i><#bbbbbb>只展示服务器实际保存的数据。
+ticket-balance: <!i><#bbbbbb>当前持有数量
+ticket-inspect: <!i>查看票券说明
+ticket-selected: <!i>已选择
+collection-note: <!i><#bbbbbb>选择票券，查看持有数量和使用说明。
+ticket-empty: <!i><#bbbbbb>还没有可以展示的票券。
+chart-title: <!i>对局统计示例
+chart-caption: <!i>演示数据 · 共 48 局，不是玩家实际战绩
+chart-bars: <!i>各模式对局数（局）
+chart-ring: <!i>胜率
+chart-stacked: <!i><white>表现分布
+sample-solo: <!i><white>单人模式
+sample-duo: <!i><white>双人模式
+sample-squad: <!i><white>小队模式
+settings-intro: <!i><#bbbbbb>选择一个分类，调整你的个人设置。
+open-category-hint: <!i><#bbbbbb>打开此分类的设置。
+choice-hint: <!i><#bbbbbb>点击应用此选项。
+selected-hint: <!i><#bbbbbb>当前使用的选项。
+scope-hint: <!i><#bbbbbb>查看此位置的设置。
+category-general: <!i><#bbbbbb>语言、玩家显示和界面信息
+category-chat: <!i><#bbbbbb>公聊、私聊、队伍和提醒
+category-appearance: <!i><#bbbbbb>聊天频道、颜色和背景
+category-broadcast: <!i><#bbbbbb>喊话、公告和游戏通知
+category-sound: <!i><#bbbbbb>通知提示音和菜单音效
+category-privacy: <!i><#bbbbbb>在线状态、战绩和匿名身份
+category-requests: <!i><#bbbbbb>好友、组队和传送邀请
+category-frost: <!i><#bbbbbb>比赛显示、匹配和个人设置
+category-quick: <!i><#bbbbbb>快速调整常用偏好
+tab-settings: <!i>设置
+tab-statistics: <!i>战绩
+tab-vouchers: <!i>票券
+section-settings: <!i><bold>设置分类
+section-statistics: <!i><bold>游戏记录
+section-vouchers: <!i><bold>票券与优惠券
+choose-setting: <!i><bold>选择选项
+scope-title: <!i><bold>设置适用位置
+reset-title: <!i><bold>恢复设置
+game-fotiabattleroyale: <!i><bold>大逃杀
+game-snowbyte: <!i><bold>Snowbyte
+game-frostmodern: <!i><bold>FrostModern
+preview-display: <!i><#bbbbbb>界面示意
+preview-scoreboard: <!i><#bbbbbb>计分板
+preview-player: <!i><white>玩家名称
+preview-players: <!i><#bbbbbb>附近玩家
+preview-tab: <!i><#bbbbbb>TAB
+preview-chat: <!i><#bbbbbb>聊天示意
+preview-public: <!i><white>公聊：一起出发吧。
+preview-party: <!i><white>队伍：准备好了。
+preview-chat-visible: <!i><#8fd46b>接收聊天
+preview-chat-hidden: <!i><#bbbbbb>聊天已隐藏
+preview-sound: <!i><#bbbbbb>通知提示音
+preview-listen: <!i>试听通知提示音
+chart-total: <!i>全部对局（局）
+chart-wins: <!i>获胜（局）
+chart-losses: <!i>落败（局）
+chart-view-count: <!i>查看对局数
+chart-view-share: <!i>查看占比
+chart-win-label: <!i>胜利
+chart-loss-label: <!i>落败
+chart-rate-explanation: <!i>胜率 = 获胜局数 ÷ 全部对局。
+chart-mode-share: <!i>各模式对局占比
+rank-current: <!i>当前段位
+rank-points: <!i>排位积分
+rank-rating: <!i>排位评分
+rank-elo: <!i>Elo 评分
+rank-unrated: <!i>暂无段位
+rank-casual: <!i>非排位记录
+rank-select: <!i>选择排位档案
+rank-empty: <!i>暂无排位记录
+rank-unavailable: <!i>段位暂不可用
+rank-rating-hint: <!i>来源仅提供评分，不转换为虚构段位。
+rank-unrated-hint: <!i>此记录未提供段位或评分，完成排位后再来看看。
+rank-casual-hint: <!i>这份档案用于对局统计，不计入排位段位。
+rank-select-hint: <!i>选择赛季和排位模式，查看对应段位。
+rank-empty-hint: <!i>目前没有已保存的排位档案。
+rank-status-disabled: <!i>此战绩来源尚未启用。
+rank-status-loading: <!i>正在读取已保存的段位。
+rank-status-unavailable: <!i>暂时无法读取战绩来源，请稍后重试。
+rank-status-schema_error: <!i>战绩来源尚未完成接入。
+rank-details-unknown: <!i>当前档案未提供晋级门槛。
+rank-hint-next: <!i>再获得 <white>{item.rank.remaining}</white> 积分，即达下一段。
+rank-hint-capped: <!i>已达到当前赛季的积分段位上限。
+rank-hint-leaderboard: <!i>荣誉段位按本赛季排行榜名次评定。
+rank-progress: <!i>晋级进度
+rank-no-progress: <!i>— 暂无可展示的晋级进度
+rank-capped-note: <!i>积分段位已满；荣誉段位由排行榜决定。
+rank-leaderboard-note: <!i>赛季排名  <white>#{item.rank.position}</white>
+rank-context: <!i>{item.season-label} · {item.mode-label}
+rank-season-context: <!i>{item.season-label} · 选择模式
+rank-win-rate: <!i>胜率
+rank-demo-title: <!i>段位展示
+rank-demo-notice: <!i>段位展示 · 演示数据，不是玩家实际战绩
+rank-demo-hint: <!i>左侧切换不同数据状态；段位区与真实战绩页使用同一模板。
+rank-demo-ready: <!i>黄金 III
+rank-demo-capped: <!i>积分段位上限
+rank-demo-leaderboard: <!i>排行榜段位
+rank-demo-rating: <!i>仅有评分
+rank-demo-unrated: <!i>暂无段位
+rank-demo-casual: <!i>非排位记录
+rank-demo-disabled: <!i>来源未启用
+rank-demo-empty: <!i>没有记录
+rank-demo-select: <!i>尚未选择模式
+rank-demo-chart: <!i>查看对局统计示例
+rank-demo-source: <!i>查看真实战绩
+rank-name-bronze: <!i><bold><#bd8556>青铜 {item.rank.division}
+rank-name-silver: <!i><bold><#c4cdd5>白银 {item.rank.division}
+rank-name-gold: <!i><bold><#f5c75d>黄金 {item.rank.division}
+rank-name-platinum: <!i><bold><#88e6dd>铂金 {item.rank.division}
+rank-name-diamond: <!i><bold><#75d9ee>钻石 {item.rank.division}
+rank-name-master: <!i><bold><#c6a7df>大师 {item.rank.division}
+rank-name-king: <!i><bold><#ffd976>王者 {item.rank.division}
+rank-name-glorious-king: <!i><bold><#ffc86b>荣耀王者 {item.rank.division}
+rank-name-supreme-king: <!i><bold><#ff865e>至尊王者 {item.rank.division}
+chart-sample-kills: <!i>击杀（次）

@@ -1,0 +1,22 @@
+title: <!i>聊天颜色
+preview: <!i><gray>发言预览
+saved: <!i><green>已应用
+reset-done: <!i><green>已恢复默认
+current: <!i><gray>当前颜色
+no-current: <!i><gray>默认样式
+reset: <!i>恢复默认
+reset-short: <!i>恢复默认
+compact: <!i>紧凑布局
+expand: <!i>标准布局
+close: <!i>关闭
+filter-all: <!i>全部
+filter-single: <!i>纯色
+filter-effects: <!i>渐变
+filter-available: <!i>可用
+page: <!i><white>{item.page} / {item.pages}
+previous: <!i>‹
+next: <!i>›
+empty: <!i><gray>没有符合条件的颜色
+empty-short: <!i><gray>暂无颜色
+locked-name: <!i><gray>× {item.name}
+save-failed: <!i><red>暂时无法保存颜色，请稍后重试。

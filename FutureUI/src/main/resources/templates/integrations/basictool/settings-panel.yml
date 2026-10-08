@@ -1,0 +1,263 @@
+# 固定六分类；默认六项/页，540×297 逻辑像素，不依赖窗口自动检测。
+renderer: canvas
+permission: basictool.settings
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 0
+  theme: basictool-settings
+  exit-button: false
+refresh-ticks: 0
+on-open:
+- type: basictool:settings
+  operation: opened
+on-close:
+- type: basictool:settings
+  operation: closed
+components:
+- id: page
+  type: list
+  source: basictool:settings
+  view: page
+  cache: false
+  paginate: false
+  item:
+    id: workspace
+    type: row
+    gap: 9
+    children:
+    - id: sidebar
+      type: column
+      width: 126
+      gap: 9
+      children:
+      - id: title
+        type: text
+        text: '@integrations.basictool.settings-title'
+        height: 27
+      - id: navigation
+        type: list
+        source: basictool:settings
+        view: navigation
+        cache: false
+        paginate: false
+        layout:
+          type: column
+          gap: 9
+        item:
+          id: category
+          type: button
+          text: '{item.plain-label}'
+          height: 27
+          actions:
+          - type: basictool:settings
+            operation: navigate
+            control: '{item.control}'
+          enabled:
+            type: equals
+            input: '{item.enabled}'
+            output: 'true'
+          states:
+          - visible:
+              type: equals
+              input: '{item.selected}'
+              output: 'true'
+            skin: selected
+          - visible: true
+            skin: button
+      - id: bottom_space
+        type: spacer
+        height: 9
+      - id: close
+        type: button
+        text: '@integrations.basictool.close'
+        height: 27
+        actions:
+        - type: close
+    - id: body
+      type: column
+      width: 405
+      gap: 0
+      children:
+      - id: heading
+        type: row
+        gap: 9
+        children:
+        - id: section
+          type: text
+          text: <!i><white>{item.category-label}
+          height: 27
+          states:
+          - visible:
+              type: equals
+              input: '{item.source}'
+              output: preference-values
+            text: <!i><white>{item.title}
+          - visible: true
+        - id: scope_area
+          type: column
+          width: 171
+          # 启动校验会同时测量互斥分支；实际显示一项时仍保持 27 高。
+          min-height: 27
+          gap: 0
+          children:
+          - id: scope_controls
+            type: list
+            source: basictool:settings
+            view: controls
+            cache: false
+            paginate: false
+            width: 171
+            layout:
+              type: row
+              gap: 0
+            item:
+              id: scope
+              type: button
+              text: '{item.scope_label} >'
+              height: 27
+              visible:
+                type: equals
+                input: '{item.action-kind}'
+                output: scope
+              actions:
+              - type: basictool:settings
+                operation: click
+                control: '{item.control}'
+                click: '{item.primary-click}'
+              enabled:
+                type: all
+                conditions:
+                - type: equals
+                  input: '{item.enabled}'
+                  output: 'true'
+                - type: equals
+                  input: '{item.panel_has_scopes}'
+                  output: 'true'
+            visible: &id001
+              type: all
+              conditions:
+              - type: equals
+                input: '{item.source}'
+                output: preferences
+              - type: equals
+                input: '{item.panel_has_scopes}'
+                output: 'true'
+          - id: scope_label
+            type: text
+            text: <!i><#A8BCBF>{item.scope-label}
+            height: 27
+            visible:
+              type: not
+              condition: *id001
+      - id: header_gap
+        type: spacer
+        height: 9
+      - id: content
+        type: column
+        gap: 0
+        min-height: 216
+        children:
+        - id: settings
+          type: list
+          source: basictool:settings
+          view: entries
+          cache: false
+          paginate: false
+          inline-choices: true
+          icons:
+            quiet: emerald
+            chat.receive: book
+            shout.player: gold_ingot
+            request.friend: golden_apple
+            notification.sound: experience_bottle
+            nick.active: name_tag
+            privacy.api: glass
+            locale: paper
+          visible:
+            type: all
+            conditions:
+            - type: equals
+              input: '{item.source}'
+              output: preferences
+            - type: equals
+              input: '{item.panel_scopes}'
+              output: 'false'
+          layout:
+            type: column
+            gap: 0
+          item:
+            id: setting
+            template: integrations/basictool/settings-panel-row
+        - id: choices
+          type: list
+          source: basictool:settings
+          view: entries
+          cache: false
+          paginate: false
+          visible:
+            type: any
+            conditions:
+            - type: equals
+              input: '{item.source}'
+              output: preference-values
+            - type: equals
+              input: '{item.panel_scopes}'
+              output: 'true'
+          layout:
+            type: grid
+            columns: 3
+            gap: 9
+          item:
+            id: choice
+            type: button
+            text: '{item.plain-label}'
+            height: 36
+            actions:
+            - type: basictool:settings
+              operation: click
+              control: '{item.control}'
+              click: '{item.primary-click}'
+            enabled:
+              type: equals
+              input: '{item.enabled}'
+              output: 'true'
+            states:
+            - visible:
+                type: equals
+                input: '{item.selected}'
+                output: 'true'
+              skin: selected
+            - visible: true
+              skin: button
+        - id: empty
+          type: text
+          text: '{item.empty-label}'
+          height: 36
+          visible:
+            type: equals
+            input: '{item.empty}'
+            output: 'true'
+      - id: feedback
+        type: text
+        text: '{item.panel_feedback}'
+        height: 18
+      - id: footer
+        type: list
+        source: basictool:settings
+        view: controls
+        cache: false
+        paginate: false
+        layout:
+          type: row
+          gap: 9
+        item:
+          id: control
+          template: integrations/basictool/settings-panel-control
+          visible:
+            type: not
+            condition:
+              type: equals
+              input: '{item.action-kind}'
+              output: scope

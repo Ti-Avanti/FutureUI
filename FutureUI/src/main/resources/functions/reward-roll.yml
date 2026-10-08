@@ -1,0 +1,21 @@
+# 通用配置示例，可按服务器需求修改；不依赖专属菜单代码。
+id: "reward-roll"
+parameters:
+  common: "BREAD"
+  rare: "GOLDEN_CARROT"
+actions:
+  -
+    type: "random"
+    choices:
+      -
+        weight: 80
+        actions:
+          -
+            type: "return"
+            value: "{arg.common}"
+      -
+        weight: 20
+        actions:
+          -
+            type: "return"
+            value: "{arg.rare}"

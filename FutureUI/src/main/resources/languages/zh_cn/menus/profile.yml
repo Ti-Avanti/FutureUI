@@ -1,0 +1,13 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>角色信息"
+heading: "<!i><white><bold>角色信息</bold>"
+name: "<!i><white>{profile.name}"
+world: "<!i><gray>世界  <white>{profile.world}"
+level: "<!i><gray>经验等级  <white>{profile.level}"
+ping: "<!i><gray>延迟  <white>{profile.ping} ms"
+health: "<!i><gray>生命值  <white>{profile.health} / {profile.max-health}"
+food: "<!i><gray>饱食度  <white>{profile.food} / 20"
+coordinates: "<!i><gray>位置  <white>{profile.x}, {profile.y}, {profile.z}"
+offline: "<!i><gray>该玩家已离线，请返回玩家列表。"
+copy: "<!i>复制玩家名"
+copy-link: "<!i><green>点击复制玩家名"

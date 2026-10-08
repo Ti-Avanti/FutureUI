@@ -1,0 +1,7 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>在线玩家"
+heading: "<!i><white><bold>在线玩家</bold>  <gray>共 {server.online} 人"
+player: "<!i><white>{item.name}  <gray>· 等级 {item.level}"
+world: "<!i><gray>{item.world} · {item.ping} ms"
+inspect: "<!i>查看角色"
+selected: "<!i><white>{item.name}"

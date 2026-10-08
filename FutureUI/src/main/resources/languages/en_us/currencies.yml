@@ -1,0 +1,6 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+vault: "<!i>Coins"
+playerpoints: "<!i>Points"
+experience: "<!i>Experience"
+levels: "<!i>Levels"
+emeralds: "<!i>Emeralds"

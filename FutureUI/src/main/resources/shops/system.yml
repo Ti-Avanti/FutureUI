@@ -1,0 +1,642 @@
+# 默认系统商店：每份数量、购买范围、回收价和折扣均可独立修改。
+id: system
+title: '@menus.shop.title'
+categories:
+- id: building
+  name: '@categories.building'
+  icon: BRICKS
+- id: nature
+  name: '@categories.nature'
+  icon: OAK_SAPLING
+- id: ores
+  name: '@categories.ores'
+  icon: DIAMOND
+- id: tools
+  name: '@categories.tools'
+  icon: IRON_PICKAXE
+- id: food
+  name: '@categories.food'
+  icon: BREAD
+- id: special
+  name: '@categories.special'
+  icon: EMERALD
+products:
+- id: stone
+  category: building
+  name: '@items.stone'
+  item:
+    material: STONE
+    icon: stone
+  amount: 16
+  price: 8
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  sell-price: 4
+  daily-sell-limit: 256
+  reset-timezone: Asia/Shanghai
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+  daily-limit: 512
+- id: bricks
+  category: building
+  name: '@items.bricks'
+  item:
+    material: BRICKS
+    icon: bricks
+  amount: 16
+  price: 24
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: glass
+  category: building
+  name: '@items.glass'
+  item:
+    material: GLASS
+    icon: glass
+  amount: 16
+  price: 16
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  sell-price: 8
+  daily-sell-limit: 256
+  reset-timezone: Asia/Shanghai
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: oak_planks
+  category: building
+  name: '@items.oak_planks'
+  item:
+    material: OAK_PLANKS
+    icon: oak_planks
+  amount: 16
+  price: 12
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  sell-price: 6
+  daily-sell-limit: 256
+  reset-timezone: Asia/Shanghai
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: quartz
+  category: building
+  name: '@items.quartz'
+  item:
+    material: QUARTZ_BLOCK
+    icon: quartz_block
+  amount: 16
+  price: 48
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: sandstone
+  category: building
+  name: '@items.sandstone'
+  item:
+    material: SANDSTONE
+    icon: sandstone
+  amount: 16
+  price: 12
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: oak_log
+  category: nature
+  name: '@items.oak_log'
+  item:
+    material: OAK_LOG
+    icon: oak_log
+  amount: 16
+  price: 24
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: dirt
+  category: nature
+  name: '@items.dirt'
+  item:
+    material: DIRT
+    icon: dirt
+  amount: 32
+  price: 8
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  sell-price: 4
+  daily-sell-limit: 256
+  reset-timezone: Asia/Shanghai
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: sand
+  category: nature
+  name: '@items.sand'
+  item:
+    material: SAND
+    icon: sand
+  amount: 32
+  price: 12
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: sapling
+  category: nature
+  name: '@items.sapling'
+  item:
+    material: OAK_SAPLING
+    icon: oak_sapling
+  amount: 4
+  price: 8
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: iron
+  category: ores
+  name: '@items.iron'
+  item:
+    material: IRON_INGOT
+    icon: iron_ingot
+  amount: 8
+  price: 64
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: gold
+  category: ores
+  name: '@items.gold'
+  item:
+    material: GOLD_INGOT
+    icon: gold_ingot
+  amount: 8
+  price: 96
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: diamond
+  category: ores
+  name: '@items.diamond'
+  item:
+    material: DIAMOND
+    icon: diamond
+  amount: 1
+  price: 128
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: coal
+  category: ores
+  name: '@items.coal'
+  item:
+    material: COAL
+    icon: coal
+  amount: 16
+  price: 16
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  sell-price: 8
+  daily-sell-limit: 256
+  reset-timezone: Asia/Shanghai
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: pickaxe
+  category: tools
+  name: '@items.pickaxe'
+  item:
+    material: IRON_PICKAXE
+    icon: iron_pickaxe
+  amount: 1
+  price: 96
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: axe
+  category: tools
+  name: '@items.axe'
+  item:
+    material: IRON_AXE
+    icon: iron_axe
+  amount: 1
+  price: 96
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: sword
+  category: tools
+  name: '@items.sword'
+  item:
+    material: IRON_SWORD
+    icon: iron_sword
+  amount: 1
+  price: 80
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: bread
+  category: food
+  name: '@items.bread'
+  item:
+    material: BREAD
+    icon: bread
+  amount: 8
+  price: 16
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  sell-price: 8
+  daily-sell-limit: 256
+  reset-timezone: Asia/Shanghai
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: steak
+  category: food
+  name: '@items.steak'
+  item:
+    material: COOKED_BEEF
+    icon: cooked_beef
+  amount: 8
+  price: 32
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: carrot
+  category: food
+  name: '@items.carrot'
+  item:
+    material: GOLDEN_CARROT
+    icon: golden_carrot
+  amount: 8
+  price: 64
+  currency: vault
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+  discounts:
+  - condition:
+      type: data
+      key: benefits.shop-discount
+      value: true
+    multiplier: 0.9
+  rounding: HALF_UP
+- id: points_diamond
+  category: special
+  name: '@items.points_diamond'
+  item:
+    material: DIAMOND
+    icon: diamond
+  amount: 1
+  price: 10
+  currency: playerpoints
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+- id: xp_bottle
+  category: special
+  name: '@items.xp_bottle'
+  item:
+    material: EXPERIENCE_BOTTLE
+    icon: experience_bottle
+  amount: 1
+  price: 25
+  currency: experience
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128
+- id: emerald_goldenapple
+  category: special
+  name: '@items.emerald_goldenapple'
+  item:
+    material: GOLDEN_APPLE
+    icon: golden_apple
+  amount: 1
+  price: 8
+  currency: emeralds
+  quantity:
+    min: 1
+    max: 128
+    initial: 1
+    step: 1
+    presets:
+    - 1
+    - 4
+    - 16
+    - 64
+    - 128

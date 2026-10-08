@@ -1,0 +1,196 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/purchase
+title: '@menus.purchase.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+components:
+- id: heading
+  type: text
+  text: '@menus.purchase.heading'
+  height: 18
+- id: checkout
+  type: row
+  gap: 9
+  children:
+  - id: product_panel
+    type: column
+    width: 126
+    padding: 9
+    gap: 9
+    skin: surface
+    children:
+    - id: product_name
+      type: text
+      text: '{product.name}'
+      height: 9
+      text-align: center
+    - id: product_image
+      type: image
+      image: '{product.icon}'
+      fallback-image: shop-emblem
+      size: 72
+    - id: product_numbers
+      type: column
+      skin: readout
+      padding: 9
+      gap: 0
+      children:
+      - id: product_info
+        type: text
+        text: '@menus.compact.purchase.product-info'
+        height: 36
+      - id: balance
+        type: text
+        text: '@menus.purchase.balance'
+  - id: payment_panel
+    type: column
+    padding: 9
+    gap: 9
+    skin: surface
+    children:
+    - id: quantity_label
+      type: text
+      text: '@menus.purchase.quantity'
+    - id: quantity_row
+      type: row
+      gap: 9
+      children:
+      - id: decrease
+        type: button
+        text: −
+        width: 36
+        actions:
+        - type: adjust-number
+          key: input.quantity
+          initial: '{product.initial}'
+          min: '{product.minimum}'
+          max: '{product.maximum}'
+          delta: '{product.decrement}'
+          step: '{product.step}'
+        height: 27
+      - id: quantity
+        type: button
+        text: '{product.quantity}'
+        skin: quantity
+        tooltip: '@menus.shop.edit-quantity'
+        actions:
+        - type: open-menu
+          menu: compact/quantity
+        height: 27
+      - id: increase
+        type: button
+        text: +
+        width: 36
+        actions:
+        - type: adjust-number
+          key: input.quantity
+          initial: '{product.initial}'
+          min: '{product.minimum}'
+          max: '{product.maximum}'
+          delta: '{product.step}'
+          step: '{product.step}'
+        height: 27
+    - id: presets
+      type: list
+      source: variable-list
+      key: product.presets
+      cache: false
+      paginate: false
+      layout:
+        type: grid
+        columns: 3
+        gap: 9
+        min-height: 63
+      item:
+        id: preset
+        type: button
+        text: '{item.value}'
+        actions:
+        - type: set-variable
+          key: input.quantity
+          value: '{item.value}'
+        height: 27
+    - id: maximum
+      type: button
+      text: '@menus.purchase.maximum'
+      enabled:
+        type: equals
+        input: '{product.any-available}'
+        output: 'true'
+      actions:
+      - type: set-variable
+        key: input.quantity
+        value: '{product.available-maximum}'
+      height: 27
+    - id: totals
+      type: column
+      skin: readout
+      padding: 9
+      gap: 0
+      children:
+      - id: item_count
+        type: text
+        text: '@menus.purchase.item-count'
+      - id: total_price
+        type: text
+        text: '@menus.purchase.total-price'
+      - id: availability
+        type: text
+        text: '{product.status}'
+        height: 18
+    - id: confirm
+      type: button
+      text: '@menus.purchase.confirm'
+      skin: purchase
+      height: 27
+      enabled:
+        type: equals
+        input: '{product.available}'
+        output: 'true'
+      actions:
+      - type: purchase
+        shop: '{shop}'
+        product: '{product}'
+        quantity: '{input.quantity}'
+        quoted-price: '{product.price}'
+      - type: sound
+        sound: minecraft:entity.experience_orb.pickup
+      - type: message
+        text: '@menus.receipt.body'
+        condition:
+          type: equals
+          input: '{data.input.notifications}'
+          output: 'true'
+      - type: open-menu
+        menu: compact/receipt
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    template: compact/back
+    width: 108
+  - id: cart_add
+    type: button
+    text: '@menus.cart.add'
+    width: 144
+    height: 27
+    actions:
+    - type: cart-add
+      shop: '{shop}'
+      product: '{product}'
+      quantity: '{input.quantity}'
+    - type: open-menu
+      menu: compact/cart
+  - id: help
+    type: text
+    text: '@menus.purchase.input-hint'
+    height: 27
+    vertical-align: center

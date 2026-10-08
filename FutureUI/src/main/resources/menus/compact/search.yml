@@ -1,0 +1,174 @@
+# 第二套紧凑像素界面；导航固定，右侧切换内容。
+id: compact/search
+title: '@menus.search.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  compact.section:
+    value: search
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: compact/navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: filters
+      type: column
+      gap: 9
+      children:
+      - id: filters_title
+        type: text
+        text: '@menus.compact.search.filters'
+        height: 9
+      - id: query
+        type: button
+        text: '@menus.compact.search.value'
+        height: 27
+        actions:
+        - type: open-menu
+          menu: compact/search-edit
+        skin: readout
+        text-align: start
+        padding: 9
+        states:
+        - visible:
+            type: equals
+            input: '{shop.search}'
+            output: ''
+          text: '@menus.compact.search.empty'
+        - visible: true
+      - id: sort_options
+        type: row
+        gap: 9
+        children:
+        - id: sort_default
+          type: button
+          text: '@menus.search.default'
+          height: 27
+          actions:
+          - type: set-variable
+            key: shop.sort
+            value: default
+          states:
+          - visible:
+              type: equals
+              input: '{shop.sort}'
+              output: default
+            skin: selected
+          - visible: true
+            skin: button
+        - id: sort_price
+          type: button
+          text: '@menus.search.price'
+          height: 27
+          actions:
+          - type: set-variable
+            key: shop.sort
+            value: price
+          states:
+          - visible:
+              type: equals
+              input: '{shop.sort}'
+              output: price
+            skin: selected
+          - visible: true
+            skin: button
+      skin: panel
+      padding: 9
+    - id: categories
+      type: column
+      gap: 9
+      children:
+      - id: categories_title
+        type: text
+        text: '@menus.compact.search.category'
+        height: 9
+      - id: category_choices
+        type: list
+        source: shop-categories
+        shop: system
+        cache: false
+        paginate: false
+        layout:
+          type: grid
+          columns: 2
+          gap: 9
+          min-height: 99
+        item:
+          id: category
+          type: button
+          text: '{item.name}'
+          height: 27
+          actions:
+          - type: if
+            when:
+              type: equals
+              input: '{item.selected}'
+              output: 'true'
+            then:
+            - type: list
+              key: category
+              value: '{item.selected-categories}'
+              operation: remove
+              item: '{item.id}'
+            else:
+            - type: list
+              key: category
+              value: '{item.selected-categories}'
+              operation: append
+              item: '{item.id}'
+          - type: page
+            absolute: 0
+          states:
+          - visible:
+              type: equals
+              input: '{item.selected}'
+              output: 'true'
+            skin: selected
+          - visible: true
+            skin: button
+      - id: search_actions
+        type: row
+        gap: 9
+        children:
+        - id: clear
+          type: button
+          text: '@menus.compact.search.clear'
+          height: 27
+          actions:
+          - type: set-variable
+            key: shop.search
+            value: ''
+          - type: set-variable
+            key: shop.sort
+            value: ''
+          - type: set-variable
+            key: category
+            value: []
+          - type: page
+            absolute: 0
+        - id: apply
+          type: button
+          text: '@menus.compact.search.results'
+          height: 27
+          actions:
+          - type: open-menu
+            menu: compact/shop
+          skin: selected
+      skin: panel
+      padding: 9
+defaults:
+  shop.search: ''
+  shop.sort: ''
+  category: []

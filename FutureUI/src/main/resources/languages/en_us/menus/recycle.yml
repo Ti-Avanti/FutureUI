@@ -1,0 +1,6 @@
+title: "<!i>Sell items"
+heading: "<!i><white><bold>Sell items</bold>  <gray>Turn spare materials into coins"
+description: "<!i><gray>Sell plain materials from your inventory.\n\nPrices are per bundle. One click sells one bundle."
+price: "<!i><gray>{item.amount} / bundle\n<green>{item.price} <gray>{item.currency}\n<gray>Owned <white>{item.owned}"
+sell: "<!i>Sell one bundle"
+sold: "<!i><green>Sold {sale.items} items for {sale.total}."

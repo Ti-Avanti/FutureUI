@@ -1,0 +1,90 @@
+# 使用客户端原版像素图；逐行宽度来自原版纹理 Alpha。
+images:
+  name_tag:
+    vanilla: minecraft:item/name_tag.png
+    row-widths:
+    - 0
+    - 14
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 14
+    - 13
+    - 11
+    - 10
+    - 9
+    - 8
+    - 7
+    - 6
+    - 5
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  heart_of_the_sea:
+    vanilla: minecraft:item/heart_of_the_sea.png
+    row-widths:
+    - 0
+    - 10
+    - 12
+    - 13
+    - 14
+    - 14
+    - 15
+    - 15
+    - 15
+    - 15
+    - 14
+    - 14
+    - 13
+    - 12
+    - 10
+    - 0
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  amethyst_shard:
+    vanilla: minecraft:item/amethyst_shard.png
+    row-widths:
+    - 0
+    - 0
+    - 14
+    - 14
+    - 14
+    - 14
+    - 14
+    - 13
+    - 12
+    - 11
+    - 10
+    - 9
+    - 8
+    - 7
+    - 6
+    - 0
+    pixel-width: 14
+    height: 16
+    ascent: 14
+  gold_ingot:
+    vanilla: minecraft:item/gold_ingot.png
+    row-widths:
+    - 0
+    - 0
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 16
+    - 16
+    - 16
+    - 15
+    - 13
+    - 10
+    - 7
+    - 0
+    - 0
+    pixel-width: 16
+    height: 16
+    ascent: 14

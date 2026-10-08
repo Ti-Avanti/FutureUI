@@ -1,0 +1,133 @@
+# 图片注册配置；主题颜色和控件外观请修改 assets/theme.yml。
+# file 相对于 assets/textures；vanilla 引用客户端已有的原版材质。
+images:
+  shop-emblem:
+    # 图片位于 assets/textures；可直接替换 PNG。
+    file: shop-emblem-pixel.png
+    height: 32
+    ascent: 28
+  stone:
+    vanilla: minecraft:block/stone.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  bricks:
+    vanilla: minecraft:block/bricks.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  glass:
+    vanilla: minecraft:block/glass.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  oak_planks:
+    vanilla: minecraft:block/oak_planks.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  quartz_block:
+    vanilla: minecraft:block/quartz_block_side.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  sandstone:
+    vanilla: minecraft:block/sandstone.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  oak_log:
+    vanilla: minecraft:block/oak_log.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  dirt:
+    vanilla: minecraft:block/dirt.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  sand:
+    vanilla: minecraft:block/sand.png
+    row-widths: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]
+    height: 16
+    ascent: 14
+  oak_sapling:
+    vanilla: minecraft:block/oak_sapling.png
+    row-widths: [0, 12, 12, 14, 14, 14, 15, 15, 13, 14, 15, 15, 15, 11, 11, 10]
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  iron_ingot:
+    vanilla: minecraft:item/iron_ingot.png
+    row-widths: [0, 0, 12, 13, 14, 15, 16, 16, 16, 16, 15, 13, 10, 7, 0, 0]
+    height: 16
+    ascent: 14
+  gold_ingot:
+    vanilla: minecraft:item/gold_ingot.png
+    row-widths: [0, 0, 12, 13, 14, 15, 16, 16, 16, 16, 15, 13, 10, 7, 0, 0]
+    height: 16
+    ascent: 14
+  diamond:
+    vanilla: minecraft:item/diamond.png
+    row-widths: [0, 0, 10, 11, 12, 13, 13, 14, 14, 14, 14, 13, 13, 12, 11, 0]
+    pixel-width: 14
+    height: 16
+    ascent: 14
+  coal:
+    vanilla: minecraft:item/coal.png
+    row-widths: [0, 0, 9, 10, 11, 12, 13, 14, 14, 15, 15, 15, 14, 13, 9, 0]
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  iron_pickaxe:
+    vanilla: minecraft:item/iron_pickaxe.png
+    row-widths: [0, 0, 11, 14, 14, 14, 15, 15, 15, 15, 15, 14, 6, 5, 4, 0]
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  iron_axe:
+    vanilla: minecraft:item/iron_axe.png
+    row-widths: [0, 11, 12, 12, 13, 13, 14, 14, 13, 9, 8, 7, 6, 5, 4, 0]
+    pixel-width: 14
+    height: 16
+    ascent: 14
+  iron_sword:
+    vanilla: minecraft:item/iron_sword.png
+    row-widths: [16, 16, 16, 15, 14, 13, 12, 11, 10, 9, 8, 9, 10, 10, 3, 3]
+    height: 16
+    ascent: 14
+  bread:
+    vanilla: minecraft:item/bread.png
+    row-widths: [0, 13, 14, 15, 15, 15, 15, 15, 14, 13, 12, 11, 10, 9, 8, 7]
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  cooked_beef:
+    vanilla: minecraft:item/cooked_beef.png
+    row-widths: [0, 0, 0, 13, 14, 15, 15, 15, 15, 14, 14, 13, 12, 11, 9, 0]
+    pixel-width: 15
+    height: 16
+    ascent: 14
+  golden_carrot:
+    vanilla: minecraft:item/golden_carrot.png
+    row-widths: [0, 10, 14, 14, 13, 14, 15, 16, 14, 14, 10, 9, 7, 6, 4, 0]
+    height: 16
+    ascent: 14
+  experience_bottle:
+    vanilla: minecraft:item/experience_bottle.png
+    row-widths: [0, 10, 11, 12, 12, 11, 11, 12, 13, 14, 14, 14, 14, 13, 12, 11]
+    pixel-width: 14
+    height: 16
+    ascent: 14
+  golden_apple:
+    vanilla: minecraft:item/golden_apple.png
+    row-widths: [0, 10, 10, 9, 11, 13, 14, 14, 14, 14, 14, 13, 13, 12, 11, 0]
+    pixel-width: 14
+    height: 16
+    ascent: 14
+  emerald:
+    vanilla: minecraft:item/emerald.png
+    row-widths: [0, 0, 10, 11, 12, 13, 13, 13, 13, 13, 13, 12, 11, 10, 0, 0]
+    pixel-width: 13
+    height: 16
+    ascent: 14

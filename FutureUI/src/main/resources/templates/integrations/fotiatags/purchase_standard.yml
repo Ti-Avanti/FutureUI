@@ -1,0 +1,146 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: purchase_standard_purchase
+type: column
+gap: 9
+children:
+- id: purchase_standard_target_overview
+  type: row
+  gap: 9
+  children:
+  - id: purchase_standard_target_icon
+    type: image
+    image: '{item.target-image}'
+    size: 36
+    height: 90
+    width: 72
+  - id: purchase_standard_target_text
+    type: column
+    gap: 0
+    children:
+    - id: purchase_standard_name
+      type: text
+      text: '{item.target-name}'
+      height: 27
+      vertical-align: center
+      padding: 9
+    - id: purchase_standard_preview
+      type: text
+      text: '{item.target-preview}'
+      height: 63
+      vertical-align: center
+      padding: 9
+  skin: panel
+- id: purchase_standard_price
+  type: text
+  text: '@integrations.fotiatags.price-vault'
+  height: 27
+  vertical-align: center
+  skin: readout
+  states:
+  - visible:
+      type: equals
+      input: '{item.currency}'
+      output: playerpoints
+    text: '@integrations.fotiatags.price-points'
+  - visible: true
+  padding: 9
+- id: purchase_standard_purchase_status
+  type: text
+  text: '@integrations.fotiatags.duration-permanent'
+  height: 27
+  vertical-align: center
+  skin: readout
+  states:
+  - visible:
+      type: equals
+      input: '{item.duration-unit}'
+      output: days
+    text: '@integrations.fotiatags.duration-days'
+  - visible:
+      type: equals
+      input: '{item.duration-unit}'
+      output: hours
+    text: '@integrations.fotiatags.duration-hours'
+  - visible:
+      type: equals
+      input: '{item.duration-unit}'
+      output: minutes
+    text: '@integrations.fotiatags.duration-minutes'
+  - visible:
+      type: equals
+      input: '{item.duration-unit}'
+      output: seconds
+    text: '@integrations.fotiatags.duration-seconds'
+  - visible: true
+  padding: 9
+- id: purchase_standard_bottom_gutter
+  type: spacer
+  height: 18
+- id: purchase_standard_purchase_actions
+  type: row
+  gap: 9
+  children:
+  - id: purchase_standard_confirm
+    type: button
+    text: '@integrations.fotiatags.confirm'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: confirm
+    skin: selected
+    enabled:
+      type: equals
+      input: '{item.can-confirm}'
+      output: 'true'
+    states:
+    - visible:
+        type: equals
+        input: '{item.busy}'
+        output: 'true'
+      text: '@integrations.fotiatags.processing'
+    - visible:
+        type: equals
+        input: '{item.owned}'
+        output: 'true'
+      text: '@integrations.fotiatags.owned'
+    - visible:
+        type: equals
+        input: '{item.purchase-state}'
+        output: unavailable
+      text: '@integrations.fotiatags.payment-unavailable'
+    - visible:
+        type: equals
+        input: '{item.purchase-state}'
+        output: funds
+      text: '@integrations.fotiatags.funds'
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.view}'
+          output: custom-tag
+        - type: equals
+          input: '{item.draft-locked}'
+          output: 'true'
+      text: '@integrations.fotiatags.limit'
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.view}'
+          output: custom-tag
+        - type: equals
+          input: '{item.draft-complete}'
+          output: 'false'
+      text: '@integrations.fotiatags.incomplete'
+    - visible: true
+  - id: purchase_standard_back
+    type: button
+    text: '@integrations.fotiatags.back'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: back
+padding: 9
+min-height: 243
+skin: panel

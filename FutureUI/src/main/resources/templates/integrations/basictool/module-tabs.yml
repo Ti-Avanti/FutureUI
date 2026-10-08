@@ -1,0 +1,76 @@
+id: module_tabs
+type: row
+gap: 9
+children:
+- id: tab_settings
+  type: button
+  text: '@integrations.basictool.tab-settings'
+  height: 27
+  actions:
+  - type: player-command
+    command: basictool settings
+  requirements:
+    type: permission
+    permission: basictool.settings
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: permission
+        permission: basictool.settings
+      - type: equals
+        input: '{item.group}'
+        output: settings
+    skin: selected
+  - visible:
+      type: permission
+      permission: basictool.settings
+    skin: button
+- id: tab_statistics
+  type: button
+  text: '@integrations.basictool.tab-statistics'
+  height: 27
+  actions:
+  - type: player-command
+    command: basictool stats
+  requirements:
+    type: permission
+    permission: basictool.stats
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: permission
+        permission: basictool.stats
+      - type: equals
+        input: '{item.group}'
+        output: statistics
+    skin: selected
+  - visible:
+      type: permission
+      permission: basictool.stats
+    skin: button
+- id: tab_vouchers
+  type: button
+  text: '@integrations.basictool.tab-vouchers'
+  height: 27
+  actions:
+  - type: player-command
+    command: basictool stock
+  requirements:
+    type: permission
+    permission: basictool.vouchers
+  states:
+  - visible:
+      type: all
+      conditions:
+      - type: permission
+        permission: basictool.vouchers
+      - type: equals
+        input: '{item.group}'
+        output: vouchers
+    skin: selected
+  - visible:
+      type: permission
+      permission: basictool.vouchers
+    skin: button

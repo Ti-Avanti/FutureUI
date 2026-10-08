@@ -1,0 +1,247 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/display
+title: '@menus.display.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+bindings:
+  compact.section:
+    value: display
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: compact/navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: hud_group
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: hud_group_title
+        type: text
+        text: '@menus.compact.display.hud'
+        height: 9
+      - id: modes
+        type: grid
+        columns: 2
+        gap: 9
+        children:
+        - id: mode_status
+          type: button
+          text: '@menus.display.status'
+          actions:
+          - type: hud
+            hud: status
+          - type: sound
+            sound: minecraft:ui.button.click
+          - type: close
+          height: 27
+          states:
+          - visible:
+              type: equals
+              input: '{display.mode}'
+              output: status
+            skin: selected
+          - visible:
+              type: 'true'
+            skin: button
+        - id: mode_actionbar
+          type: button
+          text: '@menus.display.actionbar'
+          actions:
+          - type: hud
+            hud: actionbar
+          - type: sound
+            sound: minecraft:ui.button.click
+          - type: close
+          height: 27
+          states:
+          - visible:
+              type: equals
+              input: '{display.mode}'
+              output: actionbar
+            skin: selected
+          - visible:
+              type: 'true'
+            skin: button
+        - id: mode_tab
+          type: button
+          text: '@menus.display.tab'
+          actions:
+          - type: hud
+            hud: tab
+          - type: sound
+            sound: minecraft:ui.button.click
+          - type: close
+          height: 27
+          states:
+          - visible:
+              type: equals
+              input: '{display.mode}'
+              output: tab
+            skin: selected
+          - visible:
+              type: 'true'
+            skin: button
+        - id: mode_subtitle
+          type: button
+          text: '@menus.display.subtitle'
+          actions:
+          - type: hud
+            hud: subtitle
+          - type: sound
+            sound: minecraft:ui.button.click
+          - type: close
+          height: 27
+          states:
+          - visible:
+              type: equals
+              input: '{display.mode}'
+              output: subtitle
+            skin: selected
+          - visible:
+              type: 'true'
+            skin: button
+      - id: stop
+        type: button
+        text: '@menus.display.stop'
+        actions:
+        - type: hide-hud
+        - type: refresh
+        height: 27
+    - id: display_group
+      type: column
+      skin: panel
+      padding: 9
+      gap: 9
+      children:
+      - id: display_group_title
+        type: text
+        text: '@menus.compact.display.interface'
+        height: 9
+      - id: options
+        type: column
+        gap: 9
+        children:
+        - id: notifications
+          type: row
+          gap: 9
+          children:
+          - id: notifications_label
+            type: text
+            text: '@menus.compact.settings.notifications'
+            height: 27
+            vertical-align: center
+          - id: notifications_control
+            type: row
+            width: 108
+            gap: 9
+            children:
+            - id: notifications_state
+              type: text
+              width: 45
+              height: 27
+              text-align: end
+              vertical-align: center
+              states:
+              - visible:
+                  type: equals
+                  input: '{input.notifications}'
+                  output: 'true'
+                text: '@menus.compact.controls.state-on'
+              - visible: true
+                text: '@menus.compact.controls.state-off'
+            - id: notifications_switch
+              type: row
+              width: 54
+              gap: 0
+              children:
+              - id: notifications_switch_left
+                type: text
+                width: 27
+                height: 27
+                text: ''
+                states:
+                - visible:
+                    type: equals
+                    input: '{input.notifications}'
+                    output: 'true'
+                  skin: selected
+                  text: I
+                  type: text
+                - visible: true
+                  skin: switch-thumb
+                  text: ''
+                  type: button
+                  actions:
+                  - type: toggle
+                    key: input.notifications
+                    persist: true
+                text-align: center
+                vertical-align: center
+              - id: notifications_switch_right
+                type: text
+                width: 27
+                height: 27
+                text: ''
+                states:
+                - visible:
+                    type: equals
+                    input: '{input.notifications}'
+                    output: 'true'
+                  skin: switch-thumb
+                  text: ''
+                  type: button
+                  actions:
+                  - type: toggle
+                    key: input.notifications
+                    persist: true
+                - visible: true
+                  skin: readout
+                  text: O
+                  type: text
+                text-align: center
+                vertical-align: center
+        - id: sound
+          type: button
+          text: '@menus.display.sound'
+          actions:
+          - type: sound
+            sound: minecraft:entity.experience_orb.pickup
+          height: 27
+      - id: render_modes
+        type: row
+        gap: 9
+        children:
+        - id: render_auto
+          type: button
+          text: '@menus.display.render-auto'
+          height: 27
+          actions:
+          - type: save-preference
+            key: input.renderer
+            value: auto
+          - type: open-menu
+            menu: compact/display
+        - id: render_native
+          type: button
+          text: '@menus.display.render-native'
+          height: 27
+          actions:
+          - type: save-preference
+            key: input.renderer
+            value: native
+          - type: open-menu
+            menu: compact/display

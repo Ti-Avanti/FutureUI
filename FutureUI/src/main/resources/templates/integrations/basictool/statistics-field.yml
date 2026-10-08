@@ -1,0 +1,45 @@
+# 互斥显示普通数值或本地化段位名，宽度相同，高度由可见内容计算。
+id: field
+type: row
+gap: 9
+children:
+- id: name
+  type: text
+  text: <!i><#bbbbbb>{item.plain-label}
+  height: 27
+  vertical-align: center
+- id: field_readout
+  type: column
+  width: 108
+  gap: 0
+  skin: readout
+  children:
+  - id: number
+    type: text
+    text: <!i><white>{item.value}
+    height: 27
+    skin: readout
+    text-align: center
+    vertical-align: center
+    visible:
+      type: not
+      condition:
+        type: equals
+        input: '{item.field}'
+        output: '{item.rank.name-field}'
+  - id: rank_field_value
+    type: column
+    gap: 0
+    height: 27
+    visible:
+      type: equals
+      input: '{item.field}'
+      output: '{item.rank.name-field}'
+    children:
+    - id: rank_field_name
+      template: integrations/basictool/rank-name
+      height: 27
+      text-align: center
+      vertical-align: center
+padding: 9
+skin: panel

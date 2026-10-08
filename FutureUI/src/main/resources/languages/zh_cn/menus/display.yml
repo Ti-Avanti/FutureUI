@@ -1,0 +1,12 @@
+title: <!i>界面显示
+heading: <!i><white><bold>界面显示</bold>
+description: <!i><gray>选择信息出现的位置。选中后返回游戏查看效果。
+status: <!i>顶部状态条
+actionbar: <!i>坐标导航
+tab: <!i>玩家列表信息
+subtitle: <!i>屏幕提示（8 秒）
+stop: <!i>关闭正在显示的信息
+notifications: <!i>购买提醒
+sound: <!i>预览提示音
+render-auto: <!i>完整像素界面
+render-native: <!i>简洁兼容界面

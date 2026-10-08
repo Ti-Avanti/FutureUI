@@ -1,0 +1,156 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/travel
+title: '@menus.travel.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+components:
+- id: heading
+  type: text
+  text: '@menus.travel.heading'
+  height: 27
+- id: location
+  type: text
+  text: '@menus.travel.location'
+  height: 18
+- id: checklist
+  type: list
+  source: condition-checks
+  cache: false
+  paginate: false
+  checks:
+  - id: health
+    name: '@menus.travel.check-health'
+    condition:
+      type: health
+      min: 10
+  - id: food
+    name: '@menus.travel.check-food'
+    condition:
+      type: food
+      min: 8
+  - id: space
+    name: '@menus.travel.check-space'
+    condition:
+      type: empty-slots
+      amount: 1
+  - id: light
+    name: '@menus.travel.check-light'
+    condition:
+      type: item
+      material: TORCH
+      amount: 8
+  - id: tool
+    name: '@menus.travel.check-tool'
+    condition:
+      type: any
+      conditions:
+      - type: item
+        material: IRON_PICKAXE
+        amount: 1
+      - type: item
+        material: DIAMOND_PICKAXE
+        amount: 1
+  - id: weather
+    name: '@menus.travel.check-weather'
+    condition:
+      type: weather
+      weather: clear
+  layout:
+    type: grid
+    columns: 2
+    gap: 9
+  item:
+    id: check
+    type: row
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: name
+      type: text
+      text: '{item.name}'
+      height: 18
+    - id: status
+      type: text
+      text: '{item.status}'
+      width: 72
+      height: 18
+      text-align: end
+- id: actions
+  type: grid
+  columns: 2
+  gap: 9
+  children:
+  - id: navigate
+    type: button
+    text: '@menus.travel.navigate'
+    actions:
+    - type: hud
+      hud: actionbar
+    - type: close
+    skin: purchase
+    enabled:
+      type: all
+      conditions:
+      - type: health
+        min: 1
+      - type: food
+        min: 1
+    height: 27
+  - id: supplies
+    type: button
+    text: '@menus.travel.supplies'
+    actions:
+    - type: open-menu
+      menu: compact/shop
+      arguments:
+        category: food
+        shop.search: ''
+    height: 27
+  - id: copy_location
+    type: button
+    text: '@menus.travel.copy'
+    actions:
+    - type: copy-text
+      value: '{player.world}: {player.x}, {player.y}, {player.z}'
+      label: '@menus.travel.copy-link'
+    height: 27
+  - id: record
+    type: button
+    text: '@menus.travel.record'
+    actions:
+    - type: open-menu
+      menu: compact/notes
+      arguments:
+        input.note: '{player.world}: {player.x}, {player.y}, {player.z}'
+    height: 27
+- id: explanation
+  type: text
+  text: '@menus.travel.explanation'
+  height: 27
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    actions:
+    - type: back
+    width: 108
+    height: 27
+  - id: refresh
+    type: button
+    text: '@common.refresh'
+    actions:
+    - type: refresh
+    width: 108
+    height: 27
+refresh-ticks: 40

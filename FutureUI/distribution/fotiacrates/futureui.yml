@@ -1,0 +1,67 @@
+# 管理员选择玩家抽奖界面的显示引擎：inventory / futureui。
+# 保留原箱子菜单；管理编辑器和物品拖入界面仍使用原界面。
+ui-engine: futureui
+# 玩家可在菜单中切换并记忆布局；此项用于首次打开。
+default-layout: standard
+layouts:
+  standard:
+    menu: fotiacrates/standard
+    page-size: 6
+    # 同屏滚动格数，必须是 3、5、7、9；中奖卡片最终停在中央指针下。
+    reel-slots: 7
+  compact:
+    menu: fotiacrates/compact
+    page-size: 2
+    reel-slots: 5
+# 在菜单内查询历史的最多条数；数据库查询保持异步。
+history-limit: 100
+animation:
+  # 接管 GUI 动画；关闭后使用原动画。实体粒子演出仍由原插件处理。
+  enabled: true
+  # left 从右往左，right 从左往右。
+  direction: left
+  # 固定刷新间隔，范围 1–20 tick；减速由展示带的缓动曲线完成。
+  frame-ticks: 1
+  # 全程经过的奖励格数，范围 4–240；仅影响演出，不影响中奖概率。
+  travel-slots: 12
+  # 减速强度，范围 1.0–5.0；1 为匀速，默认 3 先快后慢。
+  slowdown-power: 3.0
+  # 落点随机偏移，范围 0–0.4，单位为单格步长比例；0 为固定居中。
+  # 默认布局保留边缘余量；自定义更宽的卡片间隙时应调小此值。
+  landing-spread: 0.35
+  # 候选奖励允许时避免展示带相邻重复；只改变演出，不参与实际抽奖。
+  avoid-adjacent-duplicates: true
+  # 展示最终中奖位置的停留时长，范围 0–100 tick。
+  hold-ticks: 20
+  # 时长读取抽奖箱 animation.duration，并受此上限约束，范围 1–60 秒。
+  max-seconds: 15
+# 图片 ID 必须已经在 FutureUI/assets/images.yml 或 assets/images/*.yml 中注册。
+# 自定义物品按“抽奖箱ID/奖励ID”映射 PNG 缩略图；不会自动读取 CE/IA 的物品模型。
+# 图片和资源包由 FutureUI 管理，FotiaCrates 不需要单独配置资源包。
+icons:
+  fallback: paper
+  crates: {}
+  rewards: {}
+  materials:
+    paper: paper
+    stone: stone
+    diamond: diamond
+    diamond_sword: diamond_sword
+    iron_chestplate: iron_chestplate
+    emerald: emerald
+    iron_ingot: iron_ingot
+    gold_ingot: gold_ingot
+    coal: coal
+    iron_sword: iron_sword
+    iron_pickaxe: iron_pickaxe
+    iron_axe: iron_axe
+    bread: bread
+    cooked_beef: cooked_beef
+    golden_carrot: golden_carrot
+    golden_apple: golden_apple
+    experience_bottle: experience_bottle
+    glass: glass
+    oak_planks: oak_planks
+    oak_log: oak_log
+    dirt: dirt
+    sand: sand

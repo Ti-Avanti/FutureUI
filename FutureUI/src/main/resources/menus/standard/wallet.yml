@@ -1,0 +1,106 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+id: "wallet"
+title: "@menus.wallet.title"
+renderer: "canvas"
+layout:
+  type: "column"
+  width: 540
+  padding: 18
+  gap: 9
+components:
+  - id: "heading"
+    type: "text"
+    text: "@menus.wallet.heading"
+    height: 27
+  - id: "balances"
+    type: "list"
+    source: "currencies"
+    cache: false
+    paginate: false
+    include:
+      - "vault"
+      - "playerpoints"
+      - "experience"
+      - "emeralds"
+    presentation:
+      vault:
+        icon: "gold_ingot"
+        category: "building"
+      playerpoints:
+        icon: "diamond"
+        category: "special"
+      experience:
+        icon: "experience_bottle"
+        category: "special"
+      emeralds:
+        icon: "emerald"
+        category: "special"
+    layout:
+      type: "grid"
+      columns: 2
+      gap: 18
+    item:
+      id: "currency"
+      type: "column"
+      skin: "surface"
+      padding: 9
+      gap: 9
+      children:
+        - id: "identity"
+          type: "row"
+          gap: 9
+          children:
+            - id: "icon"
+              type: "image"
+              image: "{item.icon}"
+              size: 36
+              width: 36
+              height: 54
+            - id: "amount"
+              type: "column"
+              skin: "readout"
+              padding: 9
+              gap: 0
+              children:
+                - id: "currency_name"
+                  type: "text"
+                  text: "{item.name}"
+                - id: "balance"
+                  type: "text"
+                  text: "@menus.wallet.balance"
+                  height: 27
+                  vertical-align: "center"
+        - id: "spend"
+          type: "button"
+          text: "@menus.wallet.spend"
+          actions:
+            - type: "open-menu"
+              menu: "shop"
+              arguments:
+                category: "{item.category}"
+                shop.search: ""
+          skin: "purchase"
+          enabled:
+            type: "equals"
+            input: "{item.available}"
+            output: "true"
+  - id: "availability"
+    type: "text"
+    text: "@menus.wallet.availability"
+    height: 18
+  - id: "footer"
+    type: "row"
+    children:
+      - id: "back"
+        type: "button"
+        text: "@common.back"
+        actions:
+          - type: "back"
+        width: 108
+      - id: "refresh"
+        type: "button"
+        text: "@common.refresh"
+        actions:
+          - type: "refresh"
+        width: 108
+refresh-ticks: 100

@@ -1,0 +1,96 @@
+menu-unavailable: <!i><red>Menu unavailable or permission denied.
+requirement-failed: <!i><red>The requirements are not met.
+busy: <!i><yellow>Your previous action is still processing.
+cancelled: <!i><gray>Action cancelled.
+currency-unavailable: <!i><red>This currency is currently unavailable.
+insufficient-funds: <!i><red>Insufficient funds.
+refund-failed: <!i><red>Refund pending. Please contact an administrator.
+transaction-pending: <!i><yellow>A transaction needs review. Please contact an administrator.
+invalid-product: <!i><red>Invalid product or quantity.
+invalid-price: <!i><red>This product has an invalid price.
+out-of-stock: <!i><red>This product is out of stock.
+inventory-full: <!i><red>Your inventory does not have enough space.
+delivery-failed: <!i><red>Delivery failed. Your payment was refunded.
+storage-error: <!i><red>Could not record the transaction. No payment was taken.
+field-required: <!i><red>This field is required.
+field-length: <!i><red>The input length is invalid.
+field-format: <!i><red>The input format is invalid.
+field-range: <!i><red>The number does not match the allowed range, integer or step rules.
+action-limit: <!i><red>The action chain exceeds its limit.
+action-failed: <!i><red>Action failed. Please try again.
+action-timeout: <!i><yellow>Timed out. Check the result before trying again.
+invalid-command: <!i><red>Invalid command arguments.
+command-failed: <!i><red>The command could not be executed.
+unknown-action: <!i><red>The required action provider is not available.
+translator-unavailable: <!i><yellow>FotiaTranslator is not ready.
+click-link: <!i><yellow>Click to continue
+hud-unavailable: <!i><red>HUD not found.
+render-failed: <!i><red>This menu could not be displayed.
+data-unavailable: <!i><red>Data source unavailable.
+loading: <!i><gray>Loading…
+data-failed: <!i><red>Loading failed. Please reopen the menu.
+empty: <!i><gray>No entries.
+reload-success: <!i><green>FutureUI configuration reloaded.
+reload-failed: <!i><red>Reload failed. The previous configuration was preserved.
+pack-building: <!i><yellow>Assets exported. CraftEngine is building and sending the pack.
+admin-only: <!i><red>Administrator permission required.
+runtime-status: '<!i><green>FutureUI <gray>· Menus {menus} · Sessions {sessions} · Revision {revision}
+
+  <gray>Currencies: <white>{currencies}'
+player-status: <!i><gray>Language {locale} · Translator {translator} · Pack loaded {pack}
+transactions-empty: <!i><green>No unresolved transactions.
+transaction-entry: <!i><yellow>{id} <gray>{record}
+transaction-reviewed: <!i><green>Transaction {id} marked as reviewed.
+transaction-review-failed: <!i><red>Could not review transaction {id}. Check its ID and the server log.
+transaction-usage: <!i><yellow>/fui transactions resolve <uuid> <DELIVERED|REFUNDED|CANCELLED>
+command-usage: <!i><gray>/fui open <menu> | close | reload | pack | status | transactions
+price-changed: <!i><yellow>The price changed. Review the new price before buying again. You were not charged.
+quantity-invalid: <!i><red>The quantity does not match the product range or step.
+purchase-limit: <!i><red>The item count exceeds the transaction limit. Choose fewer bundles.
+quote-changed: <!i><yellow>The quantity or product changed. Review the updated preview and confirm again. No payment was taken.
+items-missing: <!i><red>Not enough matching items. Check your inventory or held item.
+quota-exceeded: <!i><yellow>This operation exceeds your remaining daily allowance.
+unknown-function: <!i><red>The configured action function was not found.
+selection-range: <!i><red>Select the required number of options.
+argument-invalid: <!i><red>Argument {argument} has an invalid type, range or value.
+player-required: <!i><yellow>A player must run this command.
+validation-failed: '<!i><red>Configuration check failed: {reason}'
+validation-success: <!i><green>Validated {menus} menus, {functions} functions and {rules} named requirements.
+inspect: '<!i><gray>Menu <white>{menu}<gray> / {renderer} / {components} components / allowed: {allowed} / {locale}'
+trace-step: '<!i><gray>Round {index}: <white>{value}'
+trace-result: '<!i><gray>Stopped: {stop}
+
+  <white>{value}'
+dryrun-step: '<!i><gray>{id} <white>allowed: {allowed}
+
+  <gray>Actions: {actions}'
+dryrun-note: <!i><yellow>Read-only plan. No commands, payments or item changes were executed. Later state is checked again
+  during execution.
+input-prompt: '<!i><white>Enter your text
+
+
+  <gray>Valid input is saved before returning to your menu.'
+input-title: <!i>Edit text
+input-label: <!i>Text
+input-hint: <!i><gray>Confirm to save, or go back to cancel. Native inputs can be cancelled with /fui cancel.
+input-cancelled: <!i><gray>Input cancelled.
+input-timeout: <!i><yellow>Input timed out. Please try again.
+cart-full: <!i><yellow>Your cart has reached its product limit.
+cart-empty: <!i><gray>Your cart is empty. Add a product first.
+client-unsupported: <!i><yellow>This client protocol cannot be confirmed to support Dialog. Use a supported newer client.
+input-book: '<!i><white>Right-click the temporary book to edit, then click Done to save.
+
+  <gray>Switch hotbar slots or use /fui cancel to cancel.'
+shader-unsupported: "<!i><yellow>No shader profile is configured for client protocol {protocol}. Use a supported client version."
+client-profile: "<!i><gray>Client protocol <white>{protocol}</white> · Resource overlay <white>{profile}</white>"
+pack-verification: "<!i><yellow>Resource pack verification pending: {reason}"
+pack-build-started: "<!i><yellow>Generating the FutureUI resource pack."
+pack-built: "<!i><green>Local ZIP generated: <white>{path}</white>. Delivery backend: <white>{backend}</white>. In external mode, upload the ZIP to the configured download URL."
+pack-build-failed: "<!i><red>Resource pack build failed. Check the server log."
+pack-backend: "<!i><gray>Resource pack delivery backend: <white>{backend}"
+pack-prompt: "<!i><white>Load the FutureUI menu resources for complete images and interactions."
+external-pack-unconfigured: "<!i>Standalone pack generated at {path}. Upload this ZIP and set its direct download URL in resources.external.url. No URL is configured; graphical menus follow the configured resource-pack fallback."
+pack-download-unconfigured: "<!i><yellow>The menu resource pack download URL is not configured. Contact an administrator."
+pack-send-failed: "<!i><red>Could not send the resource pack download request. Contact an administrator."
+
+chart-empty: "<!i><gray>No chart data available."

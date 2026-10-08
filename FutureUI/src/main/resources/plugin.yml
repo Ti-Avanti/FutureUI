@@ -1,0 +1,17 @@
+name: FutureUI
+version: 0.0.3beta
+main: gg.fotia.futureui.FutureUIPlugin
+api-version: '1.21.8'
+author: Fotia
+description: 配置驱动的多语言图形菜单与通用商店
+depend: [packetevents]
+softdepend: [CraftEngine, Vault, PlayerPoints, PlaceholderAPI, FotiaTranslator, ItemsAdder, Nexo, Oraxen, MMOItems, MythicLib, HeadDatabase, ViaVersion]
+commands:
+  futureui:
+    aliases: [fui]
+    description: 菜单与资源管理
+permissions:
+  futureui.use:
+    default: true
+  futureui.admin:
+    default: op

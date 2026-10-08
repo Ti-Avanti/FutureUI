@@ -1,0 +1,6 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+title: "<!i>我的钱包"
+heading: "<!i><white><bold>钱包</bold>  <gray>查看余额并选择支付方式"
+balance: "<!i><white>{item.balance}"
+spend: "<!i>查看可购买商品"
+availability: "<!i><gray>未接入或当前不可用的货币显示为 —。"

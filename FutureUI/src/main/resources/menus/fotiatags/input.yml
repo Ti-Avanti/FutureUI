@@ -1,0 +1,56 @@
+# FotiaTags 原生文字输入；编辑只保存草稿，确认创建时才扣款。
+title: '@integrations.fotiatags.input-title'
+renderer: dialog
+layout:
+  theme: adventure
+  columns: 2
+  button-width: 177
+  panel-width: 396
+  panel-height: 207
+  exit-button: false
+on-close:
+- type: fotiatags:menu
+  operation: closed
+components:
+- id: summary
+  type: canvas
+  width: 360
+  layout:
+    type: column
+    gap: 9
+  children:
+  - id: input_heading
+    type: text
+    text: '@integrations.fotiatags.input-heading'
+    height: 27
+    vertical-align: center
+    skin: panel
+    padding: 9
+  - id: input_hint
+    type: text
+    text: '@integrations.fotiatags.input-hint'
+    height: 27
+    vertical-align: center
+    skin: readout
+    padding: 9
+- id: value
+  type: text-input
+  label: '@integrations.fotiatags.input-label'
+  width: 360
+  initial: '{fotiatags.input}'
+  max-length: 1024
+  validation:
+    required: true
+- id: submit
+  type: button
+  text: '@integrations.fotiatags.apply'
+  actions:
+  - type: fotiatags:menu
+    operation: submit
+- id: cancel
+  type: button
+  text: '@integrations.fotiatags.back'
+  actions:
+  - type: fotiatags:menu
+    operation: cancel-input
+  validate: false

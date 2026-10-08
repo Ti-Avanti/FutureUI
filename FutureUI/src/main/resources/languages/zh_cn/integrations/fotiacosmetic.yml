@@ -1,0 +1,39 @@
+title: <!i>我的外观
+weapon-title: <!i>武器皮肤
+wardrobe: <!i>衣橱
+appearance: <!i>角色外观
+weapons: <!i>武器皮肤
+equipped: <!i>已穿戴
+unequip: <!i>脱下当前部位
+working: <!i>正在保存…
+hidden-short: <!i>本服务器隐藏此部位
+hidden: <!i>此部位在当前服务器不可穿戴。
+operation-failed: <!i>操作未完成，请稍后重试。
+preview-unavailable: <!i>暂未提供模型预览
+preview-loading: <!i>正在生成预览…
+choose-on-right: <!i>尚未穿戴此外观，点击右侧缩略图穿戴。
+preview-hint: <!i>点击缩略图即可直接穿戴。
+preview-partial: <!i>部分外观尚未提供预览模型。
+preview-default-skin: <!i>预览使用默认皮肤。
+rotate-left: <!i><
+rotate-right: <!i>>
+previous: <!i>上一页
+next: <!i>下一页
+close: <!i>关闭
+page: <!i>{item.page} / {item.pages} · {item.count} 件
+empty-title: <!i>这个分类还没有外观
+empty-help: <!i>获得此外观分类的时装后，会显示在这里。
+thumbnail-loading: <!i>正在载入…
+thumbnail-unavailable: <!i>暂无缩略图
+current-appearance: <!i>当前穿戴
+current-weapon: <!i>当前武器外观
+click-to-equip: <!i>点击穿戴
+compact-layout: <!i>切换紧凑布局
+standard-layout: <!i>标准布局 >
+compact-page: <!i>{item.page} / {item.pages}
+unequip-short: <!i>脱下
+compact-default-skin: <!i>默认皮肤
+compact-partial: <!i>部分模型缺失
+compact-current: <!i>当前穿戴
+compact-weapon: <!i>当前武器
+compact-hidden: <!i>此处已隐藏

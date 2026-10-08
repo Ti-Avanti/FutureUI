@@ -1,0 +1,5 @@
+title: "<!i>整单购买成功"
+heading: "<!i><green><bold>购买成功</bold>  <gray>物品已放入背包"
+description: "<!i><gray>感谢选购。\n\n购物车中的所有商品已经一起结算并发货。"
+counts: "<!i><gray>商品种类  <white>{purchase.quantity}\n<gray>物品总数  <white>{purchase.items}"
+total: "<!i><gray>实际支付\n<green><bold>{purchase.total}</bold>"

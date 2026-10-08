@@ -1,0 +1,68 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/notes
+template: compact/bedrock-form
+title: '@menus.notes.title'
+layout:
+  columns: 2
+  button-width: 296
+  theme: compact
+components:
+- id: intro
+  type: canvas
+  width: 504
+  layout:
+    type: row
+    gap: 9
+  children:
+  - id: notes_icon
+    type: column
+    width: 108
+    skin: surface
+    padding: 9
+    children:
+    - id: picture
+      type: image
+      image: oak_planks
+      size: 72
+  - id: notes_instructions
+    type: column
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: notes_heading
+      type: text
+      text: '@menus.notes.title'
+    - id: notes_description
+      type: text
+      text: '@menus.notes.intro'
+      height: 36
+- id: note
+  type: text-input
+  label: '@menus.notes.label'
+  width: 504
+  multiline: true
+  height: 90
+  max-lines: 6
+  max-length: 320
+  validation:
+    required: true
+    min-length: 2
+- id: save
+  type: button
+  text: '@common.save'
+  actions:
+  - type: save-preference
+    key: input.note
+    value: '{input.note}'
+  - type: message
+    text: '@menus.notes.saved'
+- id: copy
+  type: button
+  text: '@menus.notes.copy'
+  actions:
+  - type: copy-text
+    value: '{input.note}'
+    label: '@menus.notes.copy-link'
+- id: back
+  template: compact/back

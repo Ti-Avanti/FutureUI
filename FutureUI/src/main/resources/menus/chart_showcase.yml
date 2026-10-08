@@ -1,0 +1,205 @@
+# 管理员统计布局示例。48 局 = 24 单人 + 16 双人 + 8 小队 = 30 胜 + 18 负。
+id: chart_showcase
+title: '@integrations.basictool.chart-title'
+renderer: canvas
+permission: futureui.admin
+layout:
+  type: column
+  width: 666
+  padding: 9
+  gap: 9
+  theme: adventure
+  exit-button: false
+  min-height: 351
+on-open:
+- type: set-variable
+  key: chart.view
+  value: bars
+components:
+- id: sample_notice
+  type: text
+  text: '@integrations.basictool.chart-caption'
+  height: 27
+  skin: readout
+  padding: 9
+- id: summary
+  type: row
+  gap: 9
+  children:
+  - id: metric_total
+    type: column
+    gap: 0
+    padding: 9
+    skin: panel
+    children:
+    - id: label_total
+      type: text
+      text: '@integrations.basictool.chart-total'
+      height: 9
+    - id: number_total
+      type: text
+      text: '48'
+      height: 27
+      skin: readout
+      text-align: center
+      vertical-align: center
+  - id: metric_wins
+    type: column
+    gap: 0
+    padding: 9
+    skin: panel
+    children:
+    - id: label_wins
+      type: text
+      text: '@integrations.basictool.chart-wins'
+      height: 9
+    - id: number_wins
+      type: text
+      text: '30'
+      height: 27
+      skin: readout
+      text-align: center
+      vertical-align: center
+  - id: metric_losses
+    type: column
+    gap: 0
+    padding: 9
+    skin: panel
+    children:
+    - id: label_losses
+      type: text
+      text: '@integrations.basictool.chart-losses'
+      height: 9
+    - id: number_losses
+      type: text
+      text: '18'
+      height: 27
+      skin: readout
+      text-align: center
+      vertical-align: center
+- id: charts
+  type: row
+  gap: 9
+  children:
+  - id: mode_panel
+    type: column
+    width: 396
+    gap: 9
+    padding: 9
+    skin: panel
+    height: 216
+    children:
+    - id: mode_title
+      type: text
+      text: '@integrations.basictool.chart-bars'
+      height: 18
+      states:
+      - visible:
+          type: equals
+          input: '{chart.view}'
+          output: stacked
+        text: '@integrations.basictool.chart-mode-share'
+      - visible: true
+    - id: chart_view
+      type: row
+      gap: 9
+      children:
+      - id: show_bars
+        type: button
+        text: '@integrations.basictool.chart-view-count'
+        height: 27
+        actions:
+        - type: set-variable
+          key: chart.view
+          value: bars
+        states:
+        - visible:
+            type: equals
+            input: '{chart.view}'
+            output: bars
+          skin: selected
+        - visible: true
+          skin: button
+      - id: show_stacked
+        type: button
+        text: '@integrations.basictool.chart-view-share'
+        height: 27
+        actions:
+        - type: set-variable
+          key: chart.view
+          value: stacked
+        states:
+        - visible:
+            type: equals
+            input: '{chart.view}'
+            output: stacked
+          skin: selected
+        - visible: true
+          skin: button
+    - id: mode_chart
+      type: chart
+      chart-type: bars
+      height: 135
+      row-height: 45
+      series:
+      - label: '@integrations.basictool.sample-solo'
+        value: 24
+        skin: chart-main
+      - label: '@integrations.basictool.sample-duo'
+        value: 16
+        skin: chart-win
+      - label: '@integrations.basictool.sample-squad'
+        value: 8
+        skin: chart-other
+      states:
+      - visible:
+          type: equals
+          input: '{chart.view}'
+          output: stacked
+        chart-type: stacked
+        series:
+        - label: '@integrations.basictool.sample-solo'
+          value: 24
+          skin: chart-main
+          display: 50%
+        - label: '@integrations.basictool.sample-duo'
+          value: 16
+          skin: chart-win
+          display: 33.3%
+        - label: '@integrations.basictool.sample-squad'
+          value: 8
+          skin: chart-other
+          display: 16.7%
+      - visible: true
+  - id: outcome_panel
+    type: column
+    gap: 9
+    padding: 9
+    skin: panel
+    height: 216
+    children:
+    - id: result_title
+      type: text
+      text: '@integrations.basictool.chart-ring'
+      height: 18
+    - id: win_rate
+      type: chart
+      chart-type: ring
+      height: 108
+      series:
+      - label: '@integrations.basictool.chart-win-label'
+        value: 30
+        skin: chart-main
+      - label: '@integrations.basictool.chart-loss-label'
+        value: 18
+        skin: chart-win
+    - id: rate_explanation
+      type: text
+      text: '@integrations.basictool.chart-rate-explanation'
+      height: 36
+- id: close
+  type: button
+  text: '@integrations.basictool.close'
+  height: 27
+  actions:
+  - type: close

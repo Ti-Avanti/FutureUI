@@ -1,0 +1,197 @@
+# 第二套紧凑像素界面；独立配置。
+template: compact/bedrock-page
+id: compact/automation
+title: '@menus.automation.title'
+permission: futureui.admin
+defaults:
+  preview.count: 0
+  preview.health: 0
+  preview.step: 0
+components:
+- id: heading
+  type: text
+  text: '@menus.automation.heading'
+  height: 18
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - id: overview
+    type: column
+    width: 198
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: illustration
+      type: image
+      image: experience_bottle
+      size: 72
+    - id: description
+      type: text
+      text: '@menus.automation.description'
+      height: 45
+    - id: services
+      type: button
+      text: '@menus.services.title'
+      height: 27
+      actions:
+      - type: open-menu
+        menu: compact/services
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: counter
+      type: text
+      text: '@menus.automation.counter'
+      height: 45
+      skin: readout
+      padding: 9
+    - id: indicator
+      type: text
+      text: '@menus.automation.frame1'
+      skin: readout
+      padding: 9
+      height: 36
+      animation:
+        interval-ticks: 20
+        frames:
+        - text: '@menus.automation.frame1'
+        - text: '@menus.automation.frame2'
+    - id: tools
+      type: grid
+      columns: 2
+      gap: 9
+      children:
+      - id: start
+        type: button
+        text: '@menus.automation.start'
+        height: 27
+        actions:
+        - type: set-variable
+          key: preview.count
+          value: 0
+        - type: schedule
+          key: preview
+          times: 5
+          interval-ticks: 20
+          actions:
+          - type: adjust-number
+            key: preview.count
+            min: 0
+            max: 5
+            delta: 1
+          - type: actionbar
+            text: '@menus.automation.tick'
+      - id: stop
+        type: button
+        text: '@menus.automation.stop'
+        height: 27
+        actions:
+        - type: cancel-task
+          key: preview
+      - id: sequence
+        type: button
+        text: '@menus.automation.sequence'
+        height: 27
+        actions:
+        - type: for-each
+          values:
+          - 0.8
+          - 1
+          - 1.2
+          actions:
+          - type: sound
+            sound: minecraft:block.note_block.pling
+            pitch: '{loop.value}'
+          - type: delay
+            ticks: 4
+        - type: call
+          function: batch-feedback
+          output: preview.health
+        - type: for-players
+          selector: viewer
+          filter:
+            type: permission
+            permission: futureui.admin
+          actions:
+          - type: message
+            text: '@menus.automation.finished'
+      - id: repair
+        type: button
+        text: '@menus.automation.repair'
+        height: 27
+        actions:
+        - type: repair-item
+          selection:
+            slot: mainhand
+          recover: true
+          on-failure:
+          - type: message
+            text: '@menus.automation.hold-tool'
+          finally:
+          - type: sound
+            sound: minecraft:ui.button.click
+      - id: check
+        type: button
+        text: '@menus.automation.check'
+        height: 27
+        actions:
+        - type: retry
+          attempts: 2
+          actions:
+          - type: require
+            requirements:
+              type: health
+              min: 1
+        - type: repeat
+          times: 4
+          actions:
+          - type: if
+            when:
+              type: compare
+              input: '{loop.index}'
+              operator: '>='
+              output: 2
+            then:
+            - type: break
+          - type: calculate
+            key: preview.step
+            expression: '{loop.index} + 1'
+        - type: message
+          text: '@menus.automation.checked'
+      - id: close_flow
+        type: button
+        text: '@menus.automation.close-flow'
+        height: 27
+        actions:
+        - type: close
+        - type: message
+          text: '@menus.automation.closed'
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    height: 27
+    actions:
+    - type: back
+    width: 162
+  - id: home
+    type: button
+    text: '@menus.services.home'
+    height: 27
+    actions:
+    - type: open-menu
+      menu: compact/main
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126

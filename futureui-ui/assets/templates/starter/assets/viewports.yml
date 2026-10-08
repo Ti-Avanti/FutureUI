@@ -1,0 +1,5 @@
+# 合并到 FutureUI/assets/viewports.yml，重载并加载更新后的资源包。
+demo_scroll:
+  canvas-width: 540
+  left: 0
+  width: 540

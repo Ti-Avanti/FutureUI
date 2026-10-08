@@ -1,0 +1,4 @@
+title: "<!i>Custom items"
+heading: "<!i><white><bold>Custom items</bold>  <gray>From enabled item plugins"
+hint: "<!i><gray>Items come directly from each plugin's live registry.\nMissing items are never replaced with dummy items."
+give: "<!i>Receive item"

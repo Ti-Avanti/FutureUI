@@ -1,0 +1,4 @@
+# 由 FotiaCosmetic 原命令进入，管理员在原菜单中选择 ui-engine。
+id: fotiacosmetic/main
+template: integrations/fotiacosmetic/page
+title: '@integrations.fotiacosmetic.title'

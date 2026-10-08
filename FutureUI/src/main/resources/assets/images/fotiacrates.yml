@@ -1,0 +1,46 @@
+# 抽奖奖励图标增量；直接引用客户端原版像素材质。
+images:
+  diamond_sword:
+    vanilla: minecraft:item/diamond_sword.png
+    row-widths:
+    - 16
+    - 16
+    - 16
+    - 15
+    - 14
+    - 13
+    - 12
+    - 11
+    - 10
+    - 9
+    - 8
+    - 9
+    - 10
+    - 10
+    - 3
+    - 3
+    pixel-width: 16
+    height: 16
+    ascent: 14
+  iron_chestplate:
+    vanilla: minecraft:item/iron_chestplate.png
+    row-widths:
+    - 0
+    - 0
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 13
+    - 13
+    - 13
+    - 13
+    - 13
+    - 12
+    - 11
+    - 0
+    pixel-width: 15
+    height: 16
+    ascent: 14

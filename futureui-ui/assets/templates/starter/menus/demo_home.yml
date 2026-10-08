@@ -1,0 +1,88 @@
+# 导航栏目与当前页面分别绑定，子功能页可返回栏目主页。
+id: demo_home
+template: demo_workspace
+title: '@menus.demo.home.title'
+bindings:
+  demo.section:
+    value: home
+  account.balance:
+    type: currency
+    currency: vault
+  demo.page:
+    value: demo_home
+components:
+- id: workspace
+  type: row
+  gap: 9
+  children:
+  - template: demo_navigation
+  - id: content
+    type: column
+    gap: 9
+    children:
+    - id: welcome
+      type: column
+      gap: 9
+      children:
+      - id: welcome_title
+        type: text
+        text: '@menus.demo.home.welcome'
+        height: 18
+      - id: intro
+        type: row
+        gap: 9
+        children:
+        - id: illustration
+          type: image
+          image: demo_stone
+          size: 72
+          width: 72
+        - id: intro_values
+          type: column
+          gap: 9
+          children:
+          - id: balance
+            type: text
+            text: '@menus.demo.home.balance'
+            height: 36
+            skin: readout
+            padding: 9
+          - id: description
+            type: text
+            text: '@menus.demo.home.description'
+            height: 27
+      skin: surface
+      padding: 9
+    - id: health_panel
+      type: column
+      gap: 9
+      children:
+      - id: health
+        type: text
+        text: '@menus.demo.home.health'
+        height: 27
+        skin: readout
+        padding: 9
+      - id: health_bar
+        type: progress
+        height: 9
+        value: '{player.health-fraction}'
+      - id: shop
+        type: button
+        text: '@menus.demo.home.shop'
+        height: 27
+        actions:
+        - type: open-menu
+          menu: demo_shop
+        skin: purchase
+      - id: footer
+        type: text
+        text: '@menus.demo.home.footer'
+        height: 27
+      skin: surface
+      padding: 9
+open-commands:
+- fui-demo
+requirements:
+  type: named
+  rule: demo_access

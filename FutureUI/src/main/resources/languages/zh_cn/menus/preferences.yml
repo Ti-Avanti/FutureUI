@@ -1,0 +1,8 @@
+title: "<!i>快捷偏好"
+heading: "<!i><white><bold>快捷偏好</bold>"
+description: "<!i><gray>一起选择需要启用的界面功能。\n设置会保留到下一次登录。"
+label: "<!i>选择功能"
+hints: "<!i>显示按钮提示"
+sounds: "<!i>播放菜单音效"
+hud: "<!i>显示状态 HUD"
+saved: "<!i><green>偏好已保存：{preferences.summary}"

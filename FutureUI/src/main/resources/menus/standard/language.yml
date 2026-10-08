@@ -1,0 +1,90 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+id: "language"
+title: "@menus.language.title"
+renderer: "canvas"
+layout:
+  type: "column"
+  width: 450
+  padding: 18
+  gap: 9
+components:
+  - id: "heading"
+    type: "text"
+    text: "@menus.language.heading"
+    height: 27
+  - id: "current"
+    type: "text"
+    text: "@menus.language.current"
+    height: 27
+  - id: "choices"
+    type: "column"
+    gap: 9
+    children:
+      - id: "language_auto"
+        type: "button"
+        text: "@menus.language.auto"
+        actions:
+          - type: "if"
+            when:
+              type: "equals"
+              input: "{translator.available}"
+              output: "true"
+            then:
+              - type: "language"
+                language: "auto"
+            else:
+              - type: "message"
+                text: "@menus.language.client-only"
+        height: 36
+        enabled:
+          type: "true"
+      - id: "language_zh_cn"
+        type: "button"
+        text: "@menus.language.zh_cn"
+        actions:
+          - type: "language"
+            language: "zh_cn"
+        height: 36
+        enabled:
+          type: "equals"
+          input: "{translator.available}"
+          output: "true"
+        states:
+          - visible:
+              type: "equals"
+              input: "{player.language}"
+              output: "zh_cn"
+            skin: "selected"
+          - visible:
+              type: "true"
+            skin: "button"
+      - id: "language_en_us"
+        type: "button"
+        text: "@menus.language.en_us"
+        actions:
+          - type: "language"
+            language: "en_us"
+        height: 36
+        enabled:
+          type: "equals"
+          input: "{translator.available}"
+          output: "true"
+        states:
+          - visible:
+              type: "equals"
+              input: "{player.language}"
+              output: "en_us"
+            skin: "selected"
+          - visible:
+              type: "true"
+            skin: "button"
+  - id: "help"
+    type: "text"
+    text: "@menus.language.help"
+    height: 36
+  - id: "back"
+    type: "button"
+    text: "@common.back"
+    actions:
+      - type: "back"
+    width: 108

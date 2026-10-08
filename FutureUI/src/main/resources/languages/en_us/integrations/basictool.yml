@@ -1,0 +1,158 @@
+settings-title: <!i>Personal settings
+statistics-title: <!i>Player statistics
+vouchers-title: <!i>My vouchers
+settings-home: <!i>Settings overview
+statistics-home: <!i>Statistics overview
+vouchers-home: <!i>Voucher list
+home: <!i>Overview
+close: <!i>Close
+previous: <!i>Previous
+next: <!i>Next
+back: <!i>Back
+back-category: <!i>Back
+edit-scope: <!i>Applies to
+restore-category: <!i>Reset category
+restore-default: <!i>Default
+use-common: <!i>Use common
+'on': <!i><white>On
+'off': <!i><#bbbbbb>Off
+open-page: <!i>Open settings
+open-setting: <!i>Open settings >
+choose: <!i>Use option
+selected: <!i>Selected
+preview: <!i>Settings preview
+preview-name: <!i>Player
+preview-sidebar: <!i>Sidebar
+restore-title: <!i><white>Restore this category
+restore-help: '<!i><#bbbbbb>Restore this category at the selected location.
+
+  Your other settings are kept.'
+empty: <!i><#bbbbbb>Nothing to display here yet.
+open: <!i>View
+execute: <!i>Confirm
+inherit: <!i>Default
+secondary: <!i>More
+view-records: <!i>View records
+wins: <!i><white>Wins
+other-games: <!i><#bbbbbb>Other games
+outcomes-title: <!i><white>Match performance
+outcomes-note: '<!i><#bbbbbb>Based on saved match totals.
+
+  Select a mode to update these figures.'
+no-records: '<!i><#bbbbbb>No records are available for this archive yet.
+
+  They will appear here when available.'
+records-note: <!i><#bbbbbb>Only actual saved data is displayed.
+ticket-balance: <!i><#bbbbbb>Currently owned
+ticket-inspect: <!i>Inspect ticket
+ticket-selected: <!i>Selected
+collection-note: <!i><#bbbbbb>Select a voucher to see its balance and details.
+ticket-empty: <!i><#bbbbbb>No tickets to display yet.
+chart-title: <!i>Match statistics example
+chart-caption: '<!i>Sample: 48 matches - not a player record'
+chart-bars: <!i>Matches by mode
+chart-ring: <!i>Win rate
+chart-stacked: <!i><white>Distribution
+sample-solo: <!i><white>Solo
+sample-duo: <!i><white>Duo
+sample-squad: <!i><white>Squad
+settings-intro: <!i><#bbbbbb>Choose a category to adjust your preferences.
+open-category-hint: <!i><#bbbbbb>Open this settings category.
+choice-hint: <!i><#bbbbbb>Apply this option.
+selected-hint: <!i><#bbbbbb>Currently in use.
+scope-hint: <!i><#bbbbbb>View settings for this location.
+category-general: <!i><#bbbbbb>Language, players and interface
+category-chat: <!i><#bbbbbb>Public, private and party chat
+category-appearance: <!i><#bbbbbb>Chat channels, colors and backgrounds
+category-broadcast: <!i><#bbbbbb>Shouts, announcements and notices
+category-sound: <!i><#bbbbbb>Notifications and menu sounds
+category-privacy: <!i><#bbbbbb>Status, statistics and identity
+category-requests: <!i><#bbbbbb>Friends, parties and teleport requests
+category-frost: <!i><#bbbbbb>Match display and preferences
+category-quick: <!i><#bbbbbb>Common preferences
+tab-settings: <!i>Settings
+tab-statistics: <!i>Statistics
+tab-vouchers: <!i>Vouchers
+section-settings: <!i><bold>Categories
+section-statistics: <!i><bold>Games
+section-vouchers: <!i><bold>Tickets and coupons
+choose-setting: <!i><bold>Choose an option
+scope-title: <!i><bold>Applies to
+reset-title: <!i><bold>Restore settings
+game-fotiabattleroyale: <!i><bold>Battle Royale
+game-snowbyte: <!i><bold>Snowbyte
+game-frostmodern: <!i><bold>FrostModern
+preview-display: <!i><#bbbbbb>Interface preview
+preview-scoreboard: <!i><#bbbbbb>Sidebar
+preview-player: <!i><white>Player name
+preview-players: <!i><#bbbbbb>Nearby players
+preview-tab: <!i><#bbbbbb>TAB
+preview-chat: <!i><#bbbbbb>Chat preview
+preview-public: '<!i><white>Public: Let us go!'
+preview-party: '<!i><white>Party: Ready.'
+preview-chat-visible: <!i><#8fd46b>Receiving chat
+preview-chat-hidden: <!i><#bbbbbb>Chat hidden
+preview-sound: <!i><#bbbbbb>Notification sound
+preview-listen: <!i>Play notification sound
+chart-total: <!i>Total matches
+chart-wins: <!i>Wins
+chart-losses: <!i>Losses
+chart-view-count: <!i>Match counts
+chart-view-share: <!i>Share of matches
+chart-win-label: <!i>Wins
+chart-loss-label: <!i>Losses
+chart-rate-explanation: <!i>Wins divided by total matches.
+chart-mode-share: <!i>Share of matches by mode
+rank-current: <!i>Current rank
+rank-points: <!i>Rank points
+rank-rating: <!i>Rank rating
+rank-elo: <!i>Elo rating
+rank-unrated: <!i>No rank yet
+rank-casual: <!i>Unranked record
+rank-select: <!i>Choose a ranked record
+rank-empty: <!i>No ranked record
+rank-unavailable: <!i>Rank unavailable
+rank-rating-hint: <!i>The source provides a rating, without named tiers.
+rank-unrated-hint: <!i>This record has no rank or rating yet.
+rank-casual-hint: <!i>This record tracks matches without a ranked tier.
+rank-select-hint: <!i>Select a season and ranked mode to view your rank.
+rank-empty-hint: <!i>No ranked records have been saved yet.
+rank-status-disabled: <!i>This statistics source is disabled.
+rank-status-loading: <!i>Loading your saved rank.
+rank-status-unavailable: <!i>The statistics source is unavailable. Try again later.
+rank-status-schema_error: <!i>The statistics source is not ready.
+rank-details-unknown: <!i>This record has no promotion threshold.
+rank-hint-next: <!i><white>{item.rank.remaining}</white> more points to the next tier.
+rank-hint-capped: <!i>The season's point-based tier cap has been reached.
+rank-hint-leaderboard: <!i>This rank is awarded by season leaderboard position.
+rank-progress: <!i>Promotion
+rank-no-progress: <!i>— Promotion progress is not available
+rank-capped-note: <!i>Point tier cap reached; honor ranks use leaderboard position.
+rank-leaderboard-note: <!i>Season placement  <white>#{item.rank.position}</white>
+rank-context: <!i>{item.season-label} · {item.mode-label}
+rank-season-context: <!i>{item.season-label} · Choose a mode
+rank-win-rate: <!i>Win rate
+rank-demo-title: <!i>Rank showcase
+rank-demo-notice: <!i>Rank showcase · Sample data, not player statistics
+rank-demo-hint: <!i>Switch sample states on the left. The rank card is shared with the real statistics page.
+rank-demo-ready: <!i>Gold III
+rank-demo-capped: <!i>Point tier cap
+rank-demo-leaderboard: <!i>Leaderboard rank
+rank-demo-rating: <!i>Rating only
+rank-demo-unrated: <!i>No rank yet
+rank-demo-casual: <!i>Unranked record
+rank-demo-disabled: <!i>Source disabled
+rank-demo-empty: <!i>No saved record
+rank-demo-select: <!i>Choose a mode
+rank-demo-chart: <!i>Match chart sample
+rank-demo-source: <!i>Open real statistics
+rank-name-bronze: <!i><bold><#bd8556>Bronze {item.rank.division}
+rank-name-silver: <!i><bold><#c4cdd5>Silver {item.rank.division}
+rank-name-gold: <!i><bold><#f5c75d>Gold {item.rank.division}
+rank-name-platinum: <!i><bold><#88e6dd>Platinum {item.rank.division}
+rank-name-diamond: <!i><bold><#75d9ee>Diamond {item.rank.division}
+rank-name-master: <!i><bold><#c6a7df>Master {item.rank.division}
+rank-name-king: <!i><bold><#ffd976>King {item.rank.division}
+rank-name-glorious-king: <!i><bold><#ffc86b>Glorious King {item.rank.division}
+rank-name-supreme-king: <!i><bold><#ff865e>Supreme King {item.rank.division}
+chart-sample-kills: <!i>Eliminations

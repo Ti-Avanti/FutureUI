@@ -1,0 +1,82 @@
+# 顶部段位卡与分页字段共用名称状态，避免字段翻页后出现原始语言令牌。
+id: rank_name
+type: text
+text: <!i><bold>{item.rank.name}
+height: 18
+states:
+- visible:
+    type: equals
+    input: '{item.rank.state}'
+    output: rating
+  text: '@integrations.basictool.rank-rating'
+- visible:
+    type: equals
+    input: '{item.rank.state}'
+    output: unrated
+  text: '@integrations.basictool.rank-unrated'
+- visible:
+    type: equals
+    input: '{item.rank.state}'
+    output: casual
+  text: '@integrations.basictool.rank-casual'
+- visible:
+    type: equals
+    input: '{item.rank.state}'
+    output: select
+  text: '@integrations.basictool.rank-select'
+- visible:
+    type: equals
+    input: '{item.rank.state}'
+    output: empty
+  text: '@integrations.basictool.rank-empty'
+- visible:
+    type: equals
+    input: '{item.rank.state}'
+    output: unavailable
+  text: '@integrations.basictool.rank-unavailable'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: bronze
+  text: '@integrations.basictool.rank-name-bronze'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: silver
+  text: '@integrations.basictool.rank-name-silver'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: gold
+  text: '@integrations.basictool.rank-name-gold'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: platinum
+  text: '@integrations.basictool.rank-name-platinum'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: diamond
+  text: '@integrations.basictool.rank-name-diamond'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: master
+  text: '@integrations.basictool.rank-name-master'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: king
+  text: '@integrations.basictool.rank-name-king'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: glorious-king
+  text: '@integrations.basictool.rank-name-glorious-king'
+- visible:
+    type: equals
+    input: '{item.rank.translation}'
+    output: supreme-king
+  text: '@integrations.basictool.rank-name-supreme-king'
+- visible: true

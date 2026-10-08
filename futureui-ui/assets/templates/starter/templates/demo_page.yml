@@ -1,0 +1,8 @@
+# 独立示例配置；先核对目标版本，再按文件或配置键合并。
+renderer: canvas
+layout:
+  type: column
+  width: 666
+  padding: 18
+  gap: 9
+  theme: demo

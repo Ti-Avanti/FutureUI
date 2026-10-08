@@ -1,0 +1,23 @@
+title: <!i>物品来源
+heading: <!i><white><bold>物品工具</bold>  <gray>创建、识别与修改
+description: '<!i><gray>获得样品后将它拿在手中。
+
+
+  修改操作只识别带工坊标记的样品。'
+tool-info: '<!i><gray>样品包含独立标记、耐久、附魔和模型数据。
+
+  修改时不会误选同材质的普通工具。'
+sample: <!i>获得工具样品
+enchant: <!i>强化手持样品
+rename: <!i>重命名样品
+head: <!i>自己的头颅
+dye: <!i>染色纹饰护甲
+potion: <!i>定制药水
+catalog: <!i>浏览已加载的自定义物品
+tool-name: <!i><green>工坊铁镐
+tool-lore: <!i><gray>使用物品工具页进行修理、强化或改名。
+tool-finished: <!i><gold>强化工坊铁镐
+updated: <!i><green>手持样品已更新。
+compass: <!i>领取菜单罗盘
+compass-name: <!i><green>玩家中心罗盘
+compass-lore: <!i><gray>手持右键打开玩家中心。

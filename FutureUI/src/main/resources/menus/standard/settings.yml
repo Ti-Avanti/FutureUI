@@ -1,0 +1,80 @@
+id: settings
+template: bedrock-form
+title: "@menus.settings.title"
+layout:
+  columns: 2
+components:
+  - id: introduction
+    type: canvas
+    width: 594
+    children:
+      - id: introduction_panel
+        type: column
+        skin: surface
+        padding: 9
+        gap: 9
+        children:
+          - id: introduction_title
+            type: text
+            text: "@menus.settings.title"
+          - id: introduction_text
+            type: text
+            text: "@menus.settings.description"
+  - id: nickname
+    type: text-input
+    label: "@menus.settings.nickname"
+    width: 594
+    initial: "{player}"
+    max-length: 24
+    validation:
+      required: true
+      min-length: 2
+  - id: volume
+    type: slider
+    label: "@menus.settings.volume"
+    width: 594
+    min: 0
+    max: 100
+    initial: 60
+    step: 5
+  - id: hints
+    type: checkbox
+    label: "@menus.settings.hints"
+    initial: true
+  - id: notifications
+    type: checkbox
+    label: "@menus.settings.notifications"
+    initial: false
+  - id: theme
+    type: select
+    label: "@menus.settings.sort"
+    width: 594
+    initial: default
+    options:
+      - value: default
+        label: "@menus.search.default"
+      - value: price
+        label: "@menus.search.price"
+  - id: save
+    type: button
+    text: "@common.save"
+    actions:
+      - type: save-preference
+        key: input.nickname
+        value: "{input.nickname}"
+      - type: save-preference
+        key: input.volume
+        value: "{input.volume}"
+      - type: save-preference
+        key: input.hints
+        value: "{input.hints}"
+      - type: save-preference
+        key: input.notifications
+        value: "{input.notifications}"
+      - type: save-preference
+        key: input.theme
+        value: "{input.theme}"
+      - type: message
+        text: "@menus.settings.saved"
+  - id: back
+    template: back

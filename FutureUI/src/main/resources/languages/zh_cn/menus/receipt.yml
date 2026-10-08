@@ -1,0 +1,10 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+title: "<!i><green>购买成功"
+body: "<!i><white>{product.name}\n<gray>购买份数：<white>{purchase.quantity}\n<gray>物品总数：<white>{purchase.items}\n<gray>总计花费：<green>{purchase.total}\n\n<gray>物品已放入背包。"
+continue: "<!i>继续选购"
+heading: "<!i><green><bold>购买完成</bold>  <gray>物品已放入背包"
+bundles: "<!i><gray>购买份数"
+items: "<!i><gray>实际到账物品"
+paid: "<!i><gray>本次花费"
+balance: "<!i><gray>当前余额\n<white>{product.balance} <gray>{product.currency}"
+wallet: "<!i>查看钱包"

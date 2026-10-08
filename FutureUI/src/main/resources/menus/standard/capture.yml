@@ -1,0 +1,76 @@
+template: bedrock-form
+id: capture
+title: '@menus.capture.title'
+components:
+- id: overview
+  type: canvas
+  width: 594
+  layout:
+    type: row
+    padding: 9
+    gap: 18
+  children:
+  - id: illustration
+    type: image
+    image: oak_planks
+    width: 162
+    size: 144
+  - id: description
+    type: column
+    gap: 9
+    children:
+    - id: heading
+      type: text
+      text: '@menus.capture.heading'
+      height: 18
+    - id: instructions
+      type: text
+      text: '@menus.capture.description'
+      height: 54
+      skin: readout
+      padding: 9
+    vertical-align: center
+- id: method
+  type: select
+  label: '@menus.capture.method'
+  width: 594
+  initial: dialog
+  options:
+  - value: dialog
+    label: '@menus.capture.dialog'
+  - value: chat
+    label: '@menus.capture.chat'
+  - value: sign
+    label: '@menus.capture.sign'
+  - value: anvil
+    label: '@menus.capture.anvil'
+  - value: book
+    label: '@menus.capture.book'
+- id: edit
+  type: button
+  text: '@menus.capture.edit'
+  width: 296
+  actions:
+  - type: input
+    mode: '{input.method}'
+    key: input.note
+    title: '@menus.capture.title'
+    prompt: '@menus.capture.prompt'
+    initial: '{data.input.note}'
+    max-length: 512
+    timeout-seconds: 120
+    validation:
+      required: true
+  - type: save-preference
+    key: input.note
+    value: '{input.note}'
+  - type: message
+    text: '@menus.capture.saved'
+  - type: back
+- id: back
+  type: button
+  text: '@common.back'
+  width: 296
+  validate: false
+  actions:
+  - type: back

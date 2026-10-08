@@ -1,0 +1,11 @@
+# 示例配置；共享业务数值由 demo_workspace.defaults 提供。
+type: all
+conditions:
+- type: permission
+  permission: futureui.use
+- type: has-item
+  material: STONE
+  amount: '{demo.exchange.items}'
+- type: currency
+  currency: vault
+  amount: '{demo.exchange.cost}'

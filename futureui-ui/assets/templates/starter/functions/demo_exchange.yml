@@ -1,0 +1,25 @@
+# 示例配置；共享业务数值由 demo_workspace.defaults 提供。
+actions:
+- type: require
+  requirements:
+    type: named
+    rule: demo_exchange
+- type: transaction
+  actions:
+  - type: take-item
+    match:
+      material: STONE
+    amount: '{demo.exchange.items}'
+  - type: take-currency
+    currency: vault
+    amount: '{demo.exchange.cost}'
+  - type: give-item
+    item:
+      material: OAK_PLANKS
+    amount: '{demo.exchange.reward}'
+  on-success:
+  - type: message
+    text: '@menus.demo.logic.exchanged'
+  on-failure:
+  - type: message
+    text: '@menus.demo.logic.failed'

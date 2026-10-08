@@ -1,0 +1,191 @@
+id: rank_card
+type: column
+padding: 9
+gap: 0
+skin: well
+children:
+- id: rank_identity
+  type: row
+  gap: 9
+  height: 54
+  children:
+  - id: rank_emblem
+    type: image
+    image: '{item.rank.icon}'
+    size: 36
+    width: 54
+    height: 54
+    skin: readout
+  - id: rank_copy
+    type: column
+    gap: 0
+    children:
+    - id: rank_label
+      type: text
+      text: '@integrations.basictool.rank-current'
+      height: 9
+    - id: rank_name
+      template: integrations/basictool/rank-name
+    - id: rank_hint
+      type: text
+      text: '@integrations.basictool.rank-details-unknown'
+      height: 27
+      states:
+      - visible:
+          type: equals
+          input: '{item.rank.state}'
+          output: rating
+        text: '@integrations.basictool.rank-rating-hint'
+      - visible:
+          type: equals
+          input: '{item.rank.state}'
+          output: unrated
+        text: '@integrations.basictool.rank-unrated-hint'
+      - visible:
+          type: equals
+          input: '{item.rank.state}'
+          output: casual
+        text: '@integrations.basictool.rank-casual-hint'
+      - visible:
+          type: equals
+          input: '{item.rank.state}'
+          output: select
+        text: '@integrations.basictool.rank-select-hint'
+      - visible:
+          type: equals
+          input: '{item.rank.state}'
+          output: empty
+        text: '@integrations.basictool.rank-empty-hint'
+      - visible:
+          type: equals
+          input: '{item.status}'
+          output: disabled
+        text: '@integrations.basictool.rank-status-disabled'
+      - visible:
+          type: equals
+          input: '{item.status}'
+          output: loading
+        text: '@integrations.basictool.rank-status-loading'
+      - visible:
+          type: equals
+          input: '{item.status}'
+          output: unavailable
+        text: '@integrations.basictool.rank-status-unavailable'
+      - visible:
+          type: equals
+          input: '{item.status}'
+          output: schema_error
+        text: '@integrations.basictool.rank-status-schema_error'
+      - visible:
+          type: equals
+          input: '{item.rank.progress-state}'
+          output: next
+        text: '@integrations.basictool.rank-hint-next'
+      - visible:
+          type: equals
+          input: '{item.rank.progress-state}'
+          output: capped
+        text: '@integrations.basictool.rank-hint-capped'
+      - visible:
+          type: equals
+          input: '{item.rank.progress-state}'
+          output: leaderboard
+        text: '@integrations.basictool.rank-hint-leaderboard'
+      - visible: true
+  - id: rank_score
+    type: column
+    width: 108
+    padding: 9
+    gap: 0
+    skin: readout
+    children:
+    - id: rank_score_label
+      type: text
+      text: '@integrations.basictool.rank-points'
+      height: 9
+      states:
+      - visible:
+          type: equals
+          input: '{item.rank.score-field}'
+          output: rating
+        text: '@integrations.basictool.rank-rating'
+      - visible:
+          type: equals
+          input: '{item.rank.score-field}'
+          output: elo
+        text: '@integrations.basictool.rank-elo'
+      - visible: true
+    - id: rank_score_value
+      type: text
+      text: <!i><white>{item.rank.score}
+      height: 27
+      text-align: center
+      vertical-align: center
+- id: rank_progress
+  type: row
+  height: 27
+  gap: 9
+  visible: &id001
+    type: any
+    conditions:
+    - type: equals
+      input: '{item.rank.progress-state}'
+      output: next
+    - type: equals
+      input: '{item.rank.progress-state}'
+      output: percent
+  children:
+  - id: rank_progress_label
+    type: text
+    text: '@integrations.basictool.rank-progress'
+    height: 27
+    width: 81
+    vertical-align: center
+  - id: rank_track
+    type: column
+    gap: 0
+    children:
+    - id: rank_track_space
+      type: spacer
+      height: 9
+    - id: rank_bar
+      type: progress
+      value: '{item.rank.fraction}'
+      height: 9
+      track-skin: readout
+      fill-skin: chart-main
+  - id: rank_percent
+    type: text
+    text: <!i>{item.rank.percent}%
+    height: 27
+    width: 63
+    skin: readout
+    text-align: center
+    vertical-align: center
+- id: rank_note_row
+  type: column
+  height: 27
+  gap: 0
+  visible:
+    type: not
+    condition: *id001
+  children:
+  - id: rank_progress_note
+    type: text
+    text: '@integrations.basictool.rank-no-progress'
+    height: 27
+    vertical-align: center
+    states:
+    - visible:
+        type: equals
+        input: '{item.rank.progress-state}'
+        output: capped
+      text: '@integrations.basictool.rank-capped-note'
+    - visible:
+        type: equals
+        input: '{item.rank.progress-state}'
+        output: leaderboard
+      text: '@integrations.basictool.rank-leaderboard-note'
+    - visible: true
+    skin: readout
+    padding: 9

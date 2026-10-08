@@ -1,0 +1,23 @@
+title: <!i>Item sources
+heading: <!i><white><bold>Item tools</bold>  <gray>Create, match and modify
+description: '<!i><gray>Hold the sample after receiving it.
+
+
+  Edits only match a tool with the workshop marker.'
+tool-info: '<!i><gray>The sample has a marker, damage, enchantments and model data.
+
+  Ordinary tools are preserved.'
+sample: <!i>Get sample tool
+enchant: <!i>Enchant sample
+rename: <!i>Rename sample
+head: <!i>Your player head
+dye: <!i>Dyed trimmed armour
+potion: <!i>Custom potion
+catalog: <!i>Browse loaded custom items
+tool-name: <!i><green>Workshop pickaxe
+tool-lore: <!i><gray>Repair, enchant or rename in Item tools.
+tool-finished: <!i><gold>Enhanced workshop pickaxe
+updated: <!i><green>Your held sample was updated.
+compass: <!i>Get menu compass
+compass-name: <!i><green>Player hub compass
+compass-lore: <!i><gray>Right-click to open your player hub.

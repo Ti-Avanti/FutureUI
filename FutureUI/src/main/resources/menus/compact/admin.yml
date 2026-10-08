@@ -1,0 +1,93 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/admin
+title: '@menus.admin.title'
+renderer: canvas
+layout:
+  type: column
+  width: 540
+  padding: 9
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+components:
+- id: heading
+  type: text
+  text: '@menus.admin.heading'
+  height: 27
+- id: description
+  type: text
+  text: '@menus.admin.description'
+  height: 18
+- id: actions
+  type: grid
+  columns: 2
+  gap: 9
+  children:
+  - id: pack
+    type: button
+    text: '@menus.admin.pack'
+    actions:
+    - type: player-command
+      command: fui pack
+    height: 27
+  - id: reload
+    type: button
+    text: '@menus.admin.reload'
+    actions:
+    - type: player-command
+      command: fui reload
+    height: 27
+  - id: transactions
+    type: button
+    text: '@menus.admin.transactions'
+    actions:
+    - type: player-command
+      command: fui transactions
+    height: 27
+  - id: status
+    type: button
+    text: '@menus.admin.status'
+    actions:
+    - type: player-command
+      command: fui status
+    height: 27
+  - id: metrics
+    type: button
+    text: '@menus.admin.metrics'
+    actions:
+    - type: open-menu
+      menu: compact/metrics
+    height: 27
+  - id: toolkit
+    type: button
+    text: '@menus.admin.toolkit'
+    actions:
+    - type: open-menu
+      menu: compact/toolkit
+    height: 27
+- id: extensions
+  type: list
+  source: extensions
+  cache: false
+  paginate: false
+  layout:
+    type: column
+    gap: 9
+  item:
+    id: extension
+    type: text
+    text: '@menus.admin.extension'
+    height: 27
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: back
+    type: button
+    text: '@common.back'
+    width: 108
+    actions:
+    - type: back
+    height: 27
+permission: futureui.admin

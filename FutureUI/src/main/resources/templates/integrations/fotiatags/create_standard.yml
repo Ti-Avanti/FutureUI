@@ -1,0 +1,177 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: create_standard_creator
+type: column
+gap: 9
+children:
+- id: create_standard_draft_preview
+  type: text
+  text: '{item.draft-preview}'
+  height: 63
+  vertical-align: center
+  skin: panel
+  text-align: center
+  padding: 9
+- id: create_standard_prefix_row
+  type: row
+  gap: 9
+  children:
+  - id: create_standard_prefix_value
+    type: text
+    text: '{item.draft-prefix}'
+    height: 27
+    vertical-align: center
+    skin: readout
+    states:
+    - visible:
+        type: equals
+        input: '{item.prefix-empty}'
+        output: 'true'
+      text: '@integrations.fotiatags.unset'
+    - visible: true
+    padding: 9
+  - id: create_standard_prefix
+    type: button
+    text: '@integrations.fotiatags.edit-prefix'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: input
+      id: prefix
+    enabled:
+      type: equals
+      input: '{item.prefix-editable}'
+      output: 'true'
+    width: 99
+- id: create_standard_suffix_row
+  type: row
+  gap: 9
+  children:
+  - id: create_standard_suffix_value
+    type: text
+    text: '{item.draft-suffix}'
+    height: 27
+    vertical-align: center
+    skin: readout
+    states:
+    - visible:
+        type: equals
+        input: '{item.suffix-empty}'
+        output: 'true'
+      text: '@integrations.fotiatags.unset'
+    - visible: true
+    padding: 9
+  - id: create_standard_suffix
+    type: button
+    text: '@integrations.fotiatags.edit-suffix'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: input
+      id: suffix
+    enabled:
+      type: equals
+      input: '{item.suffix-editable}'
+      output: 'true'
+    width: 99
+- id: create_standard_icon_row
+  type: row
+  gap: 9
+  children:
+  - id: create_standard_icon_value
+    type: text
+    text: '{item.draft-icon-name}'
+    height: 27
+    vertical-align: center
+    skin: readout
+    padding: 9
+  - id: create_standard_choose_icon
+    type: button
+    text: '@integrations.fotiatags.edit-icon'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: navigate
+      id: custom-tag-icons
+    enabled:
+      type: equals
+      input: '{item.draft-locked}'
+      output: 'false'
+    width: 99
+- id: create_standard_bottom_gutter
+  type: spacer
+  height: 9
+- id: create_standard_purchase_row
+  type: row
+  gap: 9
+  children:
+  - id: create_standard_price
+    type: text
+    text: '@integrations.fotiatags.price-vault'
+    height: 27
+    vertical-align: center
+    skin: readout
+    states:
+    - visible:
+        type: equals
+        input: '{item.currency}'
+        output: playerpoints
+      text: '@integrations.fotiatags.price-points'
+    - visible: true
+    padding: 9
+  - id: create_standard_confirm
+    type: button
+    text: '@integrations.fotiatags.create'
+    height: 27
+    actions:
+    - type: fotiatags:menu
+      operation: confirm
+    skin: selected
+    enabled:
+      type: equals
+      input: '{item.can-confirm}'
+      output: 'true'
+    states:
+    - visible:
+        type: equals
+        input: '{item.busy}'
+        output: 'true'
+      text: '@integrations.fotiatags.processing'
+    - visible:
+        type: equals
+        input: '{item.owned}'
+        output: 'true'
+      text: '@integrations.fotiatags.owned'
+    - visible:
+        type: equals
+        input: '{item.purchase-state}'
+        output: unavailable
+      text: '@integrations.fotiatags.payment-unavailable'
+    - visible:
+        type: equals
+        input: '{item.purchase-state}'
+        output: funds
+      text: '@integrations.fotiatags.funds'
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.view}'
+          output: custom-tag
+        - type: equals
+          input: '{item.draft-locked}'
+          output: 'true'
+      text: '@integrations.fotiatags.limit'
+    - visible:
+        type: all
+        conditions:
+        - type: equals
+          input: '{item.view}'
+          output: custom-tag
+        - type: equals
+          input: '{item.draft-complete}'
+          output: 'false'
+      text: '@integrations.fotiatags.incomplete'
+    - visible: true
+min-height: 243
+padding: 9
+skin: panel

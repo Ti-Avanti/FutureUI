@@ -1,0 +1,134 @@
+# 所有菜单文本支持 MiniMessage 和旧颜色码；请保留占位符。
+prefix: '<gray>[<gold>FotiaCosmetic</gold>]</gray> '
+general:
+  not-ready: <red>O sistema de cosméticos ainda está inicializando. Tente novamente em instantes.
+  no-permission: <red>Você não tem permissão para fazer isso.
+  player-only: <red>Este comando só pode ser usado por um jogador.
+  player-not-found: <red>O jogador <white>{player}</white> não foi encontrado.
+  cosmetic-not-found: <red>O cosmético <white>{cosmetic}</white> não foi encontrado.
+  invalid-target: '<red>Espaço ou tipo de arma inválido: <white>{target}</white>.'
+  cosmetic-target-mismatch: <red><white>{cosmetic}</white> pertence a <white>{actual}</white>, não a <white>{expected}</white>.
+  invalid-duration: <red>Duração inválida <white>{duration}</white>. Use permanent, 1h, 1d12h, 7d ou um instante
+    ISO-8601.
+  operation-failed: '<red>A operação falhou: <white>{reason}</white>.'
+  reload-success: <green>Configuração, idiomas, catálogo e menu recarregados.
+  reload-failed: <red>Falha ao recarregar. Consulte o caminho exato no console.
+command:
+  management-help: <yellow>/fc</yellow> abre o menu; conceda com <yellow>/fc grant [jogador|*] [slot|weapon] [espaço|tipo-de-arma]
+    [ID] [permanent|1h|1d]</yellow>; revoke/equip usam o mesmo alvo e unequip omite o ID.
+  grant-success: <green><white>{cosmetic}</white> foi concedido a <white>{player}</white>.
+  grant-limited-success: <green><white>{cosmetic}</white> foi concedido a <white>{player}</white> por <white>{duration}</white>.
+  grant-all-success: '<green><white>{cosmetic}</white> foi concedido a todos os jogadores conhecidos: {total} no
+    total, {updated} atualizados, {unchanged} inalterados, {failed} falharam.'
+  grant-all-limited-success: '<green><white>{cosmetic}</white> foi concedido a todos os jogadores conhecidos por
+    {duration}: {total} no total, {updated} atualizados, {unchanged} inalterados, {failed} falharam.'
+  revoke-success: <green><white>{cosmetic}</white> foi removido de <white>{player}</white>.
+  equip-success: <green><white>{cosmetic}</white> foi selecionado para <white>{player}</white>.
+  unequip-success: <green>O cosmético <white>{target}</white> de <white>{player}</white> foi removido.
+  already-owned: <yellow>O jogador já possui esse cosmético.
+  not-owned: <red>O jogador não possui esse cosmético.
+  not-selected: <yellow>Nenhum cosmético está selecionado para esse alvo.
+  cancelled: <yellow>Outro plugin cancelou a operação.
+  info: <gray>Possui <white>{owned}</white> cosméticos (<white>{limited}</white> temporários), equipa <white>{equipped}</white>
+    espaços e seleciona <white>{weapons}</white> skins de arma.
+profile:
+  load-failed: <red>Não foi possível carregar seu perfil de cosméticos. Reconecte ou contate um administrador.
+gui:
+  back-failed: <!i><red>Não foi possível abrir o menu anterior. Contate um administrador.
+  layout-usage: '<!i><yellow>Tamanho do menu: /fc layout compact ou /fc layout standard.'
+  layout-unavailable: <!i><yellow>O administrador não ativou o FutureUI para este menu.
+  title: <!i><dark_gray>Cosméticos Fotia <gray>Página {page}/{pages}
+  weapon-title: <!i><dark_gray>Visuais de armas <gray>Página {page}/{pages}
+  loading: <red>Seu perfil ainda está carregando.
+  preview-unavailable: <!i>Prévia indisponível; a seleção vale para novas armas no servidor de jogo.
+  legendary-locked: <!i>Não é possível alterar visuais lendários durante esta partida.
+  legendary-usage: '<!i>Uso: /fc legendary [ID da arma]'
+  legendary-selected: <!i>{cosmetic} salvo; novas armas deste tipo usarão este visual.
+  legendary-reset: <!i>A seleção padrão desta arma foi restaurada.
+category:
+  head: <!i><gold>Chapéus
+  chest: <!i><gold>Peitoral
+  legs: <!i><gold>Pernas
+  feet: <!i><gold>Pés
+  back: <!i><gold>Costas
+  off_hand: <!i><gold>Mão secundária
+  balloon: <!i><gold>Balões
+  weapons: <!i><gold>Skins de arma
+weapon:
+  sword: Espada
+  bow: Arco
+  axe: Machado
+  pickaxe: Picareta
+  crossbow: Besta
+  mace: Maça
+  spear: Lança
+  trident: Tridente
+  shield: Escudo
+weapon-tab:
+  name: <!i><aqua>{weapon}
+cosmetic:
+  available:
+    name: <!i><green>{name}
+    action: <!i><gray>Clique para selecionar
+  equipped:
+    name: <!i><gold>{name}
+    action: <!i><yellow>Selecionado atualmente
+  locked:
+    name: <!i><red>{name}
+    action: <!i><gray>Você não possui este cosmético
+  hidden:
+    name: <!i><dark_gray>{name}
+    action: <!i><gray>Oculto neste servidor ou mundo
+control:
+  weapon-previous:
+    enabled: <!i><yellow>Tipos de arma anteriores
+    disabled: <!i><dark_gray>Sem tipos de arma anteriores
+  weapon-next:
+    enabled: <!i><yellow>Próximos tipos de arma
+    disabled: <!i><dark_gray>Sem próximos tipos de arma
+  previous:
+    enabled: <!i><yellow>Página anterior
+    disabled: <!i><dark_gray>Sem página anterior
+  next:
+    enabled: <!i><yellow>Próxima página
+    disabled: <!i><dark_gray>Sem próxima página
+  unequip:
+    enabled: <!i><red>Remover cosmético atual
+    disabled: <!i><dark_gray>Nada equipado
+  back: <!i><yellow>Voltar aos cosméticos
+  close: <!i><red>Fechar
+feedback:
+  equipped: <green>Cosmético <white>{cosmetic}</white> selecionado.
+  unequipped: <green>O cosmético <white>{target}</white> foi removido.
+  locked: <red>Você não possui esse cosmético.
+  hidden: <yellow>Este tipo de cosmético está oculto no servidor ou mundo atual.
+  storage-error: <red>Falha ao salvar; a alteração foi revertida.
+  expired: <yellow>O cosmético temporário <white>{cosmetic}</white> expirou e foi removido.
+navigation:
+  back: <!i><yellow>Voltar ao menu anterior
+  main: <!i><gold>Cosméticos
+  weapons: <!i><gold>Armas
+  legendary: <!i><gold>Armas lendárias
+  category-previous: <!i><gold>Categorias anteriores
+  category-next: <!i><gold>Próximas categorias
+  reset: <!i><gold>Restaurar aparência padrão
+  default-selected: <!i><gold>Aparência padrão selecionada
+legendary:
+  lava_sword: <!i><gold>Espada de lava
+  chainsaw: <!i><gold>Motosserra
+  emerald_sword: <!i><gold>Espada grande de esmeralda
+  dragon_sword: <!i><gold>Espada do dragão do End
+  armadillo_cannon: <!i><gold>Canhão de tatus
+  toxic_crossbow: <!i><gold>Besta venenosa
+  puffer_cannon: <!i><gold>Canhão de peixes-balão
+  sonic_crossbow: <!i><gold>Besta sônica
+  guardian_cannon: <!i><gold>Canhão do guardião
+  bee_gun: <!i><gold>Arma de abelhas
+  poseidon_trident: <!i><gold>Tridente de Poseidon
+
+skin-ownership:
+  owned: "<!i><green>Adquirida"
+  unowned: "<!i><red>Não adquirida"
+  selected: "<!i><gold>Adquirida · Selecionada"
+  open: "<!i><yellow>Ver aparências"
+  collection: "<!i><gray>Aparências adquiridas: {owned}/{total}"

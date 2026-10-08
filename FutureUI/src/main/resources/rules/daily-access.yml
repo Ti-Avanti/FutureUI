@@ -1,0 +1,23 @@
+# 通用配置示例，可按服务器需求修改；不依赖专属菜单代码。
+id: "daily-access"
+type: "requirements"
+minimum: 2
+stop-at-success: true
+conditions:
+  -
+    id: "permission"
+    type: "permission"
+    permission: "futureui.use"
+  -
+    id: "food"
+    type: "food"
+    min: 1
+    optional: true
+  -
+    id: "standing"
+    type: "!flying"
+    optional: true
+on-failure:
+  -
+    type: "message"
+    text: "@menus.daily.denied"

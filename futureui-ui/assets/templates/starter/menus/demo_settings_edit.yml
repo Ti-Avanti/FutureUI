@@ -1,0 +1,94 @@
+# 独立示例配置；先核对目标版本，再按文件或配置键合并。
+id: demo_settings_edit
+template: demo_form
+title: '@menus.demo.settings.title'
+layout:
+  columns: 2
+  panel-width: 450
+  panel-height: 369
+  button-width: 179
+  exit-button: false
+  validation-feedback:
+    width: 360
+components:
+- id: introduction
+  type: canvas
+  width: 360
+  children:
+  - id: introduction_panel
+    type: column
+    skin: surface
+    padding: 9
+    gap: 9
+    children:
+    - id: introduction_title
+      type: text
+      text: '@menus.demo.settings.title'
+    - id: introduction_text
+      type: text
+      text: '@menus.demo.settings.description'
+- id: nickname
+  type: text-input
+  label: '@menus.demo.settings.nickname'
+  width: 360
+  initial: '{player.name}'
+  max-length: 24
+  validation:
+    required: true
+    min-length: 2
+- id: volume
+  type: slider
+  label: '@menus.demo.settings.volume'
+  width: 360
+  min: 0
+  max: 100
+  initial: 60
+  step: 5
+- id: hints
+  type: checkbox
+  label: '@menus.demo.settings.hints'
+  initial: true
+- id: notifications
+  type: checkbox
+  label: '@menus.demo.settings.notifications'
+  initial: false
+- id: theme
+  type: select
+  label: '@menus.demo.settings.sort'
+  width: 360
+  initial: default
+  options:
+  - value: default
+    label: '@menus.demo.search.default'
+  - value: price
+    label: '@menus.demo.search.price'
+- id: save
+  type: button
+  text: '@common.save'
+  actions:
+  - type: save-preference
+    key: input.nickname
+    value: '{input.nickname}'
+  - type: save-preference
+    key: input.volume
+    value: '{input.volume}'
+  - type: save-preference
+    key: input.hints
+    value: '{input.hints}'
+  - type: save-preference
+    key: input.notifications
+    value: '{input.notifications}'
+  - type: save-preference
+    key: input.theme
+    value: '{input.theme}'
+  - type: message
+    text: '@menus.demo.settings.saved'
+  - type: back
+    values:
+      input.nickname: '{input.nickname}'
+      input.volume: '{input.volume}'
+      input.hints: '{input.hints}'
+      input.notifications: '{input.notifications}'
+      input.theme: '{input.theme}'
+- id: back
+  template: demo_back

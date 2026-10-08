@@ -1,0 +1,121 @@
+# 默认功能配置；所有操作均执行真实的服务端逻辑。
+id: "toolkit"
+title: "@menus.toolkit.title"
+permission: "futureui.admin"
+renderer: "canvas"
+refresh-ticks: 20
+layout:
+  type: "column"
+  width: 576
+  padding: 18
+  gap: 9
+components:
+  - id: "heading"
+    type: "text"
+    text: "@menus.toolkit.heading"
+    height: 27
+  - id: "description"
+    type: "text"
+    text: "@menus.toolkit.description"
+    height: 36
+  - id: "actions"
+    type: "grid"
+    columns: 2
+    gap: 18
+    children:
+      - id: "stone"
+        type: "button"
+        text: "@menus.toolkit.stone"
+        actions:
+          - type: "give-item"
+            item:
+              material: "STONE"
+            amount: 64
+            on-success:
+              - type: "sound"
+                sound: "minecraft:entity.item.pickup"
+            on-failure:
+              - type: "message"
+                text: "@menus.toolkit.delivery-failed"
+          - type: "cooldown"
+            key: "supplies"
+            seconds: 10
+        requirements:
+          type: "all"
+          conditions:
+            - type: "empty-slots"
+              amount: 1
+            - type: "cooldown"
+              key: "supplies"
+        height: 36
+      - id: "xp_give"
+        type: "button"
+        text: "@menus.toolkit.xp-give"
+        actions:
+          - type: "give-currency"
+            currency: "experience"
+            amount: 25
+          - type: "message"
+            text: "@menus.toolkit.xp-given"
+        height: 36
+      - id: "xp_take"
+        type: "button"
+        text: "@menus.toolkit.xp-take"
+        actions:
+          - type: "take-currency"
+            currency: "experience"
+            amount: 25
+          - type: "message"
+            text: "@menus.toolkit.xp-taken"
+        enabled:
+          type: "currency"
+          currency: "experience"
+          amount: 25
+        height: 36
+      - id: "feedback"
+        type: "button"
+        text: "@menus.toolkit.feedback"
+        actions:
+          - type: "title"
+            title: "@menus.toolkit.preview-title"
+            subtitle: "@menus.toolkit.preview-subtitle"
+          - type: "sound"
+            sound: "minecraft:block.note_block.pling"
+          - type: "delay"
+            ticks: 20
+          - type: "actionbar"
+            text: "@menus.toolkit.preview-complete"
+          - type: "cooldown"
+            key: "feedback"
+            seconds: 5
+        requirements:
+          type: "cooldown"
+          key: "feedback"
+        height: 36
+      - id: "console"
+        type: "button"
+        text: "@menus.toolkit.console"
+        actions:
+          - type: "console-command"
+            command: "minecraft:list"
+          - type: "message"
+            text: "@menus.toolkit.console-complete"
+        height: 36
+      - id: "website"
+        type: "button"
+        text: "@menus.toolkit.website"
+        actions:
+          - type: "open-url"
+            url: "https://www.minecraft.net/"
+            label: "@menus.toolkit.website-link"
+        height: 36
+  - id: "details"
+    type: "text"
+    text: "@menus.toolkit.details"
+    height: 36
+  - id: "back"
+    type: "button"
+    text: "@common.back"
+    actions:
+      - type: "back"
+    width: 108

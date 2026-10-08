@@ -1,0 +1,24 @@
+# 普通按钮模板：选中状态使用条件选择皮肤，可用于任何导航列表。
+id: category_button
+type: button
+height: 27
+text: "{item.name}"
+states:
+  - priority: 0
+    visible:
+      type: equals
+      input: "{item.selected}"
+      output: "true"
+    skin: selected
+  - priority: 1
+    visible: true
+    skin: button
+actions:
+  - type: set-variable
+    key: category
+    value: "{item.id}"
+  - type: set-variable
+    key: shop.search
+    value: ""
+  - type: page
+    absolute: 0

@@ -1,0 +1,85 @@
+id: ticket
+type: row
+gap: 0
+children:
+- id: ticket_edge
+  type: column
+  gap: 0
+  children:
+  - id: notch_top
+    type: text
+    text: ''
+    height: 9
+    skin: panel
+  - id: ticket_stripe
+    type: text
+    text: ''
+    height: 90
+    skin: chart-other
+    states:
+    - visible:
+        type: equals
+        input: '{item.selected}'
+        output: 'true'
+      skin: selected
+    - visible: true
+  - id: notch_bottom
+    type: text
+    text: ''
+    height: 9
+    skin: panel
+  width: 9
+  height: 108
+- id: ticket_content
+  type: column
+  gap: 9
+  children:
+  - id: ticket_identity
+    type: row
+    gap: 9
+    children:
+    - id: ticket_icon
+      type: image
+      image: paper
+      size: 36
+      width: 54
+      height: 54
+      skin: readout
+    - id: ticket_info
+      type: column
+      gap: 0
+      children:
+      - id: ticket_name
+        type: text
+        text: <!i><white>{item.plain-label}
+        height: 18
+      - id: ticket_caption
+        type: text
+        text: '@integrations.basictool.ticket-balance'
+        height: 9
+      - id: ticket_balance
+        type: text
+        text: <!i><white>{item.quantity}
+        height: 27
+        skin: readout
+        text-align: center
+        vertical-align: center
+  - id: inspect
+    type: button
+    text: '@integrations.basictool.ticket-inspect'
+    height: 27
+    actions:
+    - type: basictool:vouchers
+      operation: select
+      control: '{item.control}'
+      click: '{item.primary-click}'
+    states:
+    - visible:
+        type: equals
+        input: '{item.selected}'
+        output: 'true'
+      text: '@integrations.basictool.ticket-selected'
+      skin: selected
+    - visible: true
+  padding: 9
+  skin: readout

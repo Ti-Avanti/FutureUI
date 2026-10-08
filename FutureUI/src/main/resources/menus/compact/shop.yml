@@ -1,0 +1,100 @@
+# 第二套紧凑像素界面；独立配置。
+id: compact/shop
+title: '@menus.shop.title'
+renderer: canvas
+layout:
+  type: column
+  width: 576
+  padding: 0
+  gap: 9
+  theme: compact
+  exit-button: true
+  exit-width: 126
+components:
+- id: header
+  type: row
+  gap: 9
+  children:
+  - id: heading
+    type: text
+    width: 252
+    height: 27
+    vertical-align: center
+    text: '@menus.shop.welcome'
+  - id: account
+    type: text
+    skin: readout
+    padding: 9
+    text: '@menus.shop.card-account'
+- id: storefront
+  type: row
+  gap: 9
+  children:
+  - id: categories
+    type: list
+    source: shop-categories
+    shop: system
+    width: 108
+    cache: false
+    paginate: false
+    layout:
+      type: column
+      gap: 0
+    item:
+      template: compact/shop-category
+  - id: products
+    type: list
+    source: shop-products
+    shop: system
+    cache: false
+    page-size: 4
+    layout:
+      type: grid
+      columns: 2
+      gap: 9
+      min-height: 261
+    item:
+      template: compact/shop-product
+- id: footer
+  type: row
+  gap: 9
+  children:
+  - id: previous
+    type: button
+    width: 72
+    text: '@common.previous'
+    actions:
+    - type: page
+      offset: -1
+    height: 27
+  - id: page
+    type: text
+    skin: readout
+    height: 27
+    text-align: center
+    vertical-align: center
+    text: '{page} / {pages}'
+  - id: search
+    type: button
+    width: 108
+    text: '@menus.shop.search'
+    actions:
+    - type: open-menu
+      menu: compact/search
+    height: 27
+  - id: settings
+    type: button
+    width: 108
+    text: '@menus.main.title'
+    actions:
+    - type: open-menu
+      menu: compact/main
+    height: 27
+  - id: next
+    type: button
+    width: 72
+    text: '@common.next'
+    actions:
+    - type: page
+      offset: 1
+    height: 27

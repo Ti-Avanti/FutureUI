@@ -1,0 +1,93 @@
+# 第二套紧凑像素界面；导航固定，右侧切换内容。
+nav:
+  main: <!i>Player center
+  profile: <!i>Player info
+  settings: <!i>Preferences
+  display: <!i>Display
+  language: <!i>Language
+  services: <!i>Services
+  shop: <!i>System shop
+  help: <!i>Help
+  search: <!i>Search items
+  back: <!i>Main menu
+  selected-main: <!i><#172411>Player center
+  selected-profile: <!i><#172411>Player info
+  selected-settings: <!i><#172411>Preferences
+  selected-display: <!i><#172411>Display
+  selected-language: <!i><#172411>Language
+  selected-services: <!i><#172411>Services
+  selected-shop: <!i><#172411>System shop
+  selected-help: <!i><#172411>Help
+  selected-search: <!i><#172411>Search items
+controls:
+  'on': <!i>On
+  'off': <!i>Off
+  on-selected: <!i><#172411>On
+  off-selected: <!i><#172411>Off
+  state-on: <!i><gray>On
+  state-off: <!i><gray>Off
+home:
+  heading: <!i>Player center
+  welcome: '<!i><white>{player.display}</white>
+
+    <gray>{player.world}'
+  coins: <!i><gray>Coins  <white>{compact.balance}
+  online: <!i><gray>Players online  <white>{server.online}
+  quick: <!i>Quick access
+settings:
+  title: <!i>Player settings
+  appearance: <!i>Interface and notifications
+  notifications: <!i><gray>Purchase messages
+  sound: <!i>Menu sounds
+  volume: <!i><gray>Volume
+  volume-help: '<!i><gray>Click a tick or arrow to adjust volume.
+
+    Click the value to open a draggable slider.'
+  edit: <!i>Nickname and volume
+  edit-help: <!i><gray>Edit your nickname or drag the slider, then save.
+display:
+  hud: <!i>Information display
+  interface: <!i>Interface options
+language:
+  heading: <!i>Current language
+  choices: <!i>Choose a language
+help:
+  title: <!i>Help
+  heading: <!i>Using the menus
+  body: '<!i><gray>Use the sidebar to switch pages.
+
+    Green marks the current choice or primary action.
+
+
+    Adjust bundles and review totals in the shop.
+
+    Preference switches save immediately.
+
+    Save forms when done, or go back to cancel.
+
+
+    Language follows your client unless you choose one.'
+  links: <!i>Explore
+  original: <!i>Switch to original menus
+purchase:
+  product-info: '<!i><gray>Bundle: <white>{product.amount}</white>
+
+    Price: <green>{product.price} {product.currency}</green>
+
+    Range: <white>{product.minimum}–{product.maximum}</white>
+
+    Step: <white>{product.step}</white>'
+profile:
+  status: <!i>Current status
+services:
+  balance: <!i><gray>Coins  <green>%futureui_value_wallet%
+search:
+  filters: <!i>Name and ordering
+  value: <!i>{shop.search}
+  empty: <!i><gray>Click to enter a product name
+  category: <!i>Categories (select multiple; click again to remove)
+  clear: <!i>Reset filters
+  results: <!i>View products
+  help: '<!i><gray>Enter a product name and save to return.
+
+    Leave empty for all items in the selected categories; none selected searches all.'

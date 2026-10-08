@@ -1,0 +1,39 @@
+title: <!i>My appearance
+weapon-title: <!i>Weapon skins
+wardrobe: <!i>Wardrobe
+appearance: <!i>Appearance
+weapons: <!i>Weapon skins
+equipped: <!i>Equipped
+unequip: <!i>Unequip
+working: <!i>Saving…
+hidden-short: <!i>Hidden on this server
+hidden: <!i>This slot is hidden on the current server.
+operation-failed: <!i>The operation did not complete. Try again.
+preview-unavailable: <!i>No model preview available
+preview-loading: <!i>Rendering preview…
+choose-on-right: <!i>Nothing equipped. Click a thumbnail to equip.
+preview-hint: <!i>Click a thumbnail to equip.
+preview-partial: <!i>Some equipped items have no preview model.
+preview-default-skin: <!i>Preview uses the fallback skin.
+rotate-left: <!i><
+rotate-right: <!i>>
+previous: <!i>Previous
+next: <!i>Next
+close: <!i>Close
+page: <!i>{item.page} / {item.pages} · {item.count} owned
+empty-title: <!i>No cosmetics in this category
+empty-help: <!i>Cosmetics you own in this category appear here.
+thumbnail-loading: <!i>Loading…
+thumbnail-unavailable: <!i>No thumbnail
+current-appearance: <!i>Currently wearing
+current-weapon: <!i>Current weapon skin
+click-to-equip: <!i>Click to equip
+compact-layout: <!i>Compact layout
+standard-layout: <!i>Standard >
+compact-page: <!i>{item.page} / {item.pages}
+unequip-short: <!i>Unequip
+compact-default-skin: <!i>Fallback skin
+compact-partial: <!i>Models missing
+compact-current: <!i>Wearing
+compact-weapon: <!i>Weapon skin
+compact-hidden: <!i>Hidden here

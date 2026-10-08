@@ -1,0 +1,103 @@
+# FotiaTags 玩家界面：文字与底板共享网格，统一内边距及操作栏基线。
+id: navigation_compact_navigation
+type: row
+gap: 0
+children:
+- id: navigation_compact_nav_tags
+  type: button
+  text: '@integrations.fotiatags.nav-tags-short'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: tag-select
+  enabled:
+    type: equals
+    input: '{item.can-tags}'
+    output: 'true'
+  states:
+  - visible:
+      type: any
+      conditions:
+      - type: equals
+        input: '{item.view}'
+        output: tag-select
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag-detail
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag-delete
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_compact_nav_create
+  type: button
+  text: '@integrations.fotiatags.nav-create-short'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: custom-tag
+  enabled:
+    type: equals
+    input: '{item.can-create}'
+    output: 'true'
+  states:
+  - visible:
+      type: any
+      conditions:
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag
+      - type: equals
+        input: '{item.view}'
+        output: custom-tag-icons
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_compact_nav_effects
+  type: button
+  text: '@integrations.fotiatags.nav-effects-short'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: gradient-storage
+  enabled:
+    type: equals
+    input: '{item.can-effects}'
+    output: 'true'
+  states:
+  - visible:
+      type: equals
+      input: '{item.view}'
+      output: gradient-storage
+    skin: selected
+  - visible: true
+    skin: button
+- id: navigation_compact_nav_shop
+  type: button
+  text: '@integrations.fotiatags.nav-shop-short'
+  height: 27
+  actions:
+  - type: fotiatags:menu
+    operation: navigate
+    id: gradient-shop
+  enabled:
+    type: equals
+    input: '{item.can-effects}'
+    output: 'true'
+  states:
+  - visible:
+      type: any
+      conditions:
+      - type: equals
+        input: '{item.view}'
+        output: gradient-shop
+      - type: equals
+        input: '{item.view}'
+        output: gradient-purchase-confirm
+    skin: selected
+  - visible: true
+    skin: button

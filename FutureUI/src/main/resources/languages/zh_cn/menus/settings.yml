@@ -1,0 +1,9 @@
+# FutureUI 语言资源；修改后可重载，参数名称在各语言中保持一致。
+title: "<!i>个人设置"
+description: "<!i><gray>这些设置作用于 FutureUI 菜单。"
+nickname: "<!i>菜单昵称"
+volume: "<!i>菜单音效音量"
+hints: "<!i>显示页面说明"
+notifications: "<!i>购买后发送聊天提醒"
+sort: "<!i>默认商店排序"
+saved: "<!i><green>设置已保存。"

@@ -1,0 +1,3 @@
+# FotiaTags 玩家菜单；使用通用 Canvas / Dialog 配置。
+title: '@integrations.fotiatags.title'
+template: integrations/fotiatags/page_compact

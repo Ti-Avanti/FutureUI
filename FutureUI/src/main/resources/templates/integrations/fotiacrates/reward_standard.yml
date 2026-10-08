@@ -1,0 +1,57 @@
+id: reward
+type: column
+children:
+- id: icon
+  type: image
+  image: '{item.image}'
+  size: 36
+  height: 54
+- id: name
+  type: text
+  text: <!i><white>{item.name}
+  height: 27
+  text-align: center
+  vertical-align: center
+  skin: panel
+- id: rarity
+  type: text
+  text: <!i>{item.rarity}
+  height: 18
+  text-align: center
+  vertical-align: center
+- id: meta
+  type: text
+  text: <!i><white>{item.detail}
+  height: 27
+  text-align: center
+  vertical-align: center
+  skin: readout
+  states:
+  - visible:
+      type: equals
+      input: '{item.mode}'
+      output: results
+    text: '@integrations.fotiacrates.reward-result'
+  - visible:
+      type: equals
+      input: '{item.history}'
+      output: 'true'
+    text: <!i><gray>{item.detail}
+  - visible:
+      type: equals
+      input: '{item.obtained}'
+      output: 'true'
+    text: '@integrations.fotiacrates.obtained'
+  - visible:
+      type: equals
+      input: '{item.mode}'
+      output: weight
+    text: '@integrations.fotiacrates.reward-weight'
+  - visible:
+      type: equals
+      input: '{item.detail}'
+      output: ''
+    text: <!i>{item.rarity}
+  - visible: true
+gap: 0
+skin: panel

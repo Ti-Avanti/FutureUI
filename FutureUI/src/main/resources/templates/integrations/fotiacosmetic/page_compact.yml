@@ -1,0 +1,278 @@
+renderer: canvas
+permission: fotiacosmetic.use
+layout:
+  type: column
+  width: 252
+  gap: 9
+  padding: 0
+  theme: adventure
+  exit-button: false
+refresh-ticks: 0
+defaults:
+  wardrobe.yaw: -25
+on-open:
+- type: fotiacosmetic:menu
+  operation: opened
+on-close:
+- type: fotiacosmetic:menu
+  operation: closed
+components:
+- id: page
+  type: list
+  source: fotiacosmetic:menu
+  view: page
+  cache: false
+  paginate: false
+  item:
+    id: wardrobe
+    type: column
+    gap: 9
+    children:
+    - id: heading
+      type: row
+      gap: 9
+      children:
+      - id: layout_choice
+        type: button
+        text: '@integrations.fotiacosmetic.standard-layout'
+        width: 81
+        height: 27
+        actions:
+        - type: fotiacosmetic:menu
+          operation: layout
+          id: standard
+      - id: view_tabs
+        type: row
+        width: 162
+        gap: 9
+        children:
+        - id: main_tab
+          type: button
+          text: '@integrations.fotiacosmetic.appearance'
+          height: 27
+          actions:
+          - type: fotiacosmetic:menu
+            operation: view
+            id: main
+          states:
+          - visible:
+              type: equals
+              input: '{item.weapon}'
+              output: 'false'
+            skin: selected
+          - visible: true
+            skin: button
+        - id: weapon_tab
+          type: button
+          text: '@integrations.fotiacosmetic.weapons'
+          height: 27
+          actions:
+          - type: fotiacosmetic:menu
+            operation: view
+            id: weapons
+          states:
+          - visible:
+              type: equals
+              input: '{item.weapon}'
+              output: 'true'
+            skin: selected
+          - visible: true
+            skin: button
+    - id: workspace
+      type: row
+      gap: 9
+      children:
+      - id: preview
+        template: integrations/fotiacosmetic/preview_compact
+      - id: selection_panel
+        type: column
+        width: 162
+        padding: 0
+        gap: 0
+        skin: panel
+        children:
+        - id: category_navigation
+          type: row
+          height: 27
+          gap: 0
+          children:
+          - id: category_previous
+            type: button
+            text: <
+            height: 27
+            width: 27
+            actions:
+            - type: fotiacosmetic:menu
+              operation: categories-previous
+            enabled:
+              type: equals
+              input: '{item.category-previous}'
+              output: 'true'
+          - id: categories
+            type: list
+            source: fotiacosmetic:menu
+            view: categories
+            cache: false
+            paginate: false
+            layout:
+              type: row
+              gap: 0
+            item:
+              id: category
+              type: button
+              text: <!i>{item.name}
+              height: 27
+              actions:
+              - type: fotiacosmetic:menu
+                operation: category
+                id: '{item.id}'
+              states:
+              - visible:
+                  type: all
+                  conditions:
+                  - type: equals
+                    input: '{item.weapon}'
+                    output: 'true'
+                  - type: equals
+                    input: '{item.selected}'
+                    output: 'true'
+                actions:
+                - type: fotiacosmetic:menu
+                  operation: weapon
+                  id: '{item.id}'
+                skin: selected
+              - visible:
+                  type: equals
+                  input: '{item.weapon}'
+                  output: 'true'
+                actions:
+                - type: fotiacosmetic:menu
+                  operation: weapon
+                  id: '{item.id}'
+                skin: button
+              - visible:
+                  type: equals
+                  input: '{item.selected}'
+                  output: 'true'
+                skin: selected
+              - visible: true
+                skin: button
+              width: 54
+            width: 108
+          - id: category_next
+            type: button
+            text: '>'
+            height: 27
+            width: 27
+            actions:
+            - type: fotiacosmetic:menu
+              operation: categories-next
+            enabled:
+              type: equals
+              input: '{item.category-next}'
+              output: 'true'
+        - id: category_gap
+          type: spacer
+          height: 9
+        - id: selection_items
+          type: column
+          gap: 0
+          children:
+          - id: entries
+            type: list
+            source: fotiacosmetic:menu
+            view: entries
+            cache: false
+            paginate: false
+            icon: golden_helmet
+            item:
+              id: entry
+              template: integrations/fotiacosmetic/entry_compact
+            layout:
+              type: grid
+              columns: 2
+              gap: 9
+            visible:
+              type: equals
+              input: '{item.empty}'
+              output: 'false'
+            states:
+            - visible:
+                type: all
+                conditions:
+                - type: equals
+                  input: '{item.empty}'
+                  output: 'false'
+                - type: equals
+                  input: '{item.weapon}'
+                  output: 'true'
+              icon: iron_sword
+            - visible:
+                type: equals
+                input: '{item.empty}'
+                output: 'false'
+            thumbnail-yaw: -25
+          - id: empty_box
+            type: column
+            height: 81
+            gap: 0
+            padding: 0
+            skin: readout
+            vertical-align: center
+            visible:
+              type: equals
+              input: '{item.empty}'
+              output: 'true'
+            children:
+            - id: empty_title
+              type: text
+              text: '@integrations.fotiacosmetic.empty-title'
+              height: 27
+            - id: empty_help
+              type: text
+              text: '@integrations.fotiacosmetic.empty-help'
+              height: 45
+          min-height: 81
+        - id: paging
+          type: row
+          gap: 0
+          children:
+          - id: previous
+            type: button
+            text: <
+            height: 27
+            actions:
+            - type: fotiacosmetic:menu
+              operation: previous
+            enabled:
+              type: equals
+              input: '{item.previous}'
+              output: 'true'
+            width: 27
+          - id: page_number
+            type: text
+            text: '@integrations.fotiacosmetic.compact-page'
+            height: 27
+            width: 54
+            skin: readout
+            text-align: center
+            vertical-align: center
+          - id: next
+            type: button
+            text: '>'
+            height: 27
+            actions:
+            - type: fotiacosmetic:menu
+              operation: next
+            enabled:
+              type: equals
+              input: '{item.next}'
+              output: 'true'
+            width: 27
+          - id: close
+            type: button
+            text: '@integrations.fotiacosmetic.close'
+            height: 27
+            actions:
+            - type: close
+            width: 54

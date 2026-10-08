@@ -1,0 +1,188 @@
+# 玩家中心：使用通用画布菜单和物品入口绑定。
+id: main
+title: '@menus.main.title'
+renderer: canvas
+layout:
+  type: column
+  width: 630
+  padding: 18
+  gap: 9
+components:
+- id: heading
+  type: text
+  text: '@menus.main.heading'
+  height: 27
+  vertical-align: center
+- id: workspace
+  type: row
+  gap: 18
+  children:
+  - id: navigation
+    type: column
+    width: 162
+    gap: 0
+    children:
+    - id: nav_profile
+      type: button
+      text: '@menus.main.profile'
+      actions:
+      - type: open-menu
+        menu: profile
+        arguments:
+          target.uuid: '{player.uuid}'
+      skin: navigation
+    - id: nav_wallet
+      type: button
+      text: '@menus.main.wallet'
+      actions:
+      - type: open-menu
+        menu: wallet
+      skin: navigation
+    - id: nav_services
+      type: button
+      text: '@menus.services.title'
+      skin: navigation
+      actions:
+      - type: open-menu
+        menu: services
+    - id: nav_inventory
+      type: button
+      text: '@menus.main.inventory'
+      actions:
+      - type: open-menu
+        menu: inventory
+      skin: navigation
+    - id: nav_online
+      type: button
+      text: '@menus.main.online'
+      actions:
+      - type: open-menu
+        menu: online
+      skin: navigation
+    - id: nav_settings
+      type: button
+      text: '@menus.main.settings'
+      actions:
+      - type: open-menu
+        menu: settings
+      skin: navigation
+    - id: nav_language
+      type: button
+      text: '@menus.main.language'
+      actions:
+      - type: open-menu
+        menu: language
+      skin: navigation
+    - id: nav_display
+      type: button
+      text: '@menus.main.display'
+      actions:
+      - type: open-menu
+        menu: display
+      skin: navigation
+    - id: nav_notes
+      type: button
+      text: '@menus.main.notes'
+      actions:
+      - type: open-menu
+        menu: notes
+      skin: navigation
+    - id: nav_admin
+      type: button
+      text: '@menus.main.admin'
+      actions:
+      - type: open-menu
+        menu: admin
+      skin: navigation
+      visible:
+        type: permission
+        permission: futureui.admin
+  - id: welcome_panel
+    type: column
+    skin: surface
+    padding: 18
+    gap: 9
+    children:
+    - id: welcome_row
+      type: row
+      gap: 18
+      children:
+      - id: emblem
+        type: image
+        image: shop-emblem
+        size: 72
+        width: 72
+      - id: welcome_copy
+        type: column
+        gap: 0
+        children:
+        - id: welcome
+          type: text
+          text: '@menus.main.welcome'
+          height: 27
+        - id: world
+          type: text
+          text: '@menus.main.world'
+          height: 18
+        - id: players
+          type: text
+          skin: readout
+          padding: 9
+          text: '@menus.main.players'
+          height: 27
+    - id: health_label
+      type: text
+      skin: readout
+      padding: 9
+      text: '@menus.main.health'
+    - id: health_bar
+      type: progress
+      height: 9
+      value: '{player.health-fraction}'
+    - id: enter_shop
+      type: button
+      text: '@menus.main.shop'
+      actions:
+      - type: open-menu
+        menu: shop
+        arguments:
+          category: building
+          shop.search: ''
+      skin: purchase
+      height: 36
+    - id: travel
+      type: button
+      text: '@menus.main.travel'
+      actions:
+      - type: open-menu
+        menu: travel
+    - id: guidance
+      type: text
+      text: '@menus.main.guidance'
+      height: 18
+- id: footer
+  visible:
+    type: '!equals'
+    input: '{data.input.hints}'
+    output: 'false'
+  type: text
+  text: '@menus.main.footer'
+  height: 18
+on-open:
+- type: sound
+  sound: minecraft:ui.button.click
+  volume: 0.2
+on-close:
+- type: sound
+  sound: minecraft:ui.button.click
+  volume: 0.1
+open-commands:
+- fui-menu
+item-bindings:
+- click: right
+  item:
+    material: COMPASS
+    pdc:
+      futureui:menu:
+        type: string
+        value: main

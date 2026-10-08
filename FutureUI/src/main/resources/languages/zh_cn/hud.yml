@@ -1,0 +1,9 @@
+# 默认功能配置；布局、文本、条件与动作均可修改。
+status1: "<!i><green>● <white>{player.display} <gray>· 生命 {player.health}/{player.max-health}"
+status2: "<!i><green>● <white>{player.world} <gray>· 等级 {player.level}"
+status3: "<!i><green>● <white>在线 {server.online} 人 <gray>· 饱食度 {player.food}/20"
+coordinates: "<!i><green>{player.world} <gray>│ <white>{player.x}, {player.y}, {player.z}"
+tab-header: "<!i><green><bold>玩家中心</bold>\n<white>在线 {server.online} 人"
+tab-footer: "<!i><gray>{player.display} <dark_gray>│ <gray>{player.world} <dark_gray>│ <green>{player.language}"
+title: "<!i><green>准备就绪"
+subtitle: "<!i><white>{player.display}<gray>，祝你探索愉快"

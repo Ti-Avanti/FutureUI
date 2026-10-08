@@ -1,0 +1,54 @@
+id: color
+type: column
+gap: 0
+children:
+- id: swatch
+  type: raster
+  value: '{item.swatch}'
+  height: 18
+  skin: button
+  disabled-skin: readout
+  enabled:
+    type: equals
+    input: '{item.available}'
+    output: 'true'
+  actions:
+  - type: fotiachat:colors
+    operation: select
+    id: '{item.id}'
+  states:
+  - visible:
+      type: equals
+      input: '{item.selected}'
+      output: 'true'
+    skin: selected
+  - visible: true
+    skin: button
+- id: choose
+  type: button
+  text: <!i><white>{item.name}
+  height: 27
+  skin: button
+  disabled-skin: readout
+  enabled:
+    type: equals
+    input: '{item.available}'
+    output: 'true'
+  actions:
+  - type: fotiachat:colors
+    operation: select
+    id: '{item.id}'
+  states:
+  - visible:
+      type: equals
+      input: '{item.available}'
+      output: 'false'
+    text: '@integrations.fotiachat.locked-name'
+    skin: readout
+  - visible:
+      type: equals
+      input: '{item.selected}'
+      output: 'true'
+    skin: selected
+  - visible: true
+    skin: button

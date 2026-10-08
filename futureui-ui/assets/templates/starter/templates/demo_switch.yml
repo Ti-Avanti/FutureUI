@@ -1,0 +1,72 @@
+# 独立示例配置；先核对目标版本，再按文件或配置键合并。
+id: switch
+type: row
+gap: 9
+children:
+- id: state
+  type: text
+  text: ''
+  height: 27
+  width: 45
+  text-align: end
+  vertical-align: center
+  states:
+  - visible:
+      type: equals
+      input: '{item.on}'
+      output: 'true'
+    text: '@menus.demo.switch.on'
+  - visible: true
+    text: '@menus.demo.switch.off'
+- id: track
+  type: row
+  gap: 0
+  children:
+  - id: left
+    type: text
+    text: ''
+    height: 27
+    width: 27
+    text-align: center
+    vertical-align: center
+    states:
+    - visible:
+        type: equals
+        input: '{item.on}'
+        output: 'true'
+      type: text
+      skin: selected
+      text: I
+    - visible: true
+      type: button
+      skin: switch-thumb
+      text: ''
+      actions:
+      - type: toggle
+        key: '{item.key}'
+        persist: true
+  - id: right
+    type: text
+    text: ''
+    height: 27
+    width: 27
+    text-align: center
+    vertical-align: center
+    states:
+    - visible:
+        type: equals
+        input: '{item.on}'
+        output: 'true'
+      type: button
+      skin: switch-thumb
+      text: ''
+      actions:
+      - type: toggle
+        key: '{item.key}'
+        persist: true
+    - visible: true
+      type: text
+      skin: readout
+      text: O
+  width: 54
+width: 108

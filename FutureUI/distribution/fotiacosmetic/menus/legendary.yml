@@ -1,0 +1,141 @@
+# 传奇分类的本地目录；未安装 FotiaCustomItems 时仍显示并允许预选。
+# 排列顺序用于武器列表和第二行的快捷分类；可增删，id 必须与 target 第三段一致。
+# icon 必须为 VANILLA 原版兜底图标；provider-icon 允许物品插件补充真实图标。
+# 点击武器查看全部皮肤；皮肤保留原图标，语言文件 skin-ownership 配置拥有状态提示。
+# 不隐藏未拥有的传奇皮肤，也不以屏障替换图标；只有已拥有的皮肤可以选择。
+# 每把武器的 selected/unselected 用于分类按钮，未填写的字段沿用 icon；武器列表使用 unselected。
+# 状态可分别设置 material（或 id）、item-model、custom-model-data、name、lore、glow。
+# 明确设置状态材质时会替换提供器图标；仅设置 item-model 时保留提供器材质并覆盖模型。
+weapons:
+  lava_sword:
+    enabled: true
+    target: weapon:sword:lava_sword
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: DIAMOND_SWORD
+      name-key: legendary.lava_sword
+  chainsaw:
+    enabled: true
+    target: weapon:sword:chainsaw
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: DIAMOND_SWORD
+      name-key: legendary.chainsaw
+  emerald_sword:
+    enabled: true
+    target: weapon:sword:emerald_sword
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: DIAMOND_SWORD
+      name-key: legendary.emerald_sword
+  dragon_sword:
+    enabled: true
+    target: weapon:sword:dragon_sword
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: DIAMOND_SWORD
+      name-key: legendary.dragon_sword
+  armadillo_cannon:
+    enabled: true
+    target: weapon:crossbow:armadillo_cannon
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: CROSSBOW
+      name-key: legendary.armadillo_cannon
+  toxic_crossbow:
+    enabled: true
+    target: weapon:crossbow:toxic_crossbow
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: CROSSBOW
+      name-key: legendary.toxic_crossbow
+  puffer_cannon:
+    enabled: true
+    target: weapon:crossbow:puffer_cannon
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: CROSSBOW
+      name-key: legendary.puffer_cannon
+  sonic_crossbow:
+    enabled: true
+    target: weapon:crossbow:sonic_crossbow
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: CROSSBOW
+      name-key: legendary.sonic_crossbow
+  guardian_cannon:
+    enabled: true
+    target: weapon:crossbow:guardian_cannon
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: CROSSBOW
+      name-key: legendary.guardian_cannon
+  bee_gun:
+    enabled: true
+    target: weapon:bow:bee_gun
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: BOW
+      name-key: legendary.bee_gun
+  poseidon_trident:
+    enabled: true
+    target: weapon:trident:poseidon_trident
+    provider-icon: true
+    selected:
+      glow: true
+    unselected:
+      glow: false
+    icon:
+      source: VANILLA
+      id: TRIDENT
+      name-key: legendary.poseidon_trident
